@@ -23,5 +23,10 @@ namespace WindowsFormsApp2
             Form1.Instance.Controls.Add(new Catalogue());
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1.panier.Add(comboBox1.Text + ";" + comboBox2.Text);
+        }
     }
 }

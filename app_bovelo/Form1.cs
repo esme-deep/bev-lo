@@ -17,14 +17,15 @@ namespace WindowsFormsApp2
         {
             get
             {
-                if(obj == null)
+                if (obj == null)
                 {
                     obj = new Form1();
                 }
                 return obj;
             }
-            
+
         }
+        public static  List<string> panier = new List<string>();
         public Panel PnlContainer
         {
             get { return panelContainer; }
@@ -40,11 +41,8 @@ namespace WindowsFormsApp2
         {
 
             obj = this;
-            Login login_page = new Login();
-            Console.WriteLine("1");
-            panelContainer.Controls.Add(login_page);
-            Console.WriteLine(panelContainer.Controls);
-            panelContainer.Controls["Login"].BringToFront();
+            panelContainer.Controls.Add(new Login());
+            
         }
 
         

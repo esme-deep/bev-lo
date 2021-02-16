@@ -32,5 +32,19 @@ namespace WindowsFormsApp2
             Form1.Instance.Controls.Clear();
             Form1.Instance.Controls.Add(new Product());
         }
+
+        private void Catalogue_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form1.Instance.Controls.Clear();
+            Form1.Instance.Controls.Add(new Panier());
+            
+
+
+        }
     }
 }

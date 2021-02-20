@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp2
+namespace Bovelo_SuperApp
 {
     static class Program
     {
@@ -14,11 +14,10 @@ namespace WindowsFormsApp2
         [STAThread]
         static void Main()
         {
-            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Form1 okok = new Form1();
-            Application.Run(okok);
+            
+            Application.Run(new Form1());
         }
     }
 }

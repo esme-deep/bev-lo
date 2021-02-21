@@ -39,6 +39,7 @@ namespace Bovelo_SuperApp
         private void Cart_Load(object sender, EventArgs e)
         {
             obj = this;
+
             foreach (string élément in Form1.Instance.Panier)
             {
                 string[] vélo = élément.Split(';');

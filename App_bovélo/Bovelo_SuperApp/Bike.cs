@@ -12,7 +12,7 @@ namespace Bovelo_SuperApp
         public string type;
         public string size;
         public Client client;
-        //public delivery_time ;
+        //:public delivery_time ;
 
         public Bike(string c,string t,string s )
         {

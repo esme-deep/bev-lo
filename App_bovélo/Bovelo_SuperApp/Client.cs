@@ -23,6 +23,7 @@ namespace Bovelo_SuperApp
             this.adress = adress;
             this.postal_code = pcode;
             this.city = city;
+
         }
 
     }

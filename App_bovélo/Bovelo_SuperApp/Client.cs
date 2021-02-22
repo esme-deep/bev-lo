@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bovelo_SuperApp
 {
-    class Client
+    public class Client
     {
         public string first_name;
         public string last_name;

@@ -50,7 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bike.cs" />
     <Compile Include="Cart.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -112,6 +111,12 @@
     </Compile>
     <Compile Include="Productcs.Designer.cs">
       <DependentUpon>Productcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Product_catalog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Product_catalog.Designer.cs">
+      <DependentUpon>Product_catalog.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

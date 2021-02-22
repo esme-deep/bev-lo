@@ -20,14 +20,13 @@ namespace Bovelo_SuperApp
 
         private void Client_Info_Load(object sender, EventArgs e)
         {
-
+            
         }
 
-        private void Save_Button_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
             if(txtEmail.Text != "" & txtLastName.Text !="" & txtFirstName.Text != "")
             {
-
                 try
                 {
                     Client nextClient = new Client(txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtAdress.Text, int.Parse(txtPostalCode.Text), txtCity.Text);
@@ -38,15 +37,17 @@ namespace Bovelo_SuperApp
                     int postalCode = int.Parse(txtPostalCode.Text);
                     string city = txtCity.Text; */
 
-                    String sql = "INSERT INTO customer (firstname, lastname, email, adress, postalcode, city) VALUES ('" + nextClient.first_name + "', '" + nextClient.last_name + "','" + nextClient.email + "','" + nextClient.adress + "','" + nextClient.postal_code + "','" + nextClient.city + "')";
+                    String sql2 = "INSERT INTO customer (firstname, lastname, email, adress, postalcode, city) VALUES ('" + nextClient.first_name + "', '" + nextClient.last_name + "','" + nextClient.email + "','" + nextClient.adress + "','" + nextClient.postal_code + "','" + nextClient.city + "')";
                     MySqlConnection connectionDB = Connection.connection();
                     connectionDB.Open();
 
                     try
                     {
-                        MySqlCommand comando = new MySqlCommand(sql, connectionDB);
+                        MySqlCommand comando = new MySqlCommand(sql2, connectionDB);
                         comando.ExecuteNonQuery();
                         MessageBox.Show("Customer saved");
+
+                        
                         clear();
 
                     }
@@ -57,6 +58,9 @@ namespace Bovelo_SuperApp
                     }
                     finally
                     {
+                        Form1.Instance.client = nextClient;
+                        Form1.Instance.pnlContainer.Controls.Clear();
+                        Form1.Instance.pnlContainer.Controls.Add(new Cart());
                         connectionDB.Close();
                     }
                 }
@@ -64,11 +68,10 @@ namespace Bovelo_SuperApp
                 {
                     MessageBox.Show("Données incorrectes: " + fex.Message);
                 }
+                
 
 
-                Form1.Instance.Panier = new List<string>();
-                ///Form1.Instance.pnlContainer.Controls.Clear();
-                Form1.Instance.pnlContainer.Controls.Add(new Presentation());
+
             }
         }
         private void clear()
@@ -147,6 +150,8 @@ namespace Bovelo_SuperApp
             }
             finally
             {
+                btnUpdate.Enabled = true;
+                btnUpdate.Visible = true;
                 conexionBD.Close();
 
             }
@@ -155,34 +160,41 @@ namespace Bovelo_SuperApp
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            String id = txtId.Text;
-            String firstName = txtFirstName.Text;
-            String lastName = txtLastName.Text;
-            String email = txtEmail.Text;
-            String adress = txtAdress.Text;
-            int postalCode = int.Parse(txtPostalCode.Text);
-            string city = txtCity.Text;
-
-            String sql = "UPDATE customer SET firstname='" + firstName + "', lastname='" + lastName + "', email='" + email + "', adress='" + adress + "', postalcode='" + postalCode + "', city='" + city + "' WHERE id='" + id + "' ";
-            MySqlConnection connectionDB = Connection.connection();
-            connectionDB.Open();
-
             try
             {
-                MySqlCommand comando = new MySqlCommand(sql, connectionDB);
-                comando.ExecuteNonQuery();
-                MessageBox.Show("Customer updated");
-                clear();
+                String id = txtId.Text;
+                String firstName = txtFirstName.Text;
+                String lastName = txtLastName.Text;
+                String email = txtEmail.Text;
+                String adress = txtAdress.Text;
+                int postalCode = int.Parse(txtPostalCode.Text);
+                string city = txtCity.Text;
 
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Updating Error: " + ex.Message);
+                String sql = "UPDATE customer SET firstname='" + firstName + "', lastname='" + lastName + "', email='" + email + "', adress='" + adress + "', postalcode='" + postalCode + "', city='" + city + "' WHERE id='" + id + "' ";
+                MySqlConnection connectionDB = Connection.connection();
+                connectionDB.Open();
 
+                try
+                {
+                    MySqlCommand comando = new MySqlCommand(sql, connectionDB);
+                    comando.ExecuteNonQuery();
+                    MessageBox.Show("Customer updated");
+                    clear();
+
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Updating Error: " + ex.Message);
+
+                }
+                finally
+                {
+                    connectionDB.Close();
+                }
             }
-            finally
+            catch
             {
-                connectionDB.Close();
+                MessageBox.Show("Compléte bien les entrées");
             }
         }
 

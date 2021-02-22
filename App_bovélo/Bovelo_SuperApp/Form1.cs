@@ -15,6 +15,14 @@ namespace Bovelo_SuperApp
     {
         static Form1 obj;
         public List<string> Panier = new List<string>();
+        private Client Client;
+        public Client client
+        {
+            get { return Client; }
+            set { Client = value; }
+        }
+        
+        
         
         public static Form1 Instance
         {

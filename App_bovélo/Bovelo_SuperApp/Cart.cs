@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -49,9 +50,48 @@ namespace Bovelo_SuperApp
 
         private void confirm_cart_button_Click(object sender, EventArgs e)
         {
-            Form1.Instance.pnlContainer.Controls.Clear();
-            Form1.Instance.pnlContainer.Controls.Add(new Client_Info());
-            
+
+            if (Form1.Instance.client == null)
+            {
+                MessageBox.Show("complétez le formulaire client !");
+                Form1.Instance.pnlContainer.Controls.Clear();
+                Form1.Instance.pnlContainer.Controls.Add(new Client_Info());
+            }
+            else
+            {
+                
+                //envoyez a la base donnée
+                foreach (string element in Form1.Instance.Panier)
+                {
+                    string[] elem = element.Split(';');
+                    String sql = "INSERT INTO  command(model, size, colour,Client_Last_Name) VALUES ('" + elem[0] + "', '" + elem[1] + "','" + elem[2] + "','" + Form1.Instance.client.last_name+"')";
+                    MySqlConnection connectionDB = Connection.connection();
+                    connectionDB.Open();
+
+                    try
+                    {
+                        MySqlCommand comando = new MySqlCommand(sql, connectionDB);
+                        comando.ExecuteNonQuery();
+                        MessageBox.Show("commande envoyé");
+
+
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show("Sending error: " + ex.Message);
+
+                    }
+                    finally
+                    {
+                        
+                        connectionDB.Close();
+                    }
+                }
+                Form1.Instance.client = null;
+                Form1.Instance.Panier = new List<string>();
+                Form1.Instance.pnlContainer.Controls.Clear();
+                Form1.Instance.pnlContainer.Controls.Add(new Presentation());
+            }
         }
 
         private void FLPanel_Cart_Paint(object sender, PaintEventArgs e)

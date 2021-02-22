@@ -184,7 +184,7 @@ namespace Bovelo_SuperApp
             this.btnSave.TabIndex = 12;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.Save_Button_Click);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtCity
             // 
@@ -219,6 +219,7 @@ namespace Bovelo_SuperApp
             // 
             // btnUpdate
             // 
+            this.btnUpdate.Enabled = false;
             this.btnUpdate.Location = new System.Drawing.Point(270, 386);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
@@ -226,6 +227,7 @@ namespace Bovelo_SuperApp
             this.btnUpdate.TabIndex = 21;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Visible = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete

@@ -30,15 +30,15 @@ namespace Bovelo_SuperApp
 
                 try
                 {
-
-                    String firstName = txtFirstName.Text;
+                    Client nextClient = new Client(txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtAdress.Text, int.Parse(txtPostalCode.Text), txtCity.Text);
+                    /*String firstName = txtFirstName.Text;
                     String lastName = txtLastName.Text;
                     String email = txtEmail.Text;
                     String adress = txtAdress.Text;
                     int postalCode = int.Parse(txtPostalCode.Text);
-                    string city = txtCity.Text;
+                    string city = txtCity.Text; */
 
-                    String sql = "INSERT INTO customer (firstname, lastname, email, adress, postalcode, city) VALUES ('" + firstName + "', '" + lastName + "','" + email + "','" + adress + "','" + postalCode + "','" + city + "')";
+                    String sql = "INSERT INTO customer (firstname, lastname, email, adress, postalcode, city) VALUES ('" + nextClient.first_name + "', '" + nextClient.last_name + "','" + nextClient.email + "','" + nextClient.adress + "','" + nextClient.postal_code + "','" + nextClient.city + "')";
                     MySqlConnection connectionDB = Connection.connection();
                     connectionDB.Open();
 

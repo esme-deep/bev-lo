@@ -29,7 +29,8 @@ namespace Bovelo_SuperApp
                 Index_Gauche.Instance.cart_button.Enabled = true;
                 Index_Gauche.Instance.catalog_button.Visible = true;
                 Index_Gauche.Instance.cart_button.Visible = true;
-
+                Index_Gauche.Instance.button3.Visible = true;
+                Index_Gauche.Instance.button3.Enabled = true;
 
 
             }

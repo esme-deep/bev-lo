@@ -51,7 +51,7 @@ namespace Bovelo_SuperApp
         {
             get
             {
-                return Button3;
+                return Client_info;
             }
 
         }
@@ -96,6 +96,12 @@ namespace Bovelo_SuperApp
         {
             Form1.Instance.pnlContainer.Controls.Clear();
             Form1.Instance.pnlContainer.Controls.Add(new Cart());
+        }
+
+        private void Client_info_Click(object sender, EventArgs e)
+        {
+            Form1.Instance.pnlContainer.Controls.Clear();
+            Form1.Instance.pnlContainer.Controls.Add(new Client_Info());
         }
     }
 }

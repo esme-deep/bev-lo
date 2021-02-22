@@ -54,13 +54,20 @@ namespace Bovelo_SuperApp
                     catch (MySqlException ex)
                     {
                         MessageBox.Show("Saving Error: " + ex.Message);
-
                     }
                     finally
                     {
                         Form1.Instance.client = nextClient;
                         Form1.Instance.pnlContainer.Controls.Clear();
-                        Form1.Instance.pnlContainer.Controls.Add(new Cart());
+                        if (Form1.Instance.Cart.Count ==0)
+                        {
+                            Form1.Instance.pnlContainer.Controls.Add(new Catalog());
+                        }
+                        else
+                        {
+                            Form1.Instance.pnlContainer.Controls.Add(new Cart());
+                        }
+                        
                         connectionDB.Close();
                     }
                 }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Bovelo_SuperApp
 {
-    class Class1
+    class Client
     {
+        public string name;
+        public int number;
+
     }
 }

@@ -58,7 +58,7 @@
     <Compile Include="Catalog.Designer.cs">
       <DependentUpon>Catalog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Client.cs" />
     <Compile Include="Client_Info.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -12,9 +12,17 @@ namespace Bovelo_SuperApp
 {
     public partial class Product_catalog : UserControl
     {
-        public Product_catalog()
+        public Product_catalog(string model, string price)
         {
             InitializeComponent();
+            label_price.Text = price;
+            label_Model.Text = model;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1.Instance.pnlContainer.Controls.Clear();
+            Form1.Instance.pnlContainer.Controls.Add(new Productcs(label_Model.Text, label_price.Text));
         }
     }
 }

@@ -51,9 +51,10 @@ namespace Bovelo_SuperApp
             this.user_label.Location = new System.Drawing.Point(302, 85);
             this.user_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.user_label.Name = "user_label";
-            this.user_label.Size = new System.Drawing.Size(190, 22);
+            this.user_label.Size = new System.Drawing.Size(157, 22);
             this.user_label.TabIndex = 1;
-            this.user_label.Text = "U are late, Log in bitch";
+            this.user_label.Text = "U are late, Log in !";
+            this.user_label.Click += new System.EventHandler(this.user_label_Click);
             // 
             // Presentation
             // 
@@ -61,7 +62,7 @@ namespace Bovelo_SuperApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.user_label);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Presentation";
             this.Size = new System.Drawing.Size(812, 436);
             this.Load += new System.EventHandler(this.Presentation_Load);

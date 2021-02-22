@@ -14,7 +14,7 @@ namespace Bovelo_SuperApp
     public partial class Form1 : Form
     {
         static Form1 obj;
-        public List<string> Panier = new List<string>();
+        public List<string> Cart = new List<string>();
         private Client Client;
         public Client client
         {

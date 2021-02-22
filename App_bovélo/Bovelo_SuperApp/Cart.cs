@@ -40,11 +40,10 @@ namespace Bovelo_SuperApp
         private void Cart_Load(object sender, EventArgs e)
         {
             obj = this;
-
-            foreach (string élément in Form1.Instance.Panier)
+            foreach (string element in Form1.Instance.Cart)
             {
-                string[] vélo = élément.Split(';');
-                FLPanel_Cart.Controls.Add(new Panier_composantes("ok",vélo[0],vélo[1],vélo[2],"2","399"));
+                string[] bike = element.Split(';');
+                FLPanel_Cart.Controls.Add(new Panier_composantes("ok",bike[0],bike[1],bike[2],"1",bike[3]));
             }
         }
 
@@ -61,7 +60,7 @@ namespace Bovelo_SuperApp
             {
                 
                 //envoyez a la base donnée
-                foreach (string element in Form1.Instance.Panier)
+                foreach (string element in Form1.Instance.Cart)
                 {
                     string[] elem = element.Split(';');
                     String sql = "INSERT INTO  command(model, size, colour,Client_Last_Name) VALUES ('" + elem[0] + "', '" + elem[1] + "','" + elem[2] + "','" + Form1.Instance.client.last_name+"')";
@@ -88,7 +87,7 @@ namespace Bovelo_SuperApp
                     }
                 }
                 Form1.Instance.client = null;
-                Form1.Instance.Panier = new List<string>();
+                Form1.Instance.Cart = new List<string>();
                 Form1.Instance.pnlContainer.Controls.Clear();
                 Form1.Instance.pnlContainer.Controls.Add(new Presentation());
             }

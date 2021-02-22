@@ -150,6 +150,9 @@
     <EmbeddedResource Include="Productcs.resx">
       <DependentUpon>Productcs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Product_catalog.resx">
+      <DependentUpon>Product_catalog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

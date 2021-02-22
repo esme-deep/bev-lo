@@ -26,7 +26,7 @@ namespace Bovelo_SuperApp
         {
             int i = Cart.Instance.pnl.Controls.IndexOf(this);
             Cart.Instance.pnl.Controls.Remove(this);
-            Form1.Instance.Panier.RemoveAt(i);
+            Form1.Instance.Cart.RemoveAt(i);
         }
     }
 }

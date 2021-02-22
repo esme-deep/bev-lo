@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,27 +18,52 @@ namespace Bovelo_SuperApp
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form1.Instance.pnlContainer.Controls.Clear();
-            Form1.Instance.pnlContainer.Controls.Add(new Productcs("City"));
-        }
+       
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Catalog_Load(object sender, EventArgs e)
         {
-            Form1.Instance.pnlContainer.Controls.Clear();
-            Form1.Instance.pnlContainer.Controls.Add(new Productcs("Explorer"));
-        }
+            
+            MySqlDataReader reader = null;
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
+            string sql = "SELECT model, price FROM bikes";
+            MySqlConnection conexionBD = Connection.connection();
+            conexionBD.Open();
 
-        }
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(sql, conexionBD);
+                reader = comando.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string model = reader.GetString(0);
+                        string price = reader.GetString(1);
+                        FLPanel_catalog.Controls.Add(new Product_catalog(model, price));
+                    }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Form1.Instance.pnlContainer.Controls.Clear();
-            Form1.Instance.pnlContainer.Controls.Add(new Productcs("Adventure"));
+                }
+                else
+                {
+                    MessageBox.Show("Notfound");
+
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Searching error" + ex.Message);
+
+            }
+            finally
+            {
+                
+                conexionBD.Close();
+
+            }
+
+        
+        
         }
     }
 }

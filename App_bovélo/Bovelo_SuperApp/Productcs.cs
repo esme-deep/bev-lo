@@ -12,11 +12,13 @@ namespace Bovelo_SuperApp
 {
     public partial class Productcs : UserControl
     {
-        public Productcs(string vélo_model)
+        public Productcs(string vélo_model,string price)
         {
             
             InitializeComponent();
             label_model.Text = vélo_model;
+            price_lbl.Text = price;
+
             
         }
 
@@ -29,9 +31,9 @@ namespace Bovelo_SuperApp
         {
             if (BoxSize.Text != "" & boxColor.Text != "")
             {
-                string vélo = label_model.Text + ";" + boxColor.Text + ";" + BoxSize.Text;
-                Form1.Instance.Panier.Add(vélo);
-                Console.WriteLine(Form1.Instance.Panier.Count);
+                string vélo = label_model.Text + ";" + boxColor.Text + ";" + BoxSize.Text+";" +price_lbl.Text;
+                Form1.Instance.Cart.Add(vélo);
+                Console.WriteLine(Form1.Instance.Cart.Count);
             }
         }
     }

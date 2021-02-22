@@ -25,8 +25,13 @@ namespace Bovelo_SuperApp
             }
             else
             {
-                user_label.Text = "U re late, log in bitch";
+                user_label.Text = "U re late,log in !";
             }
+        }
+
+        private void user_label_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

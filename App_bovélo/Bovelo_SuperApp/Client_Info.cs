@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,28 +25,193 @@ namespace Bovelo_SuperApp
 
         private void Save_Button_Click(object sender, EventArgs e)
         {
-            if(City.Text != "" & Street_Name.Text !="" & Business_Name.Text != "")
+            if(txtEmail.Text != "" & txtLastName.Text !="" & txtFirstName.Text != "")
             {
-                /*
-                    CODE FOR SOHAIB HERE To put the command and the client in the database 
-                    le panier se trouve dans "Form1.Instance.Panier", c'est une liste de string
-                    en mode "mode,colour,size"
-                    et les infos client:
-                    Mail_Adress.Text -> mail adress; Stret_Name.Text -> Street_Name; Business_Name.Text-> Business_Name !!
-                */
 
+                try
+                {
 
+                    String firstName = txtFirstName.Text;
+                    String lastName = txtLastName.Text;
+                    String email = txtEmail.Text;
+                    String adress = txtAdress.Text;
+                    int postalCode = int.Parse(txtPostalCode.Text);
+                    string city = txtCity.Text;
 
+                    String sql = "INSERT INTO customer (firstname, lastname, email, adress, postalcode, city) VALUES ('" + firstName + "', '" + lastName + "','" + email + "','" + adress + "','" + postalCode + "','" + city + "')";
+                    MySqlConnection connectionDB = Connection.connection();
+                    connectionDB.Open();
 
+                    try
+                    {
+                        MySqlCommand comando = new MySqlCommand(sql, connectionDB);
+                        comando.ExecuteNonQuery();
+                        MessageBox.Show("Customer saved");
+                        clear();
 
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show("Saving Error: " + ex.Message);
+
+                    }
+                    finally
+                    {
+                        connectionDB.Close();
+                    }
+                }
+                catch (FormatException fex)
+                {
+                    MessageBox.Show("Données incorrectes: " + fex.Message);
+                }
 
 
                 Form1.Instance.Panier = new List<string>();
-                Form1.Instance.pnlContainer.Controls.Clear();
+                ///Form1.Instance.pnlContainer.Controls.Clear();
                 Form1.Instance.pnlContainer.Controls.Add(new Presentation());
             }
         }
+        private void clear()
+        {
+            txtFirstName.Text= "";
+            txtLastName.Text= "";
+            txtEmail.Text= "";
+            txtAdress.Text = "";
+            txtPostalCode.Text ="" ;
+            txtCity.Text= "";
+        }
+        private void label2_Click(object sender, EventArgs e)
+        {
 
-        
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clear();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String lastName = txtLastName.Text;
+            MySqlDataReader reader = null;
+
+            string sql = "SELECT id, firstname, lastname, email, adress, postalcode, city FROM customer WHERE lastname LIKE '" + lastName + "' LIMIT 1";
+            MySqlConnection conexionBD = Connection.connection();
+            conexionBD.Open();
+
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(sql, conexionBD);
+                reader = comando.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        txtId.Text = reader.GetString(0);
+                        txtFirstName.Text = reader.GetString(1);
+                        txtLastName.Text = reader.GetString(2);
+                        txtEmail.Text = reader.GetString(3);
+                        txtAdress.Text = reader.GetString(4);
+                        txtPostalCode.Text = reader.GetString(5);
+                        txtCity.Text = reader.GetString(6);
+
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Notfound");
+
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Searching error" + ex.Message);
+
+            }
+            finally
+            {
+                conexionBD.Close();
+
+            }
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            String id = txtId.Text;
+            String firstName = txtFirstName.Text;
+            String lastName = txtLastName.Text;
+            String email = txtEmail.Text;
+            String adress = txtAdress.Text;
+            int postalCode = int.Parse(txtPostalCode.Text);
+            string city = txtCity.Text;
+
+            String sql = "UPDATE customer SET firstname='" + firstName + "', lastname='" + lastName + "', email='" + email + "', adress='" + adress + "', postalcode='" + postalCode + "', city='" + city + "' WHERE id='" + id + "' ";
+            MySqlConnection connectionDB = Connection.connection();
+            connectionDB.Open();
+
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(sql, connectionDB);
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Customer updated");
+                clear();
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Updating Error: " + ex.Message);
+
+            }
+            finally
+            {
+                connectionDB.Close();
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            String id = txtId.Text;
+            
+
+            String sql = "DELETE FROM customer WHERE id='" + id + "' ";
+            MySqlConnection connectionDB = Connection.connection();
+            connectionDB.Open();
+
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(sql, connectionDB);
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Customer deleted");
+                clear();
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Deleting Error: " + ex.Message);
+
+            }
+            finally
+            {
+                connectionDB.Close();
+            }
+        }
     }
 }

@@ -12,16 +12,7 @@ namespace Bovelo_SuperApp
 {
     public partial class Index_Gauche : UserControl
     {
-        static Index_Gauche obj;
-
-        public static Index_Gauche Instance
-        {
-            get
-            {
-
-                return obj;
-            }
-        }
+        
 
         public Button Sign_in
         {
@@ -64,44 +55,45 @@ namespace Bovelo_SuperApp
         {
             if (Log_in_Button.Text == "Sign out")
             {
-                Index_Hautcs.Instance.User_lbl.Text = "Not Connected";
-                Form1.Instance.pnlContainer.Controls.Clear();
-                Form1.Instance.pnlContainer.Controls.Add(new Presentation());
-                Index_Gauche.Instance.Sign_in.Text = "Sign in";
-                Index_Gauche.Instance.catalog_button.Enabled = false;
-                Index_Gauche.Instance.cart_button.Enabled = false;
-                Index_Gauche.Instance.catalog_button.Visible = false;
-                Index_Gauche.Instance.cart_button.Visible = false;
+                Form1.Instance.index_Haut.Connection_User.Text = "Not Connected";
+                Form1.Instance.panelContainer.Controls.Clear();
+                Form1.Instance.panelContainer.Controls.Add(new Presentation());
+                Form1.Instance.index_Gauche.Sign_in.Text = "Sign in";
+                Form1.Instance.index_Gauche.catalog_button.Enabled = false;
+                Form1.Instance.index_Gauche.cart_button.Enabled = false;
+                Form1.Instance.index_Gauche.catalog_button.Visible = false;
+                Form1.Instance.index_Gauche.cart_button.Visible = false;
             }
             else
             {
-                Form1.Instance.pnlContainer.Controls.Clear();
-                Form1.Instance.pnlContainer.Controls.Add(new Login());
+                Form1.Instance.panelContainer.Controls.Clear();
+                Form1.Instance.panelContainer.Controls.Add(new Login());
             }
         }
 
 
         private void Index_Gauche_Load(object sender, EventArgs e)
         {
-            obj = this;
+            
         }
 
         private void Catalog_Button_Click(object sender, EventArgs e)
         {
-            Form1.Instance.pnlContainer.Controls.Clear();
-            Form1.Instance.pnlContainer.Controls.Add(new Catalog());
+            //
+            Form1.Instance.panelContainer.Controls.Clear();
+            Form1.Instance.panelContainer.Controls.Add(Form1.Instance.catalog);
         }
 
         private void Cart_Button_Click(object sender, EventArgs e)
         {
-            Form1.Instance.pnlContainer.Controls.Clear();
-            Form1.Instance.pnlContainer.Controls.Add(new Cart());
+            Form1.Instance.panelContainer.Controls.Clear();
+            Form1.Instance.panelContainer.Controls.Add(Form1.Instance.cart);
         }
 
         private void Client_info_Click(object sender, EventArgs e)
         {
-            Form1.Instance.pnlContainer.Controls.Clear();
-            Form1.Instance.pnlContainer.Controls.Add(new Client_Info());
+            Form1.Instance.panelContainer.Controls.Clear();
+            Form1.Instance.panelContainer.Controls.Add(Form1.Instance.client_info);
         }
     }
 }

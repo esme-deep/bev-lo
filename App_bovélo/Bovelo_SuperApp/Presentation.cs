@@ -19,7 +19,7 @@ namespace Bovelo_SuperApp
 
         private void Presentation_Load(object sender, EventArgs e)
         {
-            if ( Index_Hautcs.Instance.User_lbl.Text.Contains("Connected as"))
+            if (Form1.Instance.index_Haut.Connection_User.Text.Contains("Connected as"))
             {
                 user_label.Text = "You are late";
             }

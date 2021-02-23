@@ -138,13 +138,13 @@ namespace Bovelo_SuperApp
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox UserName;
-        private System.Windows.Forms.TextBox Password;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button Connect_Button;
-        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Panel panel2;
+        public System.Windows.Forms.TextBox Password;
+        public System.Windows.Forms.TextBox UserName;
+        public System.Windows.Forms.Button Connect_Button;
+        public System.Windows.Forms.Label label3;
     }
 }

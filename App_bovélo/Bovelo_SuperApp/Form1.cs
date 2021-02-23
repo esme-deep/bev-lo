@@ -14,15 +14,16 @@ namespace Bovelo_SuperApp
     public partial class Form1 : Form
     {
         static Form1 obj;
-        public List<string> Cart = new List<string>();
-        private Client Client;
-        public Client client
-        {
-            get { return Client; }
-            set { Client = value; }
-        }
+        public Command Cart = new Command();
         
         
+        
+        public Login login = new Login();
+        public Presentation presentation = new Presentation();
+        public Product product;
+        public Catalog catalog = new Catalog();
+        public Cart cart = new Cart();
+        public Client_Info client_info = new Client_Info();
         
         public static Form1 Instance
         {
@@ -33,42 +34,19 @@ namespace Bovelo_SuperApp
             }
         }
         
-        public Panel pnlContainer
-        {
-            get
-            {
-                return panelContainer;
-            }
-            set
-            {
-                panelContainer = value;
-            }
-        }
+        
         public Form1()
         {
             InitializeComponent();
             
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void index_Gauche1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelContainer_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
             obj = this;
-            pnlContainer.Controls.Add(new Presentation());
+            panelContainer.Controls.Add(presentation);
         }
     }
 }

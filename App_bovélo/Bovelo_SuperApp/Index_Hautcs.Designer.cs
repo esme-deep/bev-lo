@@ -62,7 +62,7 @@ namespace Bovelo_SuperApp
             this.Controls.Add(this.panel1);
             this.Name = "Index_Hautcs";
             this.Size = new System.Drawing.Size(1100, 140);
-            this.Load += new System.EventHandler(this.Index_Hautcs_Load);
+            
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -71,7 +71,7 @@ namespace Bovelo_SuperApp
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label Connection_User;
+        public System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Label Connection_User;
     }
 }

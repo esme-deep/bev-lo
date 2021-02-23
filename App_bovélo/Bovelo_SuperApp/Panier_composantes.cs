@@ -24,9 +24,9 @@ namespace Bovelo_SuperApp
 
         private void Remove_button_Click(object sender, EventArgs e)
         {
-            int i = Cart.Instance.pnl.Controls.IndexOf(this);
-            Cart.Instance.pnl.Controls.Remove(this);
-            Form1.Instance.Cart.RemoveAt(i);
+            int i = Form1.Instance.cart.FLPanel_Cart.Controls.IndexOf(this);
+            Form1.Instance.cart.FLPanel_Cart.Controls.Remove(this);
+            Form1.Instance.Cart.list_models.RemoveAt(i);
         }
     }
 }

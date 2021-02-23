@@ -116,11 +116,11 @@ namespace Bovelo_SuperApp
 
         #endregion
 
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label_price;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel;
-        private System.Windows.Forms.Label label_Model;
-        private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Panel panel2;
+        public System.Windows.Forms.Label label_price;
+        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Panel panel;
+        public System.Windows.Forms.Label label_Model;
+        public System.Windows.Forms.Label label4;
     }
 }

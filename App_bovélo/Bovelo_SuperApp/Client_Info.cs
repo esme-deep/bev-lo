@@ -29,7 +29,7 @@ namespace Bovelo_SuperApp
             {
                 try
                 {
-                    Client nextClient = new Client(txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtAdress.Text, int.Parse(txtPostalCode.Text), txtCity.Text);
+                    Client nextClient = new Client(txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtAdress.Text, int.Parse(txtPostalCode.Text), txtCity.Text, Business_name.Text);
                     /*String firstName = txtFirstName.Text;
                     String lastName = txtLastName.Text;
                     String email = txtEmail.Text;
@@ -37,7 +37,7 @@ namespace Bovelo_SuperApp
                     int postalCode = int.Parse(txtPostalCode.Text);
                     string city = txtCity.Text; */
 
-                    String sql2 = "INSERT INTO customer (firstname, lastname, email, adress, postalcode, city) VALUES ('" + nextClient.first_name + "', '" + nextClient.last_name + "','" + nextClient.email + "','" + nextClient.adress + "','" + nextClient.postal_code + "','" + nextClient.city + "')";
+                    String sql2 = "INSERT INTO customer (firstname, lastname, email, adress, postalcode, city, business_name) VALUES ('" + nextClient.first_name + "', '" + nextClient.last_name + "','" + nextClient.email + "','" + nextClient.adress + "','" + nextClient.postal_code + "','" + nextClient.city +"','"+nextClient.business_name +"')";
                     MySqlConnection connectionDB = Connection.connection();
                     connectionDB.Open();
 
@@ -57,15 +57,15 @@ namespace Bovelo_SuperApp
                     }
                     finally
                     {
-                        Form1.Instance.client = nextClient;
-                        Form1.Instance.pnlContainer.Controls.Clear();
-                        if (Form1.Instance.Cart.Count ==0)
+                        Form1.Instance.Cart.client = nextClient;
+                        Form1.Instance.panelContainer.Controls.Clear();
+                        if (Form1.Instance.Cart.list_models.Count ==0)
                         {
-                            Form1.Instance.pnlContainer.Controls.Add(new Catalog());
+                            Form1.Instance.panelContainer.Controls.Add(new Catalog());
                         }
                         else
                         {
-                            Form1.Instance.pnlContainer.Controls.Add(new Cart());
+                            Form1.Instance.panelContainer.Controls.Add(new Cart());
                         }
                         
                         connectionDB.Close();
@@ -120,7 +120,7 @@ namespace Bovelo_SuperApp
             String lastName = txtLastName.Text;
             MySqlDataReader reader = null;
 
-            string sql = "SELECT id, firstname, lastname, email, adress, postalcode, city FROM customer WHERE lastname LIKE '" + lastName + "' LIMIT 1";
+            string sql = "SELECT id, firstname, lastname, email, adress, postalcode, city, business_name FROM customer WHERE lastname LIKE '" + lastName + "' LIMIT 1";
             MySqlConnection conexionBD = Connection.connection();
             conexionBD.Open();
 
@@ -139,7 +139,7 @@ namespace Bovelo_SuperApp
                         txtAdress.Text = reader.GetString(4);
                         txtPostalCode.Text = reader.GetString(5);
                         txtCity.Text = reader.GetString(6);
-
+                        Business_name.Text = reader.GetString(7);
                     }
 
                 }
@@ -169,15 +169,16 @@ namespace Bovelo_SuperApp
         {
             try
             {
-                String id = txtId.Text;
+                string id = txtId.Text;
                 String firstName = txtFirstName.Text;
                 String lastName = txtLastName.Text;
+                string business_name = Business_name.Text;
                 String email = txtEmail.Text;
                 String adress = txtAdress.Text;
                 int postalCode = int.Parse(txtPostalCode.Text);
                 string city = txtCity.Text;
 
-                String sql = "UPDATE customer SET firstname='" + firstName + "', lastname='" + lastName + "', email='" + email + "', adress='" + adress + "', postalcode='" + postalCode + "', city='" + city + "' WHERE id='" + id + "' ";
+                String sql = "UPDATE customer SET firstname='" + firstName + "', lastname='" + lastName + "', email='" + email + "', adress='" + adress + "', postalcode='" + postalCode + "', city='" + city + "' WHERE id='" + id +"', business_name ='"+business_name +"' ";
                 MySqlConnection connectionDB = Connection.connection();
                 connectionDB.Open();
 

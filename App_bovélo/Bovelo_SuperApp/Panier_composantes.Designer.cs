@@ -128,12 +128,12 @@ namespace Bovelo_SuperApp
 
         #endregion
 
-        private System.Windows.Forms.PictureBox Vélo_Image;
-        private System.Windows.Forms.Label model_name;
-        private System.Windows.Forms.Label colour_text;
-        private System.Windows.Forms.Label size_text;
-        private System.Windows.Forms.Label qtt_number;
-        private System.Windows.Forms.Label Price_label;
-        private System.Windows.Forms.Button Remove_button;
+        public System.Windows.Forms.PictureBox Vélo_Image;
+        public System.Windows.Forms.Label model_name;
+        public System.Windows.Forms.Label colour_text;
+        public System.Windows.Forms.Label size_text;
+        public System.Windows.Forms.Label qtt_number;
+        public System.Windows.Forms.Label Price_label;
+        public System.Windows.Forms.Button Remove_button;
     }
 }

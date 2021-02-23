@@ -13,25 +13,12 @@ namespace Bovelo_SuperApp
 {
     public partial class Cart : UserControl
     {
-        static Cart obj;
+        
         
 
-        public static Cart Instance
-        {
-            get
-            {
-                return obj;
-            }
-        }
+        
 
-        public FlowLayoutPanel pnl
-        {
-            get
-            {
-                return FLPanel_Cart;
-            }
-            
-        }
+        
         public Cart()
         {
             InitializeComponent();
@@ -39,63 +26,67 @@ namespace Bovelo_SuperApp
 
         private void Cart_Load(object sender, EventArgs e)
         {
-            obj = this;
-            foreach (string element in Form1.Instance.Cart)
+            
+            foreach (Model_Bike element in Form1.Instance.Cart.list_models)
             {
-                string[] bike = element.Split(';');
-                FLPanel_Cart.Controls.Add(new Panier_composantes("ok",bike[0],bike[1],bike[2],"1",bike[3]));
+                FLPanel_Cart.Controls.Add(new Panier_composantes("ok",element.type,element.colour,element.size,element.quantity.ToString(),element.price.ToString()));
             }
         }
 
         private void confirm_cart_button_Click(object sender, EventArgs e)
         {
 
-            if (Form1.Instance.client == null)
+
+
+
+
+
+
+            if (Form1.Instance.Cart.client == null)
             {
                 MessageBox.Show("complétez le formulaire client !");
-                Form1.Instance.pnlContainer.Controls.Clear();
-                Form1.Instance.pnlContainer.Controls.Add(new Client_Info());
+                Form1.Instance.panelContainer.Controls.Clear();
+                Form1.Instance.panelContainer.Controls.Add(new Client_Info());
             }
             else
             {
                 
                 //envoyez a la base donnée
-                foreach (string element in Form1.Instance.Cart)
+                foreach (Model_Bike element in Form1.Instance.Cart.list_models)
                 {
-                    string[] elem = element.Split(';');
-                    String sql = "INSERT INTO  command(model, size, colour,Client_Last_Name) VALUES ('" + elem[0] + "', '" + elem[1] + "','" + elem[2] + "','" + Form1.Instance.client.last_name+"')";
-                    MySqlConnection connectionDB = Connection.connection();
-                    connectionDB.Open();
-
-                    try
+                    for (int i = 0; i < element.quantity; i++)
                     {
-                        MySqlCommand comando = new MySqlCommand(sql, connectionDB);
-                        comando.ExecuteNonQuery();
-                        MessageBox.Show("commande envoyé");
+                        String sql = "INSERT INTO  model_bikes(id_bike, type_bike, colour,size) VALUES ('" + element.type + "', '" + element.size + "','" + element.colour + "','" + Form1.Instance.Cart.client.last_name + "')";
+                        MySqlConnection connectionDB = Connection.connection();
+                        connectionDB.Open();
+
+                        try
+                        {
+                            MySqlCommand comando = new MySqlCommand(sql, connectionDB);
+                            comando.ExecuteNonQuery();
+                            MessageBox.Show("commande envoyé");
 
 
-                    }
-                    catch (MySqlException ex)
-                    {
-                        MessageBox.Show("Sending error: " + ex.Message);
+                        }
+                        catch (MySqlException ex)
+                        {
+                            MessageBox.Show("Sending error: " + ex.Message);
 
-                    }
-                    finally
-                    {
-                        
-                        connectionDB.Close();
+                        }
+                        finally
+                        {
+
+                            connectionDB.Close();
+                        }
                     }
                 }
-                Form1.Instance.client = null;
-                Form1.Instance.Cart = new List<string>();
-                Form1.Instance.pnlContainer.Controls.Clear();
-                Form1.Instance.pnlContainer.Controls.Add(new Presentation());
+                Form1.Instance.Cart.client = null;
+                Form1.Instance.Cart = new Command();
+                Form1.Instance.panelContainer.Controls.Clear();
+                Form1.Instance.panelContainer.Controls.Add(Form1.Instance.presentation);
             }
         }
 
-        private void FLPanel_Cart_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
     }
 }

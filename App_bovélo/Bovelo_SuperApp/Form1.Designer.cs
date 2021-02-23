@@ -30,8 +30,8 @@ namespace Bovelo_SuperApp
         private void InitializeComponent()
         {
             this.panelContainer = new System.Windows.Forms.Panel();
-            this.index_Hautcs1 = new Bovelo_SuperApp.Index_Hautcs();
-            this.index_Gauche1 = new Bovelo_SuperApp.Index_Gauche();
+            this.index_Haut = new Bovelo_SuperApp.Index_Hautcs();
+            this.index_Gauche = new Bovelo_SuperApp.Index_Gauche();
             this.SuspendLayout();
             // 
             // panelContainer
@@ -46,20 +46,20 @@ namespace Bovelo_SuperApp
             // 
             // index_Hautcs1
             // 
-            this.index_Hautcs1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.index_Hautcs1.Location = new System.Drawing.Point(180, 0);
-            this.index_Hautcs1.Name = "index_Hautcs1";
-            this.index_Hautcs1.Size = new System.Drawing.Size(1106, 142);
-            this.index_Hautcs1.TabIndex = 1;
+            this.index_Haut.BackColor = System.Drawing.SystemColors.Highlight;
+            this.index_Haut.Location = new System.Drawing.Point(180, 0);
+            this.index_Haut.Name = "index_Hautcs1";
+            this.index_Haut.Size = new System.Drawing.Size(1106, 142);
+            this.index_Haut.TabIndex = 1;
             // 
             // index_Gauche1
             // 
-            this.index_Gauche1.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.index_Gauche1.Location = new System.Drawing.Point(0, 0);
-            this.index_Gauche1.Name = "index_Gauche1";
-            this.index_Gauche1.Size = new System.Drawing.Size(180, 720);
-            this.index_Gauche1.TabIndex = 0;
-            this.index_Gauche1.Load += new System.EventHandler(this.index_Gauche1_Load);
+            this.index_Gauche.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.index_Gauche.Location = new System.Drawing.Point(0, 0);
+            this.index_Gauche.Name = "index_Gauche1";
+            this.index_Gauche.Size = new System.Drawing.Size(180, 720);
+            this.index_Gauche.TabIndex = 0;
+            
             // 
             // Form1
             // 
@@ -67,8 +67,8 @@ namespace Bovelo_SuperApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 673);
             this.Controls.Add(this.panelContainer);
-            this.Controls.Add(this.index_Hautcs1);
-            this.Controls.Add(this.index_Gauche1);
+            this.Controls.Add(this.index_Haut);
+            this.Controls.Add(this.index_Gauche);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Form1";
             this.Text = "Form1";
@@ -79,9 +79,9 @@ namespace Bovelo_SuperApp
 
         #endregion
 
-        private Index_Gauche index_Gauche1;
-        private Index_Hautcs index_Hautcs1;
-        private System.Windows.Forms.Panel panelContainer;
+        public Index_Gauche index_Gauche;
+        public Index_Hautcs index_Haut;
+        public System.Windows.Forms.Panel panelContainer;
     }
 }
 

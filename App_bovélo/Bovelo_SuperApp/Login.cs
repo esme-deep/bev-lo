@@ -19,18 +19,18 @@ namespace Bovelo_SuperApp
 
         private void Connect_Button_Click(object sender, EventArgs e)
         {
-            if (UserName.Text == "Agent" & Password.Text == "Agent")
+            if (UserName.Text == "" & Password.Text == "")
             {
-                Index_Hautcs.Instance.User_lbl.Text = "Connected as "+UserName.Text;
-                Form1.Instance.pnlContainer.Controls.Clear();
-                Form1.Instance.pnlContainer.Controls.Add(new Presentation());
-                Index_Gauche.Instance.Sign_in.Text = "Sign out";
-                Index_Gauche.Instance.catalog_button.Enabled = true;
-                Index_Gauche.Instance.cart_button.Enabled = true;
-                Index_Gauche.Instance.catalog_button.Visible = true;
-                Index_Gauche.Instance.cart_button.Visible = true;
-                Index_Gauche.Instance.button3.Visible = true;
-                Index_Gauche.Instance.button3.Enabled = true;
+                Form1.Instance.index_Haut.Connection_User.Text = "Connected as "+UserName.Text;
+                Form1.Instance.panelContainer.Controls.Clear();
+                Form1.Instance.panelContainer.Controls.Add(Form1.Instance.presentation);
+                Form1.Instance.index_Gauche.Sign_in.Text = "Sign out";
+                Form1.Instance.index_Gauche.catalog_button.Enabled = true;
+                Form1.Instance.index_Gauche.cart_button.Enabled = true;
+                Form1.Instance.index_Gauche.catalog_button.Visible = true;
+                Form1.Instance.index_Gauche.cart_button.Visible = true;
+                Form1.Instance.index_Gauche.button3.Visible = true;
+                Form1.Instance.index_Gauche.button3.Enabled = true;
 
 
             }

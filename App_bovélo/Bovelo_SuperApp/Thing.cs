@@ -6,29 +6,24 @@ using System.Threading.Tasks;
 
 namespace Bovelo_SuperApp
 {
-    class Bike
+    public class Model_Bike
     {
-        public string color;
+        public string colour;
         public string type;
         public string size;
-        public Client client;
+        public double price;
+        public int quantity;
         //:public delivery_time ;
 
-        public Bike(string c,string t,string s )
+        public Model_Bike(string c, string t, string s, double price, int quantity)
         {
-            this.color = c;
+            this.colour = c;
             this.type = t;
             this.size = s;
-            
+            this.price = price;
+            this.quantity = quantity;
+
 
         }
-        public void SetClient(Client CL)
-        {
-            this.client = CL;
-        }
-
-
-
-
     }
 }

@@ -121,10 +121,10 @@ namespace Bovelo_SuperApp
 
         #endregion
 
-        private System.Windows.Forms.Button Catalog_Button;
-        private System.Windows.Forms.Button Cart_Button;
-        private System.Windows.Forms.Button Client_info;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button Log_in_Button;
+        public System.Windows.Forms.Button Catalog_Button;
+        public System.Windows.Forms.Button Cart_Button;
+        public System.Windows.Forms.Button Client_info;
+        public System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.Button Log_in_Button;
     }
 }

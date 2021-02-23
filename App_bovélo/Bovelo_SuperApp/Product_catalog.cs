@@ -21,8 +21,8 @@ namespace Bovelo_SuperApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1.Instance.pnlContainer.Controls.Clear();
-            Form1.Instance.pnlContainer.Controls.Add(new Productcs(label_Model.Text, label_price.Text));
+            Form1.Instance.panelContainer.Controls.Clear();
+            Form1.Instance.panelContainer.Controls.Add(new Product(label_Model.Text, label_price.Text));
         }
     }
 }

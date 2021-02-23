@@ -19,7 +19,7 @@ namespace Bovelo_SuperApp
 
         private void Connect_Button_Click(object sender, EventArgs e)
         {
-            if (UserName.Text == "" & Password.Text == "")
+            if (UserName.Text == "Agent" & Password.Text == "Agent")
             {
                 Index_Hautcs.Instance.User_lbl.Text = "Connected as "+UserName.Text;
                 Form1.Instance.pnlContainer.Controls.Clear();

@@ -21,11 +21,11 @@ namespace Bovelo_SuperApp
         {
             if ( Index_Hautcs.Instance.User_lbl.Text.Contains("Connected as"))
             {
-                user_label.Text = "U re late";
+                user_label.Text = "You are late";
             }
             else
             {
-                user_label.Text = "U re late,log in !";
+                user_label.Text = "You are late,log in !";
             }
         }
 

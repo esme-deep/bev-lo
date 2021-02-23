@@ -48,7 +48,7 @@ namespace Bovelo_SuperApp
             this.Connection_User.AutoSize = true;
             this.Connection_User.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Connection_User.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Connection_User.Location = new System.Drawing.Point(16, 15);
+            this.Connection_User.Location = new System.Drawing.Point(42, 15);
             this.Connection_User.Name = "Connection_User";
             this.Connection_User.Size = new System.Drawing.Size(191, 31);
             this.Connection_User.TabIndex = 0;

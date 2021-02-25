@@ -12,8 +12,6 @@ namespace Bovelo_SuperApp
 {
     public partial class Index_Gauche : UserControl
     {
-        
-
         public Button Sign_in
         {
             get
@@ -63,6 +61,8 @@ namespace Bovelo_SuperApp
                 Form1.Instance.index_Gauche.cart_button.Enabled = false;
                 Form1.Instance.index_Gauche.catalog_button.Visible = false;
                 Form1.Instance.index_Gauche.cart_button.Visible = false;
+                Form1.Instance.index_Gauche.button3.Visible = false;
+                Form1.Instance.index_Gauche.button3.Visible = false;
             }
             else
             {
@@ -94,6 +94,7 @@ namespace Bovelo_SuperApp
         {
             Form1.Instance.panelContainer.Controls.Clear();
             Form1.Instance.panelContainer.Controls.Add(Form1.Instance.client_info);
+            
         }
     }
 }

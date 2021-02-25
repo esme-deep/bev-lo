@@ -35,8 +35,8 @@ namespace Bovelo_SuperApp
                 Model_Bike model_bike = new Model_Bike(boxColor.Text, label_model.Text, BoxSize.Text,Double.Parse( price_lbl.Text),int.Parse(quantity_input.Text));
                 //Command.Add(model_bike);
                 Form1.Instance.Cart.list_models.Add(model_bike);
-                
-                
+                Form1.Instance.cart.FLPanel_Cart.Controls.Add(new Panier_composantes("ok", model_bike.type, model_bike.colour, model_bike.size, model_bike.quantity.ToString(), model_bike.price.ToString()));
+
             }
         }
 

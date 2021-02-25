@@ -12,6 +12,7 @@ namespace Bovelo_SuperApp
 {
     public partial class Panier_composantes : UserControl
     {
+        
         public Panier_composantes(string image, string model, string colour, string size,string qtt, string price)
         {
             InitializeComponent();
@@ -27,6 +28,12 @@ namespace Bovelo_SuperApp
             int i = Form1.Instance.cart.FLPanel_Cart.Controls.IndexOf(this);
             Form1.Instance.cart.FLPanel_Cart.Controls.Remove(this);
             Form1.Instance.Cart.list_models.RemoveAt(i);
+
+        }
+
+        private void Panier_composantes_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

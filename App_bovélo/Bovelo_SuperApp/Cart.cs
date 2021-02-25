@@ -27,10 +27,7 @@ namespace Bovelo_SuperApp
         private void Cart_Load(object sender, EventArgs e)
         {
             
-            foreach (Model_Bike element in Form1.Instance.Cart.list_models)
-            {
-                FLPanel_Cart.Controls.Add(new Panier_composantes("ok",element.type,element.colour,element.size,element.quantity.ToString(),element.price.ToString()));
-            }
+
         }
 
         private void confirm_cart_button_Click(object sender, EventArgs e)
@@ -50,39 +47,71 @@ namespace Bovelo_SuperApp
             }
             else
             {
-                
-                //envoyez a la base donnée
-                foreach (Model_Bike element in Form1.Instance.Cart.list_models)
+                String sqll = "INSERT INTO  command(id_customer) VALUES ('" + Form1.Instance.Cart.client.id + "')";
+                MySqlConnection connectionDB = Connection.connection();
+                connectionDB.Open();
+                try
                 {
-                    for (int i = 0; i < element.quantity; i++)
+                    MySqlCommand comando = new MySqlCommand(sqll, connectionDB);
+                    
+                    comando.ExecuteNonQuery();
+                    MessageBox.Show("commande crée");
+                    String sqlll = "SELECT max(id_command) FROM command";
+                    comando = new MySqlCommand(sqlll, connectionDB);
+                    
+                    MySqlDataReader reader = null;
+                    reader = comando.ExecuteReader();
+                    int N_command=0;
+                    if (reader.Read())
                     {
-                        String sql = "INSERT INTO  model_bikes(id_bike, type_bike, colour,size) VALUES ('" + element.type + "', '" + element.size + "','" + element.colour + "','" + Form1.Instance.Cart.client.last_name + "')";
-                        MySqlConnection connectionDB = Connection.connection();
-                        connectionDB.Open();
+                        N_command = int.Parse(reader.GetString(0));
+                        MessageBox.Show("id trouvé");
+                        reader.Close();
+                    }
+                    
 
-                        try
+                    
+                    
+                    foreach (Model_Bike element in Form1.Instance.Cart.list_models)
+                    {
+                        for (int i = 0; i < element.quantity; i++)
                         {
-                            MySqlCommand comando = new MySqlCommand(sql, connectionDB);
+
+                            String sql = "INSERT INTO  model_bikes(type_bike, colour,size, N_command) VALUES ('" + element.type + "', '" + element.colour + "','" + element.size + "','" + N_command + "')";
+
+                            comando = new MySqlCommand(sql, connectionDB);
                             comando.ExecuteNonQuery();
-                            MessageBox.Show("commande envoyé");
+                            
 
-
-                        }
-                        catch (MySqlException ex)
-                        {
-                            MessageBox.Show("Sending error: " + ex.Message);
-
-                        }
-                        finally
-                        {
-
-                            connectionDB.Close();
                         }
                     }
+                    MessageBox.Show("commande remplie");
+                    Form1.Instance.cart = new Cart();
+                    Form1.Instance.Cart = new Command();
+
                 }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Sending error: " + ex.Message);
+
+                }
+                finally
+                {
+                    
+                    connectionDB.Close();
+                }
+
+                //envoyez a la base donnée
+
                 Form1.Instance.Cart.client = null;
                 Form1.Instance.Cart = new Command();
                 Form1.Instance.panelContainer.Controls.Clear();
+
+
+
+
+
+
                 Form1.Instance.panelContainer.Controls.Add(Form1.Instance.presentation);
             }
         }

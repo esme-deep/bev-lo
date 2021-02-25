@@ -13,6 +13,7 @@ namespace Bovelo_SuperApp
 {
     public partial class Client_Info : UserControl
     {
+        public Client nextClient;
         public Client_Info()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace Bovelo_SuperApp
             {
                 try
                 {
-                    Client nextClient = new Client(txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtAdress.Text, int.Parse(txtPostalCode.Text), txtCity.Text, Business_name.Text);
+                    nextClient = new Client(txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtAdress.Text, int.Parse(txtPostalCode.Text), txtCity.Text, Business_name.Text);
                     /*String firstName = txtFirstName.Text;
                     String lastName = txtLastName.Text;
                     String email = txtEmail.Text;
@@ -45,10 +46,15 @@ namespace Bovelo_SuperApp
                     {
                         MySqlCommand comando = new MySqlCommand(sql2, connectionDB);
                         comando.ExecuteNonQuery();
+                        sql2 = "SELECT max(id) FROM customer";
+                        comando = new MySqlCommand(sql2, connectionDB);
+                        MySqlDataReader reader = comando.ExecuteReader();
+                        if (reader.Read())
+                        {
+                            txtId.Text = reader.GetString(0);
+                        }
                         MessageBox.Show("Customer saved");
 
-                        
-                        clear();
 
                     }
                     catch (MySqlException ex)
@@ -57,7 +63,7 @@ namespace Bovelo_SuperApp
                     }
                     finally
                     {
-                        Form1.Instance.Cart.client = nextClient;
+                        
                         Form1.Instance.panelContainer.Controls.Clear();
                         if (Form1.Instance.Cart.list_models.Count ==0)
                         {
@@ -83,12 +89,19 @@ namespace Bovelo_SuperApp
         }
         private void clear()
         {
+            txtId.Text = "";
             txtFirstName.Text= "";
             txtLastName.Text= "";
             txtEmail.Text= "";
             txtAdress.Text = "";
             txtPostalCode.Text ="" ;
             txtCity.Text= "";
+            btnSave.Enabled = true;
+            btnSave.Visible = true;
+            btnUpdate.Visible = false;
+            btnUpdate.Enabled = false;
+            btnDelete.Enabled = false;
+            btnDelete.Visible = false;
         }
         private void label2_Click(object sender, EventArgs e)
         {
@@ -112,73 +125,87 @@ namespace Bovelo_SuperApp
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            
+
             clear();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String lastName = txtLastName.Text;
-            MySqlDataReader reader = null;
-
-            string sql = "SELECT id, firstname, lastname, email, adress, postalcode, city, business_name FROM customer WHERE lastname LIKE '" + lastName + "' LIMIT 1";
-            MySqlConnection conexionBD = Connection.connection();
-            conexionBD.Open();
-
-            try
+            if (txtLastName.Text != "" & Business_name.Text != "" & txtFirstName.Text != "")
             {
-                MySqlCommand comando = new MySqlCommand(sql, conexionBD);
-                reader = comando.ExecuteReader();
-                if (reader.HasRows)
+
+
+                String firstname = txtFirstName.Text;
+                String lastName = txtLastName.Text;
+                MySqlDataReader reader = null;
+                string business_name = Business_name.Text;
+                string sql = "SELECT id, firstname, lastname, email, adress, postalcode, city, business_name FROM customer WHERE lastname LIKE '" + lastName + "' AND business_name Like '" + business_name + "' AND firstname Like '" + firstname + "' LIMIT 1";
+                MySqlConnection conexionBD = Connection.connection();
+                conexionBD.Open();
+
+                try
                 {
-                    while (reader.Read())
+                    MySqlCommand comando = new MySqlCommand(sql, conexionBD);
+                    reader = comando.ExecuteReader();
+                    if (reader.HasRows)
                     {
-                        txtId.Text = reader.GetString(0);
-                        txtFirstName.Text = reader.GetString(1);
-                        txtLastName.Text = reader.GetString(2);
-                        txtEmail.Text = reader.GetString(3);
-                        txtAdress.Text = reader.GetString(4);
-                        txtPostalCode.Text = reader.GetString(5);
-                        txtCity.Text = reader.GetString(6);
-                        Business_name.Text = reader.GetString(7);
+                        btnDelete.Enabled = true;
+                        btnDelete.Visible = true;
+                        btnUpdate.Enabled = true;
+                        btnUpdate.Visible = true;
+                        btnSave.Enabled = false;
+                        btnSave.Visible = false;
+
+                        while (reader.Read())
+                        {
+                            txtId.Text = reader.GetString(0);
+                            txtFirstName.Text = reader.GetString(1);
+                            txtLastName.Text = reader.GetString(2);
+                            txtEmail.Text = reader.GetString(3);
+                            txtAdress.Text = reader.GetString(4);
+                            txtPostalCode.Text = reader.GetString(5);
+                            txtCity.Text = reader.GetString(6);
+                            Business_name.Text = reader.GetString(7);
+
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Notfound");
+
                     }
 
                 }
-                else
+                catch (MySqlException ex)
                 {
-                    MessageBox.Show("Notfound");
+                    MessageBox.Show("Searching error" + ex.Message);
 
                 }
+                finally
+                {
 
+                    conexionBD.Close();
+
+                }
             }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Searching error" + ex.Message);
-
-            }
-            finally
-            {
-                btnUpdate.Enabled = true;
-                btnUpdate.Visible = true;
-                conexionBD.Close();
-
-            }
-
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
             {
-                string id = txtId.Text;
+                
                 String firstName = txtFirstName.Text;
                 String lastName = txtLastName.Text;
-                string business_name = Business_name.Text;
+                String business_name = Business_name.Text;
                 String email = txtEmail.Text;
                 String adress = txtAdress.Text;
                 int postalCode = int.Parse(txtPostalCode.Text);
                 string city = txtCity.Text;
 
-                String sql = "UPDATE customer SET firstname='" + firstName + "', lastname='" + lastName + "', email='" + email + "', adress='" + adress + "', postalcode='" + postalCode + "', city='" + city + "' WHERE id='" + id +"', business_name ='"+business_name +"' ";
+                String sql = "UPDATE customer SET firstname='" + firstName + "', lastname='" + lastName + "', email='" + email + "', adress='" + adress + "', postalcode='" + postalCode + "', city='" + city+"', business_name ='" + business_name + "' WHERE id='" + txtId.Text  +"'";
                 MySqlConnection connectionDB = Connection.connection();
                 connectionDB.Open();
 
@@ -232,6 +259,13 @@ namespace Bovelo_SuperApp
             {
                 connectionDB.Close();
             }
+        }
+
+        private void btnConfirm(object sender, EventArgs e)
+        {
+            nextClient = new Client(txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtAdress.Text, int.Parse(txtPostalCode.Text), txtCity.Text, Business_name.Text);
+            nextClient.id = int.Parse(txtId.Text);
+            Form1.Instance.Cart.client = nextClient;
         }
     }
 }

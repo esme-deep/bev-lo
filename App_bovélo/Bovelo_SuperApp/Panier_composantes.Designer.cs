@@ -100,7 +100,7 @@ namespace Bovelo_SuperApp
             // 
             // Remove_button
             // 
-            this.Remove_button.Location = new System.Drawing.Point(614, 43);
+            this.Remove_button.Location = new System.Drawing.Point(677, 43);
             this.Remove_button.Name = "Remove_button";
             this.Remove_button.Size = new System.Drawing.Size(24, 23);
             this.Remove_button.TabIndex = 6;
@@ -119,7 +119,8 @@ namespace Bovelo_SuperApp
             this.Controls.Add(this.model_name);
             this.Controls.Add(this.Vélo_Image);
             this.Name = "Panier_composantes";
-            this.Size = new System.Drawing.Size(651, 107);
+            this.Size = new System.Drawing.Size(734, 107);
+            this.Load += new System.EventHandler(this.Panier_composantes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Vélo_Image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

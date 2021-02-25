@@ -20,7 +20,7 @@ namespace Bovelo_SuperApp
             this.colour = c;
             this.type = t;
             this.size = s;
-            this.price = price;
+            this.price = price*quantity;
             this.quantity = quantity;
 
 

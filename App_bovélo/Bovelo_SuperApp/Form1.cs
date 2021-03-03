@@ -24,6 +24,7 @@ namespace Bovelo_SuperApp
         public Catalog catalog = new Catalog();
         public Cart cart = new Cart();
         public Client_Info client_info = new Client_Info();
+        public production_planning production_Planning = new production_planning();
         
         public static Form1 Instance
         {

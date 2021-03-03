@@ -113,6 +113,12 @@
     <Compile Include="Product.Designer.cs">
       <DependentUpon>Product.cs</DependentUpon>
     </Compile>
+    <Compile Include="production_planning.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="production_planning.Designer.cs">
+      <DependentUpon>production_planning.cs</DependentUpon>
+    </Compile>
     <Compile Include="Product_catalog.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Product.resx">
       <DependentUpon>Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="production_planning.resx">
+      <DependentUpon>production_planning.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Product_catalog.resx">
       <DependentUpon>Product_catalog.cs</DependentUpon>

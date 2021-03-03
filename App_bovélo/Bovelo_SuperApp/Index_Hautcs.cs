@@ -20,6 +20,9 @@ namespace Bovelo_SuperApp
             InitializeComponent();
         }
 
-        
+        private void Connection_User_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

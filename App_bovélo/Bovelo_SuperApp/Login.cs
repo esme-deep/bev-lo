@@ -34,6 +34,16 @@ namespace Bovelo_SuperApp
 
 
             }
+            if (UserName.Text == "Asmae" & Password.Text == "")
+            {
+                Form1.Instance.index_Haut.Connection_User.Text = "Connected as " + UserName.Text;
+                Form1.Instance.panelContainer.Controls.Clear();
+                Form1.Instance.panelContainer.Controls.Add(Form1.Instance.production_Planning);
+                Form1.Instance.index_Gauche.Sign_in.Text = "Sign out";
+
+
+
+            }
         }
     }
 }

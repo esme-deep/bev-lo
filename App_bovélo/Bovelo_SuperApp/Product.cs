@@ -31,6 +31,7 @@ namespace Bovelo_SuperApp
         {
             if (BoxSize.Text != "" & boxColor.Text != "")
             {   
+            
                 
                 Model_Bike model_bike = new Model_Bike(boxColor.Text, label_model.Text, BoxSize.Text,Double.Parse( price_lbl.Text),int.Parse(quantity_input.Text));
                 //Command.Add(model_bike);

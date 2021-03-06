@@ -128,6 +128,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Thing.cs" />
+    <Compile Include="WeekOrders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WeekOrders.Designer.cs">
+      <DependentUpon>WeekOrders.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Cart.resx">
       <DependentUpon>Cart.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,6 +179,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="WeekOrders.resx">
+      <DependentUpon>WeekOrders.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

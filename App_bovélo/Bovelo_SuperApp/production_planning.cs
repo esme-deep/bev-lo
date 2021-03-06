@@ -28,6 +28,7 @@ namespace Bovelo_SuperApp
             Form1.Instance.production_Planning.title_production_planning.Text = "This week orders are";
             Form1.Instance.production_Planning.title_production_planning.Location = new Point(287, 57);
             Form1.Instance.production_Planning.btn_get_orders.Visible = false;
+            Form1.Instance.production_Planning.pnl_week_orders.Visible = true;
 
 
             Dictionary<Model_Bike, Client> Orders = new Dictionary<Model_Bike, Client>();
@@ -68,13 +69,15 @@ namespace Bovelo_SuperApp
             foreach (KeyValuePair<Model_Bike,Client> elt in Orders)
             {
                 Console.WriteLine("you {0} bought {1} with color {2}", elt.Value.first_name, elt.Key.type, elt.Key.colour);
+                Form1.Instance.production_Planning.pnl_week_orders.Controls.Add(new WeekOrders(elt.Key.type, elt.Key.size, elt.Value.last_name, elt.Value.business_name));
             }
             
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
 
-
-
+        }
     }
     
 }

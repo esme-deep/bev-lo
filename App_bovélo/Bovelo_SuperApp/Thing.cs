@@ -13,6 +13,7 @@ namespace Bovelo_SuperApp
         public string size;
         public double price;
         public int quantity;
+        public int id_bike;
         //:public delivery_time ;
 
         public Model_Bike(string c, string t, string s, double price, int quantity)
@@ -24,6 +25,10 @@ namespace Bovelo_SuperApp
             this.quantity = quantity;
 
 
+        }
+        public void set_id( int id)
+        {
+            this.id_bike = id;
         }
     }
 }

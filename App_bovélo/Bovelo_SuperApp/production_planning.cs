@@ -33,7 +33,7 @@ namespace Bovelo_SuperApp
 
             Dictionary<Model_Bike, Client> Orders = new Dictionary<Model_Bike, Client>();
             MySqlDataReader reader = null;
-            String sql = "SELECT * from model_bikes, command,customer where model_bikes.N_command = command.id_command and customer.id = command.id_customer ";
+            String sql = "SELECT * from model_bikes, command,customer where  mounter is null and model_bikes.N_command = command.id_command and customer.id = command.id_customer ";
             MySqlConnection connectionDB = Connection.connection();
             connectionDB.Open();
             try
@@ -44,7 +44,10 @@ namespace Bovelo_SuperApp
                 {
                     while (reader.Read())
                     {
-                        Orders.Add(new Model_Bike(reader.GetString("colour"), reader.GetString("type_bike"), reader.GetString("size"),1,1),new Client(reader.GetString("firstname"), reader.GetString("lastname"),reader.GetString("email"), reader.GetString("adress"), int.Parse(reader.GetString("postalcode")), reader.GetString("city"), reader.GetString("business_name")));
+                        Model_Bike bike = new Model_Bike(reader.GetString("colour"), reader.GetString("type_bike"), reader.GetString("size"), 1, 1);
+                        bike.set_id(reader.GetInt16("id_bike"));
+
+                        Orders.Add(bike,new Client(reader.GetString("firstname"), reader.GetString("lastname"), reader.GetString("email"), reader.GetString("adress"), int.Parse(reader.GetString("postalcode")), reader.GetString("city"), reader.GetString("business_name")));
                     }
 
                 }
@@ -68,8 +71,8 @@ namespace Bovelo_SuperApp
             }
             foreach (KeyValuePair<Model_Bike,Client> elt in Orders)
             {
-                Console.WriteLine("you {0} bought {1} with color {2}", elt.Value.first_name, elt.Key.type, elt.Key.colour);
-                Form1.Instance.production_Planning.pnl_week_orders.Controls.Add(new WeekOrders(elt.Key.type, elt.Key.size, elt.Value.last_name, elt.Value.business_name));
+                Console.WriteLine("you {0} bought {1} with color {2} which id is {3}", elt.Value.first_name, elt.Key.type, elt.Key.colour,elt.Key.id_bike);
+                Form1.Instance.production_Planning.pnl_week_orders.Controls.Add(new WeekOrders(elt.Key.id_bike.ToString(),elt.Key.type, elt.Key.size, elt.Value.last_name, elt.Value.business_name));
             }
             
         }
@@ -77,6 +80,34 @@ namespace Bovelo_SuperApp
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_set_mounters_Click(object sender, EventArgs e)
+
+        {
+           
+            foreach (WeekOrders elt in Form1.Instance.production_Planning.pnl_week_orders.Controls)
+            {
+                //String sqlll = "ALTER model_bikes (mounter,production_order)  WHERE id_bike LIKE '" + int.Parse(elt.id_bike) +  "' VALUES ('" + elt.mounter.Text+ "', '" + elt.OrderOfProduction.Text + "' )"  ;
+                String sqlll = "UPDATE model_bikes SET mounter = '" + elt.mounter.Text + "'  ,production_order = '" + elt.OrderOfProduction.Text + "' WHERE id_bike LIKE '" + int.Parse(elt.id_bike) + "'";
+                MySqlConnection connectionDB = Connection.connection();
+                connectionDB.Open();
+                try
+                {
+                    MySqlCommand comando = new MySqlCommand(sqlll, connectionDB);
+                    comando.ExecuteNonQuery();
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(elt.id_bike + " not assigned to the mounter Error: " + ex.Message);
+                }
+                finally
+                {
+                    connectionDB.Close();
+                }
+
+
+            }
         }
     }
     

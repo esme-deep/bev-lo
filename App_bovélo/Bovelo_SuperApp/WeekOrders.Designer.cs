@@ -95,6 +95,7 @@ namespace Bovelo_SuperApp
             // 
             // OrderOfProduction
             // 
+            this.OrderOfProduction.AccessibleName = "OrderOfProduction";
             this.OrderOfProduction.Items.Add("1");
             this.OrderOfProduction.Items.Add("2");
             this.OrderOfProduction.Items.Add("3");
@@ -164,7 +165,7 @@ namespace Bovelo_SuperApp
         public System.Windows.Forms.Label lbl_client_name;
         public System.Windows.Forms.Label lbl_size;
         public System.Windows.Forms.Label lbl_time;
-        private System.Windows.Forms.DomainUpDown OrderOfProduction;
         public System.Windows.Forms.ComboBox mounter;
+        public System.Windows.Forms.DomainUpDown OrderOfProduction;
     }
 }

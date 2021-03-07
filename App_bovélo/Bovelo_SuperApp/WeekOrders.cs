@@ -12,7 +12,8 @@ namespace Bovelo_SuperApp
 {
     public partial class WeekOrders : UserControl
     {
-        public WeekOrders(string model, string size,string client,string business_name)
+        public string id_bike;
+        public WeekOrders(string id_bike ,string model, string size,string client,string business_name)
         {
             InitializeComponent();
             lbl_model.Text = model;
@@ -31,6 +32,7 @@ namespace Bovelo_SuperApp
             {
                 lbl_time.Text = "2H45";
             }
+            this.id_bike = id_bike;
 
         }
 

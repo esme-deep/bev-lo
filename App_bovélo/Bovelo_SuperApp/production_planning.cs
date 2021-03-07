@@ -85,28 +85,42 @@ namespace Bovelo_SuperApp
         private void btn_set_mounters_Click(object sender, EventArgs e)
 
         {
+            
            
             foreach (WeekOrders elt in Form1.Instance.production_Planning.pnl_week_orders.Controls)
             {
-                //String sqlll = "ALTER model_bikes (mounter,production_order)  WHERE id_bike LIKE '" + int.Parse(elt.id_bike) +  "' VALUES ('" + elt.mounter.Text+ "', '" + elt.OrderOfProduction.Text + "' )"  ;
-                String sqlll = "UPDATE model_bikes SET mounter = '" + elt.mounter.Text + "'  ,production_order = '" + elt.OrderOfProduction.Text + "' WHERE id_bike LIKE '" + int.Parse(elt.id_bike) + "'";
-                MySqlConnection connectionDB = Connection.connection();
-                connectionDB.Open();
-                try
+                if (elt.mounter.Text != "" & elt.OrderOfProduction.Text != "")
                 {
-                    MySqlCommand comando = new MySqlCommand(sqlll, connectionDB);
-                    comando.ExecuteNonQuery();
-                }
-                catch (MySqlException ex)
-                {
-                    MessageBox.Show(elt.id_bike + " not assigned to the mounter Error: " + ex.Message);
-                }
-                finally
-                {
-                    connectionDB.Close();
-                }
 
 
+                    //String sqlll = "ALTER model_bikes (mounter,production_order)  WHERE id_bike LIKE '" + int.Parse(elt.id_bike) +  "' VALUES ('" + elt.mounter.Text+ "', '" + elt.OrderOfProduction.Text + "' )"  ;
+                    String sqlll = "UPDATE model_bikes SET mounter = '" + elt.mounter.Text + "'  ,production_order = '" + elt.OrderOfProduction.Text + "' WHERE id_bike LIKE '" + int.Parse(elt.id_bike) + "'";
+                    MySqlConnection connectionDB = Connection.connection();
+                    connectionDB.Open();
+                    try
+                    {
+                        MySqlCommand comando = new MySqlCommand(sqlll, connectionDB);
+                        comando.ExecuteNonQuery();
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show("the bike" + elt.id_bike + " not assigned to the mounter Error: " + ex.Message);
+                    }
+                    finally
+                    {
+                        connectionDB.Close();
+                        Form1.Instance.production_Planning.pnl_week_orders.Controls.Clear();
+                        //Form1.Instance.production_Planning.btn_set_mounters.Visible = false;
+                        Form1.Instance.production_Planning.btn_set_mounters.Enabled = false;
+
+
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("fulfill all the inputs");
+                }
             }
         }
     }

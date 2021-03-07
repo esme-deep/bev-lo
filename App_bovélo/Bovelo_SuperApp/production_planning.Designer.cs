@@ -40,7 +40,6 @@ namespace Bovelo_SuperApp
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pnl_week_orders = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
             this.btn_set_mounters = new System.Windows.Forms.Button();
             this.pnl_titles_week_orders.SuspendLayout();
             this.SuspendLayout();
@@ -170,18 +169,9 @@ namespace Bovelo_SuperApp
             this.pnl_week_orders.TabIndex = 4;
             this.pnl_week_orders.Visible = false;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // btn_set_mounters
             // 
-            this.btn_set_mounters.Location = new System.Drawing.Point(543, 489);
+            this.btn_set_mounters.Location = new System.Drawing.Point(529, 488);
             this.btn_set_mounters.Name = "btn_set_mounters";
             this.btn_set_mounters.Size = new System.Drawing.Size(180, 65);
             this.btn_set_mounters.TabIndex = 6;
@@ -194,7 +184,6 @@ namespace Bovelo_SuperApp
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btn_set_mounters);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pnl_week_orders);
             this.Controls.Add(this.pnl_titles_week_orders);
             this.Controls.Add(this.btn_get_orders);
@@ -222,7 +211,6 @@ namespace Bovelo_SuperApp
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel pnl_week_orders;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btn_set_mounters;
     }
 }

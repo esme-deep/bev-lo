@@ -26,17 +26,11 @@ namespace Bovelo_SuperApp
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(txtEmail.Text != "" & txtLastName.Text !="" & txtFirstName.Text != "")
+            if(!(txtLastName.Text == "" | txtFirstName.Text == "" | txtEmail.Text == "" | txtAdress.Text == "" | txtPostalCode.Text == "" | txtCity.Text == "" | Business_name.Text == ""))
             {
                 try
                 {
                     nextClient = new Client(txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtAdress.Text, int.Parse(txtPostalCode.Text), txtCity.Text, Business_name.Text);
-                    /*String firstName = txtFirstName.Text;
-                    String lastName = txtLastName.Text;
-                    String email = txtEmail.Text;
-                    String adress = txtAdress.Text;
-                    int postalCode = int.Parse(txtPostalCode.Text);
-                    string city = txtCity.Text; */
 
                     String sql2 = "INSERT INTO customer (firstname, lastname, email, adress, postalcode, city, business_name) VALUES ('" + nextClient.first_name + "', '" + nextClient.last_name + "','" + nextClient.email + "','" + nextClient.adress + "','" + nextClient.postal_code + "','" + nextClient.city +"','"+nextClient.business_name +"')";
                     MySqlConnection connectionDB = Connection.connection();
@@ -77,15 +71,16 @@ namespace Bovelo_SuperApp
                         connectionDB.Close();
                     }
                 }
-                catch (FormatException fex)
+                catch (Exception)
                 {
-                    MessageBox.Show("Données incorrectes: " + fex.Message);
+                    MessageBox.Show("only numbers for postal code  " );
                 }
                 
 
 
 
             }
+
         }
         private void clear()
         {
@@ -262,10 +257,18 @@ namespace Bovelo_SuperApp
         }
 
         private void btnConfirm(object sender, EventArgs e)
-        {
-            nextClient = new Client(txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtAdress.Text, int.Parse(txtPostalCode.Text), txtCity.Text, Business_name.Text);
-            nextClient.id = int.Parse(txtId.Text);
-            Form1.Instance.Cart.client = nextClient;
+        {   
+            if (txtLastName.Text == "" | txtFirstName.Text ==""| txtEmail.Text==""| txtAdress.Text ==""| txtPostalCode.Text==""| txtCity.Text ==""| Business_name.Text == "")
+            {
+                MessageBox.Show("fulfill all inputs!");
+            }
+            else 
+            {
+                nextClient = new Client(txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtAdress.Text, int.Parse(txtPostalCode.Text), txtCity.Text, Business_name.Text);
+                nextClient.id = int.Parse(txtId.Text);
+                Form1.Instance.Cart.client = nextClient;
+            }
+
         }
     }
 }

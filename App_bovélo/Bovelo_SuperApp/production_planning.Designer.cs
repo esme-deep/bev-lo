@@ -90,9 +90,9 @@ namespace Bovelo_SuperApp
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(1068, -1);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 46);
+            this.label5.Size = new System.Drawing.Size(111, 46);
             this.label5.TabIndex = 2;
-            this.label5.Text = "Order";
+            this.label5.Text = "order";
             // 
             // label1
             // 
@@ -181,7 +181,7 @@ namespace Bovelo_SuperApp
             // 
             // btn_set_mounters
             // 
-            this.btn_set_mounters.Location = new System.Drawing.Point(449, 514);
+            this.btn_set_mounters.Location = new System.Drawing.Point(543, 489);
             this.btn_set_mounters.Name = "btn_set_mounters";
             this.btn_set_mounters.Size = new System.Drawing.Size(180, 65);
             this.btn_set_mounters.TabIndex = 6;

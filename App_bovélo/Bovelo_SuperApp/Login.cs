@@ -19,7 +19,7 @@ namespace Bovelo_SuperApp
 
         private void Connect_Button_Click(object sender, EventArgs e)
         {
-            if (UserName.Text == "" & Password.Text == "")
+            if (UserName.Text == "A" & Password.Text == "")
             {
                 Form1.Instance.index_Haut.Connection_User.Text = "Connected as "+UserName.Text;
                 Form1.Instance.panelContainer.Controls.Clear();
@@ -35,7 +35,7 @@ namespace Bovelo_SuperApp
 
 
             }
-            if (UserName.Text == "Asmae" & Password.Text == "")
+            if (UserName.Text == "P" & Password.Text == "")
             {
                 Form1.Instance.index_Haut.Connection_User.Text = "Connected as " + UserName.Text;
                 Form1.Instance.panelContainer.Controls.Clear();
@@ -54,7 +54,7 @@ namespace Bovelo_SuperApp
 
 
             }
-            if (UserName.Text == "Mounter1" & Password.Text == "")
+            if (UserName.Text == "M1" & Password.Text == "")
             {
                 Form1.Instance.index_Haut.Connection_User.Text = "Connected as " + UserName.Text;
                 Form1.Instance.panelContainer.Controls.Clear();
@@ -65,7 +65,7 @@ namespace Bovelo_SuperApp
 
 
             }
-            if (UserName.Text == "Mounter2" & Password.Text == "")
+            if (UserName.Text == "M2" & Password.Text == "")
             {
                 Form1.Instance.index_Haut.Connection_User.Text = "Connected as " + UserName.Text;
                 Form1.Instance.panelContainer.Controls.Clear();
@@ -76,7 +76,7 @@ namespace Bovelo_SuperApp
 
 
             }
-            if (UserName.Text == "Mounter3" & Password.Text == "")
+            if (UserName.Text == "M3" & Password.Text == "")
             {
                 Form1.Instance.index_Haut.Connection_User.Text = "Connected as " + UserName.Text;
                 Form1.Instance.panelContainer.Controls.Clear();

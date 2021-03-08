@@ -40,7 +40,7 @@ namespace Bovelo_SuperApp
         private void btn_set_mounters_Click(object sender, EventArgs e)
         {   
             
-            char a = Form1.Instance.index_Haut.Connection_User.Text[20];
+            char a = Form1.Instance.index_Haut.Connection_User.Text[14];
             Console.WriteLine(a);
             this.pnl_week_orders_forMounter.Controls.Clear();
             Orders = new Dictionary<Model_Bike, Client>();

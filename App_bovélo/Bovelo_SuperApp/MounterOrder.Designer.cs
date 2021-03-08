@@ -30,6 +30,7 @@ namespace Bovelo_SuperApp
         private void InitializeComponent()
         {
             this.pnl_titles_week_orders = new System.Windows.Forms.Panel();
+            this.Bte_bike = new System.Windows.Forms.Button();
             this.color_mounter = new System.Windows.Forms.Label();
             this.order_mounter = new System.Windows.Forms.Label();
             this.business_name_mounter = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@ namespace Bovelo_SuperApp
             this.size_mounter = new System.Windows.Forms.Label();
             this.time_mounter = new System.Windows.Forms.Label();
             this.model_mounter = new System.Windows.Forms.Label();
-            this.Bte_bike = new System.Windows.Forms.Button();
             this.pnl_titles_week_orders.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,19 +52,33 @@ namespace Bovelo_SuperApp
             this.pnl_titles_week_orders.Controls.Add(this.size_mounter);
             this.pnl_titles_week_orders.Controls.Add(this.time_mounter);
             this.pnl_titles_week_orders.Controls.Add(this.model_mounter);
-            this.pnl_titles_week_orders.Location = new System.Drawing.Point(3, 13);
+            this.pnl_titles_week_orders.Location = new System.Drawing.Point(2, 11);
+            this.pnl_titles_week_orders.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnl_titles_week_orders.Name = "pnl_titles_week_orders";
-            this.pnl_titles_week_orders.Size = new System.Drawing.Size(1070, 40);
+            this.pnl_titles_week_orders.Size = new System.Drawing.Size(789, 33);
             this.pnl_titles_week_orders.TabIndex = 5;
+            // 
+            // Bte_bike
+            // 
+            this.Bte_bike.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F);
+            this.Bte_bike.Location = new System.Drawing.Point(691, -2);
+            this.Bte_bike.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Bte_bike.Name = "Bte_bike";
+            this.Bte_bike.Size = new System.Drawing.Size(98, 34);
+            this.Bte_bike.TabIndex = 7;
+            this.Bte_bike.Text = "Done";
+            this.Bte_bike.UseVisualStyleBackColor = true;
+            this.Bte_bike.Click += new System.EventHandler(this.Bte_bike_Click);
             // 
             // color_mounter
             // 
             this.color_mounter.AutoSize = true;
             this.color_mounter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.color_mounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.color_mounter.Location = new System.Drawing.Point(138, 0);
+            this.color_mounter.Location = new System.Drawing.Point(104, 0);
+            this.color_mounter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.color_mounter.Name = "color_mounter";
-            this.color_mounter.Size = new System.Drawing.Size(96, 39);
+            this.color_mounter.Size = new System.Drawing.Size(77, 32);
             this.color_mounter.TabIndex = 4;
             this.color_mounter.Text = "Color";
             this.color_mounter.Click += new System.EventHandler(this.label1_Click);
@@ -74,9 +88,10 @@ namespace Bovelo_SuperApp
             this.order_mounter.AutoSize = true;
             this.order_mounter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.order_mounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.order_mounter.Location = new System.Drawing.Point(835, 0);
+            this.order_mounter.Location = new System.Drawing.Point(626, 0);
+            this.order_mounter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.order_mounter.Name = "order_mounter";
-            this.order_mounter.Size = new System.Drawing.Size(94, 39);
+            this.order_mounter.Size = new System.Drawing.Size(75, 32);
             this.order_mounter.TabIndex = 2;
             this.order_mounter.Text = "order";
             // 
@@ -85,9 +100,10 @@ namespace Bovelo_SuperApp
             this.business_name_mounter.AutoSize = true;
             this.business_name_mounter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.business_name_mounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.business_name_mounter.Location = new System.Drawing.Point(521, -1);
+            this.business_name_mounter.Location = new System.Drawing.Point(391, -1);
+            this.business_name_mounter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.business_name_mounter.Name = "business_name_mounter";
-            this.business_name_mounter.Size = new System.Drawing.Size(234, 39);
+            this.business_name_mounter.Size = new System.Drawing.Size(187, 32);
             this.business_name_mounter.TabIndex = 6;
             this.business_name_mounter.Text = "business name";
             // 
@@ -96,9 +112,10 @@ namespace Bovelo_SuperApp
             this.client_name_mounter.AutoSize = true;
             this.client_name_mounter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.client_name_mounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.client_name_mounter.Location = new System.Drawing.Point(326, -1);
+            this.client_name_mounter.Location = new System.Drawing.Point(244, -1);
+            this.client_name_mounter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.client_name_mounter.Name = "client_name_mounter";
-            this.client_name_mounter.Size = new System.Drawing.Size(189, 39);
+            this.client_name_mounter.Size = new System.Drawing.Size(152, 32);
             this.client_name_mounter.TabIndex = 5;
             this.client_name_mounter.Text = "Client name";
             this.client_name_mounter.Click += new System.EventHandler(this.label3_Click);
@@ -108,9 +125,10 @@ namespace Bovelo_SuperApp
             this.size_mounter.AutoSize = true;
             this.size_mounter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.size_mounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.size_mounter.Location = new System.Drawing.Point(240, -1);
+            this.size_mounter.Location = new System.Drawing.Point(180, -1);
+            this.size_mounter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.size_mounter.Name = "size_mounter";
-            this.size_mounter.Size = new System.Drawing.Size(80, 39);
+            this.size_mounter.Size = new System.Drawing.Size(65, 32);
             this.size_mounter.TabIndex = 3;
             this.size_mounter.Text = "Size";
             // 
@@ -119,9 +137,10 @@ namespace Bovelo_SuperApp
             this.time_mounter.AutoSize = true;
             this.time_mounter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.time_mounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.time_mounter.Location = new System.Drawing.Point(750, -1);
+            this.time_mounter.Location = new System.Drawing.Point(562, -1);
+            this.time_mounter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.time_mounter.Name = "time_mounter";
-            this.time_mounter.Size = new System.Drawing.Size(79, 39);
+            this.time_mounter.Size = new System.Drawing.Size(64, 32);
             this.time_mounter.TabIndex = 0;
             this.time_mounter.Text = "time";
             // 
@@ -131,29 +150,20 @@ namespace Bovelo_SuperApp
             this.model_mounter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.model_mounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.model_mounter.Location = new System.Drawing.Point(-1, -1);
+            this.model_mounter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.model_mounter.Name = "model_mounter";
-            this.model_mounter.Size = new System.Drawing.Size(105, 39);
+            this.model_mounter.Size = new System.Drawing.Size(85, 32);
             this.model_mounter.TabIndex = 1;
             this.model_mounter.Text = "Model";
             // 
-            // Bte_bike
-            // 
-            this.Bte_bike.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F);
-            this.Bte_bike.Location = new System.Drawing.Point(935, -3);
-            this.Bte_bike.Name = "Bte_bike";
-            this.Bte_bike.Size = new System.Drawing.Size(107, 38);
-            this.Bte_bike.TabIndex = 7;
-            this.Bte_bike.Text = "Done";
-            this.Bte_bike.UseVisualStyleBackColor = true;
-            this.Bte_bike.Click += new System.EventHandler(this.Bte_bike_Click);
-            // 
             // MounterOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnl_titles_week_orders);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MounterOrder";
-            this.Size = new System.Drawing.Size(1076, 68);
+            this.Size = new System.Drawing.Size(807, 55);
             this.Load += new System.EventHandler(this.MounterOrder_Load);
             this.pnl_titles_week_orders.ResumeLayout(false);
             this.pnl_titles_week_orders.PerformLayout();

@@ -31,6 +31,7 @@ namespace Bovelo_SuperApp
             Form1.Instance.production_Planning.pnl_week_orders.Visible = true;
 
 
+
             Dictionary<Model_Bike, Client> Orders = new Dictionary<Model_Bike, Client>();
             MySqlDataReader reader = null;
             String sql = "SELECT * from model_bikes, command,customer where  mounter is null and model_bikes.N_command = command.id_command and customer.id = command.id_customer ";

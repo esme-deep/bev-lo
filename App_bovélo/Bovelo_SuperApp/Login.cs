@@ -45,6 +45,40 @@ namespace Bovelo_SuperApp
 
 
             }
+            if (UserName.Text == "Mounter1" & Password.Text == "")
+            {
+                Form1.Instance.index_Haut.Connection_User.Text = "Connected as " + UserName.Text;
+                Form1.Instance.panelContainer.Controls.Clear();
+                Form1.Instance.MounteurControl = new MounterControl();
+                Form1.Instance.panelContainer.Controls.Add(Form1.Instance.MounteurControl);
+                Form1.Instance.index_Gauche.Sign_in.Text = "Sign out";
+
+
+
+            }
+            if (UserName.Text == "Mounter2" & Password.Text == "")
+            {
+                Form1.Instance.index_Haut.Connection_User.Text = "Connected as " + UserName.Text;
+                Form1.Instance.panelContainer.Controls.Clear();
+                Form1.Instance.MounteurControl = new MounterControl();
+                Form1.Instance.panelContainer.Controls.Add(Form1.Instance.MounteurControl);
+                Form1.Instance.index_Gauche.Sign_in.Text = "Sign out";
+
+
+
+            }
+            if (UserName.Text == "Mounter3" & Password.Text == "")
+            {
+                Form1.Instance.index_Haut.Connection_User.Text = "Connected as " + UserName.Text;
+                Form1.Instance.panelContainer.Controls.Clear();
+                Form1.Instance.MounteurControl = new MounterControl();
+                Form1.Instance.panelContainer.Controls.Add(Form1.Instance.MounteurControl);
+                Form1.Instance.index_Gauche.Sign_in.Text = "Sign out";
+
+
+
+            }
+
         }
     }
 }

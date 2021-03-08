@@ -95,6 +95,18 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="MounterOrder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MounterOrder.Designer.cs">
+      <DependentUpon>MounterOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MounterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MounterControl.Designer.cs">
+      <DependentUpon>MounterControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -154,6 +166,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MounterOrder.resx">
+      <DependentUpon>MounterOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MounterControl.resx">
+      <DependentUpon>MounterControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation.resx">
       <DependentUpon>Presentation.cs</DependentUpon>

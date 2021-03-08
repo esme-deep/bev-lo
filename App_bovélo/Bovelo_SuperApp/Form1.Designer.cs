@@ -1,8 +1,7 @@
 ﻿
 namespace Bovelo_SuperApp
 {
-    partial class Form1
-    {
+    public partial class Form1    {
         /// <summary>
         /// Variable nécessaire au concepteur.
         /// </summary>
@@ -42,24 +41,24 @@ namespace Bovelo_SuperApp
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1082, 536);
             this.panelContainer.TabIndex = 3;
-            
             // 
-            // index_Hautcs1
+            // index_Haut
             // 
             this.index_Haut.BackColor = System.Drawing.SystemColors.Highlight;
             this.index_Haut.Location = new System.Drawing.Point(180, 0);
-            this.index_Haut.Name = "index_Hautcs1";
+            this.index_Haut.Name = "index_Haut";
             this.index_Haut.Size = new System.Drawing.Size(1106, 142);
             this.index_Haut.TabIndex = 1;
             // 
-            // index_Gauche1
+            // index_Gauche
             // 
             this.index_Gauche.BackColor = System.Drawing.SystemColors.HotTrack;
             this.index_Gauche.Location = new System.Drawing.Point(0, 0);
-            this.index_Gauche.Name = "index_Gauche1";
+            this.index_Gauche.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.index_Gauche.Name = "index_Gauche";
             this.index_Gauche.Size = new System.Drawing.Size(180, 720);
             this.index_Gauche.TabIndex = 0;
-            
+            this.index_Gauche.Load += new System.EventHandler(this.index_Gauche_Load);
             // 
             // Form1
             // 
@@ -80,7 +79,7 @@ namespace Bovelo_SuperApp
         #endregion
 
         public Index_Gauche index_Gauche;
-        public Index_Hautcs index_Haut;
+        
         public System.Windows.Forms.Panel panelContainer;
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -109,19 +109,22 @@ namespace Bovelo_SuperApp
                     finally
                     {
                         connectionDB.Close();
-                        Form1.Instance.production_Planning.pnl_week_orders.Controls.Clear();
-                        //Form1.Instance.production_Planning.btn_set_mounters.Visible = false;
-                        Form1.Instance.production_Planning.btn_set_mounters.Enabled = false;
+                        
 
 
                     }
 
                 }
+                /*
                 else
                 {
                     MessageBox.Show("fulfill all the inputs");
                 }
+                */
             }
+            Form1.Instance.production_Planning.pnl_week_orders.Controls.Clear();
+            //Form1.Instance.production_Planning.btn_set_mounters.Visible = false;
+            Form1.Instance.production_Planning.btn_set_mounters.Enabled = false;
         }
 
         private void button3_Click(object sender, EventArgs e)

@@ -3,6 +3,7 @@ namespace Bovelo_SuperApp
 {
     partial class production_planning
     {
+        
         /// <summary> 
         /// Variable nécessaire au concepteur.
         /// </summary>

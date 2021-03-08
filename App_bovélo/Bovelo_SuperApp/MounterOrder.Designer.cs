@@ -174,3 +174,4 @@ namespace Bovelo_SuperApp
         private System.Windows.Forms.Button Bte_bike;
     }
 }
+

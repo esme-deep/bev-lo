@@ -60,9 +60,7 @@ namespace Bovelo_SuperApp
                     {
                         Model_Bike bike = new Model_Bike(reader.GetString("colour"), reader.GetString("type_bike"), reader.GetString("size"), 1, 1);
                         bike.set_id(reader.GetInt16("id_bike"));
-
                         bike.set_order(reader.GetString("production_order"));
-
                         Orders.Add(bike, new Client(reader.GetString("firstname"), reader.GetString("lastname"), reader.GetString("email"), reader.GetString("adress"), int.Parse(reader.GetString("postalcode")), reader.GetString("city"), reader.GetString("business_name")));
                     }
 

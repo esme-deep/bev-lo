@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +14,7 @@ namespace Bovelo_SuperApp
 {
     public partial class MounterControl : UserControl
     {
+        public Dictionary<Model_Bike, Client> Orders;
         public MounterControl()
         {
             InitializeComponent();
@@ -39,10 +40,10 @@ namespace Bovelo_SuperApp
         private void btn_set_mounters_Click(object sender, EventArgs e)
         {   
             
-         char a = Form1.Instance.index_Haut.Connection_User.Text[20];
+            char a = Form1.Instance.index_Haut.Connection_User.Text[20];
             Console.WriteLine(a);
-
-            Dictionary<Model_Bike, Client> Orders = new Dictionary<Model_Bike, Client>();
+            this.pnl_week_orders_forMounter.Controls.Clear();
+            Orders = new Dictionary<Model_Bike, Client>();
             MySqlDataReader reader = null;
             String sql = "SELECT * from model_bikes, command,customer where  mounter ='mounter" + a + "'and model_bikes.N_command = command.id_command and customer.id = command.id_customer ";
             MySqlConnection connectionDB = Connection.connection();
@@ -90,6 +91,16 @@ namespace Bovelo_SuperApp
 
                 Form1.Instance.MounteurControl.pnl_week_orders_forMounter.Controls.Add(new MounterOrder(elt.Key.id_bike.ToString(), elt.Key.type, elt.Key.colour, elt.Key.size, elt.Value.last_name, elt.Value.business_name, elt.Key.order));
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

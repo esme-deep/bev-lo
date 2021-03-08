@@ -75,7 +75,7 @@ namespace Bovelo_SuperApp
             this.label5.AutoSize = true;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(949, -1);
+            this.label5.Location = new System.Drawing.Point(959, -1);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 39);
             this.label5.TabIndex = 2;
@@ -86,7 +86,7 @@ namespace Bovelo_SuperApp
             this.label6.AutoSize = true;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(587, 0);
+            this.label6.Location = new System.Drawing.Point(580, -1);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(234, 39);
             this.label6.TabIndex = 6;
@@ -119,7 +119,7 @@ namespace Bovelo_SuperApp
             this.label2.AutoSize = true;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(842, 2);
+            this.label2.Location = new System.Drawing.Point(853, -1);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 39);
             this.label2.TabIndex = 0;
@@ -168,7 +168,7 @@ namespace Bovelo_SuperApp
             this.title_production_planning.TabIndex = 8;
             this.title_production_planning.Text = "Welcome";
             // 
-            // MounteurControl
+            // MounterControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -176,7 +176,7 @@ namespace Bovelo_SuperApp
             this.Controls.Add(this.btn_GetBike_mounters);
             this.Controls.Add(this.pnl_week_orders_forMounter);
             this.Controls.Add(this.pnl_titles_week_orders);
-            this.Name = "MounteurControl";
+            this.Name = "MounterControl";
             this.Size = new System.Drawing.Size(1083, 537);
             this.pnl_titles_week_orders.ResumeLayout(false);
             this.pnl_titles_week_orders.PerformLayout();

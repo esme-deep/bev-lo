@@ -46,6 +46,7 @@ namespace Bovelo_SuperApp
             MySqlDataReader reader = null;
             String sql = "SELECT * from model_bikes, command,customer where  mounter ='mounter" + a + "'and model_bikes.N_command = command.id_command and customer.id = command.id_customer ";
             MySqlConnection connectionDB = Connection.connection();
+            
             connectionDB.Open();
             
             try

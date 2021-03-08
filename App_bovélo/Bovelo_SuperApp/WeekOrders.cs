@@ -20,17 +20,19 @@ namespace Bovelo_SuperApp
             lbl_size.Text = size;
             lbl_client_name.Text = client;
             lbl_business_name.Text = business_name;
+    
+            
             if (lbl_model.Text == "City")
             {
-                lbl_time.Text = "2H";
+                lbl_time.Text = "2";
             }
             if (lbl_model.Text == "Explorer")
             {
-                lbl_time.Text = "2H30";
+                lbl_time.Text = "2,5";
             }
             if (lbl_model.Text == "Adventure")
             {
-                lbl_time.Text = "2H45";
+                lbl_time.Text = "2,75";
             }
             this.id_bike = id_bike;
 
@@ -52,6 +54,11 @@ namespace Bovelo_SuperApp
         }
 
         private void domainUpDown1_SelectedItemChanged_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_time_Click(object sender, EventArgs e)
         {
 
         }

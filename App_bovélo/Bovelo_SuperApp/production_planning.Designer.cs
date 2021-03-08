@@ -42,16 +42,27 @@ namespace Bovelo_SuperApp
             this.pnl_week_orders = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_set_mounters = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.TimeMounter = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.PnlMounterTime = new System.Windows.Forms.FlowLayoutPanel();
+            this.TimeMounter1 = new System.Windows.Forms.Label();
+            this.TimeMounter2 = new System.Windows.Forms.Label();
+            this.TimeMounter3 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.pnl_titles_week_orders.SuspendLayout();
+            this.PnlMounterTime.SuspendLayout();
             this.SuspendLayout();
             // 
             // title_production_planning
             // 
             this.title_production_planning.AutoSize = true;
             this.title_production_planning.Font = new System.Drawing.Font("Microsoft YaHei", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title_production_planning.Location = new System.Drawing.Point(536, 23);
+            this.title_production_planning.Location = new System.Drawing.Point(715, 29);
+            this.title_production_planning.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.title_production_planning.Name = "title_production_planning";
-            this.title_production_planning.Size = new System.Drawing.Size(162, 41);
+            this.title_production_planning.Size = new System.Drawing.Size(217, 57);
             this.title_production_planning.TabIndex = 0;
             this.title_production_planning.Text = "Welcome";
             this.title_production_planning.Click += new System.EventHandler(this.title_production_planning_Click);
@@ -59,9 +70,10 @@ namespace Bovelo_SuperApp
             // btn_get_orders
             // 
             this.btn_get_orders.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_get_orders.Location = new System.Drawing.Point(538, 381);
+            this.btn_get_orders.Location = new System.Drawing.Point(717, 476);
+            this.btn_get_orders.Margin = new System.Windows.Forms.Padding(4);
             this.btn_get_orders.Name = "btn_get_orders";
-            this.btn_get_orders.Size = new System.Drawing.Size(160, 67);
+            this.btn_get_orders.Size = new System.Drawing.Size(213, 84);
             this.btn_get_orders.TabIndex = 1;
             this.btn_get_orders.Text = "Get this week orders";
             this.btn_get_orders.UseVisualStyleBackColor = true;
@@ -77,10 +89,10 @@ namespace Bovelo_SuperApp
             this.pnl_titles_week_orders.Controls.Add(this.label8);
             this.pnl_titles_week_orders.Controls.Add(this.label2);
             this.pnl_titles_week_orders.Controls.Add(this.label4);
-            this.pnl_titles_week_orders.Location = new System.Drawing.Point(3, 88);
-            this.pnl_titles_week_orders.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnl_titles_week_orders.Location = new System.Drawing.Point(4, 110);
+            this.pnl_titles_week_orders.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnl_titles_week_orders.Name = "pnl_titles_week_orders";
-            this.pnl_titles_week_orders.Size = new System.Drawing.Size(1228, 50);
+            this.pnl_titles_week_orders.Size = new System.Drawing.Size(1637, 62);
             this.pnl_titles_week_orders.TabIndex = 3;
             // 
             // label5
@@ -88,9 +100,10 @@ namespace Bovelo_SuperApp
             this.label5.AutoSize = true;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(1068, -1);
+            this.label5.Location = new System.Drawing.Point(1424, -1);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 46);
+            this.label5.Size = new System.Drawing.Size(157, 61);
             this.label5.TabIndex = 2;
             this.label5.Text = "Order";
             // 
@@ -99,9 +112,10 @@ namespace Bovelo_SuperApp
             this.label1.AutoSize = true;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(885, -1);
+            this.label1.Location = new System.Drawing.Point(1180, -1);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 46);
+            this.label1.Size = new System.Drawing.Size(212, 61);
             this.label1.TabIndex = 4;
             this.label1.Text = "mounter";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -111,9 +125,10 @@ namespace Bovelo_SuperApp
             this.label6.AutoSize = true;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(499, 2);
+            this.label6.Location = new System.Drawing.Point(665, 2);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(278, 46);
+            this.label6.Size = new System.Drawing.Size(368, 61);
             this.label6.TabIndex = 6;
             this.label6.Text = "business name";
             // 
@@ -122,9 +137,10 @@ namespace Bovelo_SuperApp
             this.label3.AutoSize = true;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(267, 3);
+            this.label3.Location = new System.Drawing.Point(356, 4);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(226, 46);
+            this.label3.Size = new System.Drawing.Size(296, 61);
             this.label3.TabIndex = 5;
             this.label3.Text = "Client name";
             // 
@@ -133,9 +149,10 @@ namespace Bovelo_SuperApp
             this.label8.AutoSize = true;
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(165, 3);
+            this.label8.Location = new System.Drawing.Point(220, 4);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(96, 46);
+            this.label8.Size = new System.Drawing.Size(126, 61);
             this.label8.TabIndex = 3;
             this.label8.Text = "Size";
             // 
@@ -144,9 +161,10 @@ namespace Bovelo_SuperApp
             this.label2.AutoSize = true;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(783, 2);
+            this.label2.Location = new System.Drawing.Point(1044, 2);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 46);
+            this.label2.Size = new System.Drawing.Size(122, 61);
             this.label2.TabIndex = 0;
             this.label2.Text = "time";
             // 
@@ -155,55 +173,161 @@ namespace Bovelo_SuperApp
             this.label4.AutoSize = true;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, -1);
+            this.label4.Location = new System.Drawing.Point(4, -1);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(126, 46);
+            this.label4.Size = new System.Drawing.Size(164, 61);
             this.label4.TabIndex = 1;
             this.label4.Text = "Model";
             // 
             // pnl_week_orders
             // 
             this.pnl_week_orders.AutoScroll = true;
-            this.pnl_week_orders.Location = new System.Drawing.Point(7, 138);
+            this.pnl_week_orders.Location = new System.Drawing.Point(9, 172);
+            this.pnl_week_orders.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_week_orders.Name = "pnl_week_orders";
-            this.pnl_week_orders.Size = new System.Drawing.Size(1211, 310);
+            this.pnl_week_orders.Size = new System.Drawing.Size(1615, 388);
             this.pnl_week_orders.TabIndex = 4;
             this.pnl_week_orders.Visible = false;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(100, 29);
             this.button1.TabIndex = 5;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // btn_set_mounters
             // 
-            this.btn_set_mounters.Location = new System.Drawing.Point(449, 514);
+            this.btn_set_mounters.Location = new System.Drawing.Point(372, 639);
+            this.btn_set_mounters.Margin = new System.Windows.Forms.Padding(4);
             this.btn_set_mounters.Name = "btn_set_mounters";
-            this.btn_set_mounters.Size = new System.Drawing.Size(180, 65);
+            this.btn_set_mounters.Size = new System.Drawing.Size(240, 81);
             this.btn_set_mounters.TabIndex = 6;
             this.btn_set_mounters.Text = "Confirm";
             this.btn_set_mounters.UseVisualStyleBackColor = true;
             this.btn_set_mounters.Click += new System.EventHandler(this.btn_set_mounters_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // TimeMounter
+            // 
+            this.TimeMounter.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.TimeMounter.Font = new System.Drawing.Font("Microsoft JhengHei", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimeMounter.ForeColor = System.Drawing.Color.Black;
+            this.TimeMounter.Location = new System.Drawing.Point(955, 672);
+            this.TimeMounter.Name = "TimeMounter";
+            this.TimeMounter.Size = new System.Drawing.Size(181, 72);
+            this.TimeMounter.TabIndex = 11;
+            this.TimeMounter.Text = "Time mounter";
+            this.TimeMounter.UseVisualStyleBackColor = false;
+            this.TimeMounter.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.TabIndex = 12;
+            // 
+            // PnlMounterTime
+            // 
+            this.PnlMounterTime.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PnlMounterTime.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PnlMounterTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PnlMounterTime.Controls.Add(this.TimeMounter1);
+            this.PnlMounterTime.Controls.Add(this.TimeMounter2);
+            this.PnlMounterTime.Controls.Add(this.TimeMounter3);
+            this.PnlMounterTime.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.PnlMounterTime.Location = new System.Drawing.Point(1220, 656);
+            this.PnlMounterTime.Name = "PnlMounterTime";
+            this.PnlMounterTime.Size = new System.Drawing.Size(255, 88);
+            this.PnlMounterTime.TabIndex = 13;
+            this.PnlMounterTime.Visible = false;
+            this.PnlMounterTime.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            // 
+            // TimeMounter1
+            // 
+            this.TimeMounter1.AutoSize = true;
+            this.TimeMounter1.Location = new System.Drawing.Point(3, 0);
+            this.TimeMounter1.Name = "TimeMounter1";
+            this.TimeMounter1.Size = new System.Drawing.Size(173, 25);
+            this.TimeMounter1.TabIndex = 0;
+            this.TimeMounter1.Text = "Time mounter 1 :";
+            this.TimeMounter1.Click += new System.EventHandler(this.time_Click);
+            // 
+            // TimeMounter2
+            // 
+            this.TimeMounter2.AutoSize = true;
+            this.TimeMounter2.Location = new System.Drawing.Point(3, 25);
+            this.TimeMounter2.Name = "TimeMounter2";
+            this.TimeMounter2.Size = new System.Drawing.Size(173, 25);
+            this.TimeMounter2.TabIndex = 1;
+            this.TimeMounter2.Text = "Time mounter 2 :";
+            this.TimeMounter2.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // TimeMounter3
+            // 
+            this.TimeMounter3.AutoSize = true;
+            this.TimeMounter3.Location = new System.Drawing.Point(3, 50);
+            this.TimeMounter3.Name = "TimeMounter3";
+            this.TimeMounter3.Size = new System.Drawing.Size(173, 25);
+            this.TimeMounter3.TabIndex = 2;
+            this.TimeMounter3.Text = "Time mounter 3 :";
+            this.TimeMounter3.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(0, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(82, 25);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "label11";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(0, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(82, 25);
+            this.label15.TabIndex = 15;
+            this.label15.Text = "label15";
+            // 
             // production_planning
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.PnlMounterTime);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.TimeMounter);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_set_mounters);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pnl_week_orders);
             this.Controls.Add(this.pnl_titles_week_orders);
             this.Controls.Add(this.btn_get_orders);
             this.Controls.Add(this.title_production_planning);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "production_planning";
-            this.Size = new System.Drawing.Size(1218, 671);
+            this.Size = new System.Drawing.Size(1624, 839);
+            this.Load += new System.EventHandler(this.production_planning_Load);
             this.pnl_titles_week_orders.ResumeLayout(false);
             this.pnl_titles_week_orders.PerformLayout();
+            this.PnlMounterTime.ResumeLayout(false);
+            this.PnlMounterTime.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,5 +348,14 @@ namespace Bovelo_SuperApp
         private System.Windows.Forms.FlowLayoutPanel pnl_week_orders;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btn_set_mounters;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button TimeMounter;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.FlowLayoutPanel PnlMounterTime;
+        private System.Windows.Forms.Label TimeMounter1;
+        private System.Windows.Forms.Label TimeMounter2;
+        private System.Windows.Forms.Label TimeMounter3;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label15;
     }
 }

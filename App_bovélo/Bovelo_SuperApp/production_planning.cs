@@ -109,6 +109,87 @@ namespace Bovelo_SuperApp
 
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void production_planning_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            Form1.Instance.production_Planning.PnlMounterTime.Visible = true;
+            double time1 = 0.0;
+            double time2 = 0.0;
+            double time3 = 0.0;
+            TimeMounter1.Text = "time mounter1 : ";
+            TimeMounter2.Text = "time mounter2 : ";
+            TimeMounter3.Text = "time mounter3 : ";
+
+
+
+
+
+
+
+            foreach (WeekOrders elt in Form1.Instance.production_Planning.pnl_week_orders.Controls)
+            {
+
+                
+                if (elt.mounter.Text == "mounter1") {
+                   
+                    time1 = double.Parse(elt.lbl_time.Text) + time1;
+                }
+                else if (elt.mounter.Text == "mounter2") {
+                    time2 = double.Parse(elt.lbl_time.Text) + time2;
+                }
+                else if (elt.mounter.Text == "mounter3")
+                { 
+                    time3 = double.Parse(elt.lbl_time.Text) + time3;
+
+                }
+            }
+            TimeMounter1.Text += time1.ToString() + " H";
+            TimeMounter2.Text += time2.ToString()+ " H";
+            TimeMounter3.Text += time3.ToString()+ " H";
+
+
+
+
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+    
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void time_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

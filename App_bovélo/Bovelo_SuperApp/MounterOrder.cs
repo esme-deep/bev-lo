@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Bovelo_SuperApp
 {
@@ -51,6 +52,53 @@ namespace Bovelo_SuperApp
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Bte_bike_Click(object sender, EventArgs e)
+        {
+
+            String sqll = "DELETE FROM model_bikes WHERE id_bike = '" + this.id_bike + "'";
+            MySqlConnection connectionDB = Connection.connection();
+            connectionDB.Open();
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(sqll, connectionDB);
+                comando.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Le vélo n'est pas supprimé de la base de donnée" + ex.Message);
+            }
+            finally
+            {
+                connectionDB.Close();
+
+
+                
+
+                Form1.Instance.MounteurControl.pnl_week_orders_forMounter.Controls.Remove(this);
+                try { Form1.Instance.MounteurControl.Orders.Remove(this.search()); }
+                catch
+                {
+                    Console.WriteLine("ok");
+                }
+                
+
+
+
+            }
+        }
+        public Model_Bike search()
+        {
+            foreach (KeyValuePair<Model_Bike, Client> elt in Form1.Instance.MounteurControl.Orders)
+            {
+                    if (elt.Key.id_bike == int.Parse(this.id_bike))
+                    {
+                        return elt.Key;
+                    }
+
+            }
+            return new Model_Bike("","","",0,0);
         }
     }
 }

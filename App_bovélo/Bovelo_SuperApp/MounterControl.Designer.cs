@@ -1,6 +1,7 @@
 
 namespace Bovelo_SuperApp
 {
+    
     partial class MounterControl
     {
         /// <summary> 

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +12,13 @@ namespace Bovelo_SuperApp
 {
     public partial class Form1 : Form
     {
+        
+        public Index_Hautcs index_Haut;
         static Form1 obj;
         public Command Cart = new Command();
-        
-        
-        
+
+        public MounterControl MounteurControl = new MounterControl();
+
         public Login login = new Login();
         public Presentation presentation = new Presentation();
         public Product product;
@@ -48,6 +49,11 @@ namespace Bovelo_SuperApp
         {
             obj = this;
             panelContainer.Controls.Add(presentation);
+        }
+
+        private void index_Gauche_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

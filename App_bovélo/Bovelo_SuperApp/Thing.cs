@@ -8,6 +8,7 @@ namespace Bovelo_SuperApp
 {
     public class Model_Bike
     {
+        public string order;
         public string colour;
         public string type;
         public string size;
@@ -21,14 +22,19 @@ namespace Bovelo_SuperApp
             this.colour = c;
             this.type = t;
             this.size = s;
-            this.price = price*quantity;
+            this.price = price * quantity;
             this.quantity = quantity;
 
 
         }
-        public void set_id( int id)
+        public void set_id(int id)
         {
             this.id_bike = id;
+        }
+
+        public void set_order(string order)
+        {
+            this.order = order;
         }
     }
 }

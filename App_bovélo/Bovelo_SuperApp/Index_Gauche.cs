@@ -63,6 +63,7 @@ namespace Bovelo_SuperApp
                 Form1.Instance.index_Gauche.cart_button.Visible = false;
                 Form1.Instance.index_Gauche.button3.Visible = false;
                 Form1.Instance.index_Gauche.button3.Visible = false;
+
             }
             else
             {

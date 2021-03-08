@@ -31,6 +31,7 @@ namespace Bovelo_SuperApp
                 Form1.Instance.index_Gauche.cart_button.Visible = true;
                 Form1.Instance.index_Gauche.button3.Visible = true;
                 Form1.Instance.index_Gauche.button3.Enabled = true;
+                
 
 
             }
@@ -41,6 +42,14 @@ namespace Bovelo_SuperApp
                 Form1.Instance.production_Planning = new production_planning(); 
                 Form1.Instance.panelContainer.Controls.Add(Form1.Instance.production_Planning);
                 Form1.Instance.index_Gauche.Sign_in.Text = "Sign out";
+                Form1.Instance.index_Gauche.catalog_button.Enabled = true;
+                Form1.Instance.index_Gauche.cart_button.Enabled = true;
+                Form1.Instance.index_Gauche.catalog_button.Visible = true;
+                Form1.Instance.index_Gauche.cart_button.Visible = true;
+                Form1.Instance.index_Gauche.button3.Visible = true;
+                Form1.Instance.index_Gauche.button3.Enabled = true;
+                Form1.Instance.index_Gauche.buttonAssign.Enabled = true;
+                Form1.Instance.index_Gauche.buttonAssign.Visible = true;
 
 
 

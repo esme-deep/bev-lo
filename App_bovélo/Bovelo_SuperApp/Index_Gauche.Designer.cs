@@ -35,6 +35,7 @@ namespace Bovelo_SuperApp
             this.Client_info = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Log_in_Button = new System.Windows.Forms.Button();
+            this.buttonAssign = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +43,7 @@ namespace Bovelo_SuperApp
             // 
             this.Catalog_Button.Enabled = false;
             this.Catalog_Button.Location = new System.Drawing.Point(0, 121);
-            this.Catalog_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Catalog_Button.Margin = new System.Windows.Forms.Padding(2);
             this.Catalog_Button.Name = "Catalog_Button";
             this.Catalog_Button.Size = new System.Drawing.Size(135, 81);
             this.Catalog_Button.TabIndex = 0;
@@ -55,7 +56,7 @@ namespace Bovelo_SuperApp
             // 
             this.Cart_Button.Enabled = false;
             this.Cart_Button.Location = new System.Drawing.Point(0, 207);
-            this.Cart_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Cart_Button.Margin = new System.Windows.Forms.Padding(2);
             this.Cart_Button.Name = "Cart_Button";
             this.Cart_Button.Size = new System.Drawing.Size(135, 81);
             this.Cart_Button.TabIndex = 1;
@@ -68,7 +69,7 @@ namespace Bovelo_SuperApp
             // 
             this.Client_info.Enabled = false;
             this.Client_info.Location = new System.Drawing.Point(0, 293);
-            this.Client_info.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Client_info.Margin = new System.Windows.Forms.Padding(2);
             this.Client_info.Name = "Client_info";
             this.Client_info.Size = new System.Drawing.Size(135, 81);
             this.Client_info.TabIndex = 2;
@@ -83,7 +84,7 @@ namespace Bovelo_SuperApp
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(0, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(135, 114);
             this.pictureBox1.TabIndex = 3;
@@ -91,8 +92,8 @@ namespace Bovelo_SuperApp
             // 
             // Log_in_Button
             // 
-            this.Log_in_Button.Location = new System.Drawing.Point(0, 380);
-            this.Log_in_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Log_in_Button.Location = new System.Drawing.Point(-2, 463);
+            this.Log_in_Button.Margin = new System.Windows.Forms.Padding(2);
             this.Log_in_Button.Name = "Log_in_Button";
             this.Log_in_Button.Size = new System.Drawing.Size(135, 81);
             this.Log_in_Button.TabIndex = 4;
@@ -100,17 +101,30 @@ namespace Bovelo_SuperApp
             this.Log_in_Button.UseVisualStyleBackColor = true;
             this.Log_in_Button.Click += new System.EventHandler(this.Log_In_Button_Click);
             // 
+            // buttonAssign
+            // 
+            this.buttonAssign.Location = new System.Drawing.Point(-2, 378);
+            this.buttonAssign.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonAssign.Name = "buttonAssign";
+            this.buttonAssign.Size = new System.Drawing.Size(135, 81);
+            this.buttonAssign.TabIndex = 5;
+            this.buttonAssign.Text = "Assign";
+            this.buttonAssign.UseVisualStyleBackColor = true;
+            this.buttonAssign.Visible = false;
+            this.buttonAssign.Click += new System.EventHandler(this.buttonAssign_Click);
+            // 
             // Index_Gauche
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.Controls.Add(this.buttonAssign);
             this.Controls.Add(this.Log_in_Button);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Client_info);
             this.Controls.Add(this.Cart_Button);
             this.Controls.Add(this.Catalog_Button);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Index_Gauche";
             this.Size = new System.Drawing.Size(135, 585);
             this.Load += new System.EventHandler(this.Index_Gauche_Load);
@@ -126,5 +140,6 @@ namespace Bovelo_SuperApp
         public System.Windows.Forms.Button Client_info;
         public System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.Button Log_in_Button;
+        public System.Windows.Forms.Button buttonAssign;
     }
 }

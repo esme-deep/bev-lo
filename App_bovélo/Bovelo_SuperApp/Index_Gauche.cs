@@ -63,7 +63,8 @@ namespace Bovelo_SuperApp
                 Form1.Instance.index_Gauche.cart_button.Visible = false;
                 Form1.Instance.index_Gauche.button3.Visible = false;
                 Form1.Instance.index_Gauche.button3.Visible = false;
-
+                Form1.Instance.index_Gauche.buttonAssign.Enabled = false;
+                Form1.Instance.index_Gauche.buttonAssign.Visible = false;
             }
             else
             {
@@ -96,6 +97,13 @@ namespace Bovelo_SuperApp
             Form1.Instance.panelContainer.Controls.Clear();
             Form1.Instance.panelContainer.Controls.Add(Form1.Instance.client_info);
             
+        }
+
+        private void buttonAssign_Click(object sender, EventArgs e)
+        {
+            Form1.Instance.panelContainer.Controls.Clear();
+            Form1.Instance.production_Planning = new production_planning();
+            Form1.Instance.panelContainer.Controls.Add(Form1.Instance.production_Planning);
         }
     }
 }

@@ -41,11 +41,12 @@ namespace Bovelo_SuperApp
         {   
             
             char a = Form1.Instance.index_Haut.Connection_User.Text[14];
-            Console.WriteLine(a);
+            
             this.pnl_week_orders_forMounter.Controls.Clear();
             Orders = new Dictionary<Model_Bike, Client>();
             MySqlDataReader reader = null;
-            String sql = "SELECT * from bikes, command,customer where  mounter ='mounter" + a + "'and bikes.N_command = command.id_command and customer.id = command.id_customer ";
+            String sql = "SELECT * from bikes, command,customer where bikes.N_command = command.id_command and customer.id = command.id_customer order by bikes.production_order";
+            
             MySqlConnection connectionDB = Connection.connection();
             
             connectionDB.Open();
@@ -54,14 +55,18 @@ namespace Bovelo_SuperApp
             {
                 MySqlCommand comando = new MySqlCommand(sql, connectionDB);
                 reader = comando.ExecuteReader();
+                
                 if (reader.HasRows)
                 {
                     while (reader.Read())
                     {
                         Model_Bike bike = new Model_Bike(reader.GetString("colour"), reader.GetString("type_bike"), reader.GetString("size"), 1, 1);
                         bike.set_id(reader.GetInt16("id_bike"));
-                        bike.set_order(reader.GetString("production_order"));
+                        bike.set_order(reader.GetInt16("production_order"));
+                        bike.set_status(reader.GetString("Status"));
+                        bike.set_mounter(reader.GetInt16("Id_mounter").ToString());
                         Orders.Add(bike, new Client(reader.GetString("firstname"), reader.GetString("lastname"), reader.GetString("email"), reader.GetString("adress"), int.Parse(reader.GetString("postalcode")), reader.GetString("city"), reader.GetString("business_name")));
+                        
                     }
 
                 }
@@ -76,6 +81,7 @@ namespace Bovelo_SuperApp
             {
                 MessageBox.Show("Searching error" + ex.Message);
 
+
             }
             finally
             {
@@ -85,21 +91,17 @@ namespace Bovelo_SuperApp
             }
             foreach (KeyValuePair<Model_Bike, Client> elt in Orders)
             {
-                Console.WriteLine("you {0} bought {1} with color {2} which id is {3}", elt.Value.first_name, elt.Key.type, elt.Key.colour, elt.Key.id_bike);
 
-                Form1.Instance.MounteurControl.pnl_week_orders_forMounter.Controls.Add(new MounterOrder(elt.Key.id_bike.ToString(), elt.Key.type, elt.Key.colour, elt.Key.size, elt.Value.last_name, elt.Value.business_name, elt.Key.order));
+                MounterOrder order = new MounterOrder(elt.Key.id_bike.ToString(), elt.Key.type, elt.Key.colour, elt.Key.size, elt.Value.last_name, elt.Value.business_name, elt.Key.order.ToString(), elt.Key.status);
+                if (Form1.Instance.index_Haut.Connection_User.Text[14] == elt.Key.mounter[0]) order.Status_bike.Enabled = true;
+                else if (order.Status_bike.Text != "Waiting") order.Status_bike.Enabled = false;
+                Form1.Instance.MounteurControl.pnl_week_orders_forMounter.Controls.Add(order);
+                
             }
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
 
         }
 
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
 

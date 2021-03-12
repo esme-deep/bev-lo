@@ -14,9 +14,13 @@ namespace Bovelo_SuperApp
     public partial class MounterOrder : UserControl
     {
         public string id_bike;
-        public MounterOrder(string id_bike,string model, string color,string size,string client_Name, string Business_Name, string order)
+        
+        private int run = 0;
+        public MounterOrder(string id_bike,string model, string color,string size,string client_Name, string Business_Name, string order,string status)
         {
+            
             InitializeComponent();
+            
             model_mounter.Text = model;
             size_mounter.Text = size;
             client_name_mounter.Text = client_Name;
@@ -25,18 +29,19 @@ namespace Bovelo_SuperApp
             {
                 time_mounter.Text = "2H";
             }
-            if (model_mounter.Text == "Explorer")
+            else if (model_mounter.Text == "Explorer")
             {
                 time_mounter.Text = "2H30";
             }
-            if (model_mounter.Text == "Adventure")
+            else if (model_mounter.Text == "Adventure")
             {
                 time_mounter.Text = "2H45";
             }
             this.id_bike = id_bike;
+            
             color_mounter.Text = color;
-            order_mounter.Text = order;
-
+            Status_bike.Text = status;
+            
         }
 
         private void MounterOrder_Load(object sender, EventArgs e)
@@ -49,14 +54,11 @@ namespace Bovelo_SuperApp
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void Bte_bike_Click(object sender, EventArgs e)
         {
-
+            
             String sqll = "DELETE FROM model_bikes WHERE id_bike = '" + this.id_bike + "'";
             MySqlConnection connectionDB = Connection.connection();
             connectionDB.Open();
@@ -99,6 +101,40 @@ namespace Bovelo_SuperApp
 
             }
             return new Model_Bike("","","",0,0);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            char i= Form1.Instance.index_Haut.Connection_User.Text[14];
+            if (this.run ==1)
+            {
+                
+                string sql = "UPDATE bikes set status = '" + Status_bike.Text + "' , Id_mounter ='" + i + "' where id_bike like '" + int.Parse(this.id_bike) + "'";
+                MySqlConnection Conn = Connection.connection();
+
+
+                try
+                {
+                    Conn.Open();
+                    MySqlCommand commando = new MySqlCommand(sql, Conn);
+                    commando.ExecuteNonQuery();
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    Conn.Close();
+                }
+                
+            }
+            else
+            {
+                this.run = 1;           
+            }
+            
         }
     }
 }

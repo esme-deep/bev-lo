@@ -56,16 +56,17 @@ namespace Bovelo_SuperApp
                     
                     comando.ExecuteNonQuery();
                     MessageBox.Show("commande crée");
-                    String sqlll = "SELECT max(id_command) FROM command";
+                    String sqlll = "SELECT max(id_command), max(production_order) FROM command, bikes";
                     comando = new MySqlCommand(sqlll, connectionDB);
                     
                     MySqlDataReader reader = null;
                     reader = comando.ExecuteReader();
                     int N_command=0;
+                    int Production_Order = 1;
                     if (reader.Read())
                     {
                         N_command = int.Parse(reader.GetString(0));
-                        MessageBox.Show("id trouvé");
+                        Production_Order = int.Parse(reader.GetString(1)) +1;
                         reader.Close();
                     }
                     
@@ -77,11 +78,11 @@ namespace Bovelo_SuperApp
                         for (int i = 0; i < element.quantity; i++)
                         {
 
-                            String sql = "INSERT INTO  bikes(type_bike, colour,size, N_command) VALUES ('" + element.type + "', '" + element.colour + "','" + element.size + "','" + N_command + "')";
+                            String sql = "INSERT INTO  bikes(type_bike, colour,size, N_command,production_order) VALUES ('" + element.type + "', '" + element.colour + "','" + element.size + "','" + N_command + "','"+Production_Order+"')";
 
                             comando = new MySqlCommand(sql, connectionDB);
                             comando.ExecuteNonQuery();
-                            
+                            Production_Order++;
 
                         }
                     }

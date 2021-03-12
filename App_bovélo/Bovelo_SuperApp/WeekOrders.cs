@@ -13,14 +13,16 @@ namespace Bovelo_SuperApp
     public partial class WeekOrders : UserControl
     {
         public string id_bike;
-        public WeekOrders(string id_bike ,string model, string size,string client,string business_name)
+        public WeekOrders(string id_bike ,string model, string size,string client,string business_name,string order)
+
         {
             InitializeComponent();
             lbl_model.Text = model;
             lbl_size.Text = size;
             lbl_client_name.Text = client;
             lbl_business_name.Text = business_name;
-    
+            OrderOfProduction.Text = order;
+            
             
             if (lbl_model.Text == "City")
             {

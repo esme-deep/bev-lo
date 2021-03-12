@@ -32,7 +32,7 @@ namespace Bovelo_SuperApp
 
             Dictionary<Model_Bike, Client> Orders = new Dictionary<Model_Bike, Client>();
           
-            String sql = "SELECT * from bikes, command,customer where  mounter is null and bikes.N_command = command.id_command and customer.id = command.id_customer ";
+            String sql = "SELECT * from bikes, command,customer where bikes.N_command = command.id_command and customer.id = command.id_customer ";
             MySqlDataReader reader = null;
             /* MySqlDataReader reader = null;
              reader    = Connection.SearchReader(sql);
@@ -68,7 +68,7 @@ namespace Bovelo_SuperApp
                     {
                         Model_Bike bike = new Model_Bike(reader.GetString("colour"), reader.GetString("type_bike"), reader.GetString("size"), 1, 1);
                         bike.set_id(reader.GetInt16("id_bike"));
-
+                        bike.set_order(reader.GetInt16("production_order"));
                         Orders.Add(bike,new Client(reader.GetString("firstname"), reader.GetString("lastname"), reader.GetString("email"), reader.GetString("adress"), int.Parse(reader.GetString("postalcode")), reader.GetString("city"), reader.GetString("business_name")));
                     }
 
@@ -91,10 +91,13 @@ namespace Bovelo_SuperApp
                 connectionDB.Close();
 
             }
+            
+            
             foreach (KeyValuePair<Model_Bike,Client> elt in Orders)
             {
-                Console.WriteLine("you {0} bought {1} with color {2} which id is {3}", elt.Value.first_name, elt.Key.type, elt.Key.colour,elt.Key.id_bike);
-                Form1.Instance.production_Planning.pnl_week_orders.Controls.Add(new WeekOrders(elt.Key.id_bike.ToString(),elt.Key.type, elt.Key.size, elt.Value.last_name, elt.Value.business_name));
+                
+                Form1.Instance.production_Planning.pnl_week_orders.Controls.Add(new WeekOrders(elt.Key.id_bike.ToString(),elt.Key.type, elt.Key.size, elt.Value.last_name, elt.Value.business_name,elt.Key.order.ToString()));
+                
             }
             
         }
@@ -111,12 +114,12 @@ namespace Bovelo_SuperApp
            
             foreach (WeekOrders elt in Form1.Instance.production_Planning.pnl_week_orders.Controls)
             {
-                if (elt.mounter.Text != "" & elt.OrderOfProduction.Text != "")
+                if (elt.OrderOfProduction.Text != "")
                 {
 
 
                     //String sqlll = "ALTER model_bikes (mounter,production_order)  WHERE id_bike LIKE '" + int.Parse(elt.id_bike) +  "' VALUES ('" + elt.mounter.Text+ "', '" + elt.OrderOfProduction.Text + "' )"  ;
-                    String sqlll = "UPDATE bikes SET mounter = '" + elt.mounter.Text + "'  ,production_order = '" + elt.OrderOfProduction.Text + "' WHERE id_bike LIKE '" + int.Parse(elt.id_bike) + "'";
+                    String sqlll = "UPDATE bikes SET   production_order ='" + int.Parse(elt.OrderOfProduction.Text) + "' WHERE id_bike LIKE '" + int.Parse(elt.id_bike) + "'";
                     MySqlConnection connectionDB = Connection.connection();
                     connectionDB.Open();
                     try
@@ -126,7 +129,7 @@ namespace Bovelo_SuperApp
                     }
                     catch (MySqlException ex)
                     {
-                        MessageBox.Show("the bike" + elt.id_bike + " not assigned to the mounter Error: " + ex.Message);
+                        MessageBox.Show(ex.Message);
                     }
                     finally
                     {
@@ -137,12 +140,7 @@ namespace Bovelo_SuperApp
                     }
 
                 }
-                /*
-                else
-                {
-                    MessageBox.Show("fulfill all the inputs");
-                }
-                */
+                
             }
             Form1.Instance.production_Planning.pnl_week_orders.Controls.Clear();
             //Form1.Instance.production_Planning.btn_set_mounters.Visible = false;
@@ -194,50 +192,7 @@ namespace Bovelo_SuperApp
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-            double time1 = 0.0;
-            double time2 = 0.0;
-            double time3 = 0.0;
-            TimeMounter1.Text = "Time mounter1 : ";
-            TimeMounter2.Text = "Time mounter2 : ";
-            TimeMounter3.Text = "Time mounter3 : ";
-
-
-
-
-
-
-
-            foreach (WeekOrders elt in Form1.Instance.production_Planning.pnl_week_orders.Controls)
-            {
-
-
-                if (elt.mounter.Text == "mounter1")
-                {
-
-                    time1 = double.Parse(elt.lbl_time.Text) + time1;
-                }
-                else if (elt.mounter.Text == "mounter2")
-                {
-                    time2 = double.Parse(elt.lbl_time.Text) + time2;
-                }
-                else if (elt.mounter.Text == "mounter3")
-                {
-                    time3 = double.Parse(elt.lbl_time.Text) + time3;
-
-                }
-            }
-            TimeMounter1.Text += time1.ToString() + " H";
-            TimeMounter2.Text += time2.ToString() + " H";
-            TimeMounter3.Text += time3.ToString() + " H";
-
-
-
-
-
-        }
+       
 
         private void label7_Click(object sender, EventArgs e)
         {

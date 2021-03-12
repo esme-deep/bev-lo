@@ -105,7 +105,7 @@ namespace Bovelo_SuperApp
             this.label3.Size = new System.Drawing.Size(100, 39);
             this.label3.TabIndex = 5;
             this.label3.Text = "Client";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            
             // 
             // label8
             // 
@@ -181,7 +181,7 @@ namespace Bovelo_SuperApp
             this.label7.Size = new System.Drawing.Size(101, 37);
             this.label7.TabIndex = 0;
             this.label7.Text = "Statut";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            
             // 
             // MounterControl
             // 

@@ -9,7 +9,6 @@ namespace Bovelo_SuperApp
 {
     class  Connection
     {
-       
         public static MySqlConnection connection()
         {
             String server = "193.191.240.67";

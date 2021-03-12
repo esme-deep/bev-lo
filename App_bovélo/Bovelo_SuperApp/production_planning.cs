@@ -31,9 +31,32 @@ namespace Bovelo_SuperApp
             Form1.Instance.production_Planning.pnl_week_orders.Visible = true;
 
             Dictionary<Model_Bike, Client> Orders = new Dictionary<Model_Bike, Client>();
+          
+            String sql = "SELECT * from bikes, command,customer where  mounter is null and bikes.N_command = command.id_command and customer.id = command.id_customer ";
             MySqlDataReader reader = null;
-            String sql = "SELECT * from model_bikes, command,customer where  mounter is null and model_bikes.N_command = command.id_command and customer.id = command.id_customer ";
+            /* MySqlDataReader reader = null;
+             reader    = Connection.SearchReader(sql);
+             Console.WriteLine(2);
+             if (reader.HasRows)
+             {
+                 while (reader.Read())
+                 {
+                     Console.WriteLine(1);
+                     Model_Bike bike = new Model_Bike(reader.GetString("colour"), reader.GetString("type_bike"), reader.GetString("size"), 1, 1);
+                     bike.set_id(reader.GetInt16("id_bike"));
+
+                     Orders.Add(bike, new Client(reader.GetString("firstname"), reader.GetString("lastname"), reader.GetString("email"), reader.GetString("adress"), int.Parse(reader.GetString("postalcode")), reader.GetString("city"), reader.GetString("business_name")));
+                 }
+
+             }
+             else
+             {
+                 MessageBox.Show("NoOrderWasfound");
+
+             }*/
+
             MySqlConnection connectionDB = Connection.connection();
+            
             connectionDB.Open();
             try
             {
@@ -93,7 +116,7 @@ namespace Bovelo_SuperApp
 
 
                     //String sqlll = "ALTER model_bikes (mounter,production_order)  WHERE id_bike LIKE '" + int.Parse(elt.id_bike) +  "' VALUES ('" + elt.mounter.Text+ "', '" + elt.OrderOfProduction.Text + "' )"  ;
-                    String sqlll = "UPDATE model_bikes SET mounter = '" + elt.mounter.Text + "'  ,production_order = '" + elt.OrderOfProduction.Text + "' WHERE id_bike LIKE '" + int.Parse(elt.id_bike) + "'";
+                    String sqlll = "UPDATE bikes SET mounter = '" + elt.mounter.Text + "'  ,production_order = '" + elt.OrderOfProduction.Text + "' WHERE id_bike LIKE '" + int.Parse(elt.id_bike) + "'";
                     MySqlConnection connectionDB = Connection.connection();
                     connectionDB.Open();
                     try

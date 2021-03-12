@@ -33,17 +33,16 @@ namespace Bovelo_SuperApp
             this.label7 = new System.Windows.Forms.Label();
             this.Add_to_Cart = new System.Windows.Forms.Button();
             this.price_lbl = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label_desc = new System.Windows.Forms.Label();
             this.label_model = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BoxSize = new System.Windows.Forms.ComboBox();
             this.boxColor = new System.Windows.Forms.ComboBox();
             this.quatity_lbl = new System.Windows.Forms.Label();
             this.quantity_input = new System.Windows.Forms.DomainUpDown();
-            this.panel1.SuspendLayout();
+            this.pic_bike = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_bike)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -89,15 +88,15 @@ namespace Bovelo_SuperApp
             this.price_lbl.TabIndex = 17;
             this.price_lbl.Text = "Price";
             // 
-            // label5
+            // label_desc
             // 
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Location = new System.Drawing.Point(624, 151);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(290, 497);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Description";
+            this.label_desc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_desc.Location = new System.Drawing.Point(624, 151);
+            this.label_desc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_desc.Name = "label_desc";
+            this.label_desc.Size = new System.Drawing.Size(290, 497);
+            this.label_desc.TabIndex = 16;
+            this.label_desc.Text = "Description";
             // 
             // label_model
             // 
@@ -109,26 +108,6 @@ namespace Bovelo_SuperApp
             this.label_model.Size = new System.Drawing.Size(290, 47);
             this.label_model.TabIndex = 15;
             this.label_model.Text = "Product Name";
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(39, 75);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(533, 574);
-            this.panel1.TabIndex = 14;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(214, 243);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 20);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Image";
             // 
             // label2
             // 
@@ -155,23 +134,15 @@ namespace Bovelo_SuperApp
             // BoxSize
             // 
             this.BoxSize.FormattingEnabled = true;
-            this.BoxSize.Items.AddRange(new object[] {
-            "M",
-            "L"});
             this.BoxSize.Location = new System.Drawing.Point(994, 435);
             this.BoxSize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BoxSize.Name = "BoxSize";
             this.BoxSize.Size = new System.Drawing.Size(132, 28);
             this.BoxSize.TabIndex = 21;
-            this.BoxSize.SelectedIndexChanged += new System.EventHandler(this.BoxSize_SelectedIndexChanged);
             // 
             // boxColor
             // 
             this.boxColor.FormattingEnabled = true;
-            this.boxColor.Items.AddRange(new object[] {
-            "Rouge",
-            "Vert",
-            "Noir"});
             this.boxColor.Location = new System.Drawing.Point(994, 308);
             this.boxColor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.boxColor.Name = "boxColor";
@@ -196,12 +167,21 @@ namespace Bovelo_SuperApp
             this.quantity_input.Size = new System.Drawing.Size(120, 26);
             this.quantity_input.TabIndex = 24;
             this.quantity_input.Text = "1";
-            this.quantity_input.SelectedItemChanged += new System.EventHandler(this.domainUpDown1_SelectedItemChanged);
+            // 
+            // pic_bike
+            // 
+            this.pic_bike.Location = new System.Drawing.Point(53, 131);
+            this.pic_bike.Name = "pic_bike";
+            this.pic_bike.Size = new System.Drawing.Size(495, 433);
+            this.pic_bike.TabIndex = 25;
+            this.pic_bike.TabStop = false;
+            this.pic_bike.Click += new System.EventHandler(this.pic_bike_Click);
             // 
             // Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pic_bike);
             this.Controls.Add(this.quantity_input);
             this.Controls.Add(this.quatity_lbl);
             this.Controls.Add(this.label8);
@@ -210,16 +190,14 @@ namespace Bovelo_SuperApp
             this.Controls.Add(this.label7);
             this.Controls.Add(this.Add_to_Cart);
             this.Controls.Add(this.price_lbl);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label_desc);
             this.Controls.Add(this.label_model);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Product";
             this.Size = new System.Drawing.Size(1218, 671);
             this.Load += new System.EventHandler(this.Product_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_bike)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,15 +208,14 @@ namespace Bovelo_SuperApp
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Button Add_to_Cart;
         public System.Windows.Forms.Label price_lbl;
-        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Label label_desc;
         public System.Windows.Forms.Label label_model;
-        public System.Windows.Forms.Panel panel1;
-        public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.ComboBox BoxSize;
         public System.Windows.Forms.ComboBox boxColor;
         public System.Windows.Forms.Label quatity_lbl;
         public System.Windows.Forms.DomainUpDown quantity_input;
+        public System.Windows.Forms.PictureBox pic_bike;
     }
 }

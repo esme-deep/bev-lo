@@ -25,7 +25,7 @@ namespace Bovelo_SuperApp
             
             MySqlDataReader reader = null;
 
-            string sql = "SELECT model, price FROM bikes";
+            string sql = "SELECT * FROM model_bikes";
             MySqlConnection conexionBD = Connection.connection();
             conexionBD.Open();
 
@@ -38,8 +38,12 @@ namespace Bovelo_SuperApp
                     while (reader.Read())
                     {
                         string model = reader.GetString(0);
-                        string price = reader.GetString(1);
-                        FLPanel_catalog.Controls.Add(new Product_catalog(model, price));
+                        string price = reader.GetString(5);
+                        string image = reader.GetString(4);
+                        string colors = reader.GetString(1);
+                        string desc = reader.GetString(3);
+                        string sizes = reader.GetString(2);
+                        FLPanel_catalog.Controls.Add(new Product_catalog(model,colors,sizes,image,price,desc));
                     }
 
                 }

@@ -12,20 +12,29 @@ namespace Bovelo_SuperApp
 {
     public partial class Product : UserControl
     {
-        public Product(string vélo_model,string price)
+        public Product(string model, string colors, string sizes, string img, string price,string description)
         {
-            
+
+
             InitializeComponent();
-            label_model.Text = vélo_model;
+            label_model.Text = model;
             price_lbl.Text = price;
+            label_desc.Text = description;
+            foreach(string elt in sizes.Split(';'))
+            {
 
-            
+                this.BoxSize.Items.Add(elt);
+            }
+            foreach (string elt in colors.Split(';'))
+            {
+
+                this.boxColor.Items.Add(elt);
+            }
+            Image image_bike = Image.FromFile("..\\images\\" + img + ".jpg");
+            pic_bike.Image = image_bike;
         }
 
-        private void BoxSize_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void Add_to_Cart_Click(object sender, EventArgs e)
         {
@@ -41,10 +50,7 @@ namespace Bovelo_SuperApp
             }
         }
 
-        private void domainUpDown1_SelectedItemChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void Product_Load(object sender, EventArgs e)
         {
@@ -52,6 +58,11 @@ namespace Bovelo_SuperApp
             {
                 quantity_input.Items.Add(i);
             }
+        }
+
+        private void pic_bike_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

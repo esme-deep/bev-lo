@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 namespace Bovelo_SuperApp
 {
-    class Connection
+    class  Connection
     {
+       
         public static MySqlConnection connection()
         {
             String server = "193.191.240.67";
@@ -30,6 +31,57 @@ namespace Bovelo_SuperApp
                 Console.WriteLine("Error: " + ex.Message);
                 return null;
 
+            }
+        }
+
+        public static  MySqlDataReader SearchReader(string request)
+        {
+            MySqlDataReader reader;
+            MySqlConnection connectionDB = Connection.connection();
+            connectionDB.Open();
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(request, connectionDB);
+                reader = comando.ExecuteReader();
+
+            }
+
+            catch (MySqlException ex)
+            {
+                reader = null;
+                MessageBox.Show("Searching error" + ex.Message);
+
+            }
+            /*finally
+            {
+                
+
+                connectionDB.Close();
+                
+            }*/
+            connectionDB.Close();
+            return reader;
+
+        }
+        public static void Execute(string sql,string message)
+        {
+            MySqlConnection connectionDB = Connection.connection();
+            connectionDB.Open();
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(sql, connectionDB);
+                comando.ExecuteNonQuery();
+                MessageBox.Show(message);
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Sending error: " + ex.Message);
+
+            }
+            finally
+            {
+
+                connectionDB.Close();
             }
         }
     }

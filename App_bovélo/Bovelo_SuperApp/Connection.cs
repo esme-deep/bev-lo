@@ -43,6 +43,7 @@ namespace Bovelo_SuperApp
                 MySqlCommand comando = new MySqlCommand(request, connectionDB);
                 reader = comando.ExecuteReader();
 
+
             }
 
             catch (MySqlException ex)

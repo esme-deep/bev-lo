@@ -39,7 +39,8 @@ namespace Bovelo_SuperApp
             {
                 Form1.Instance.index_Haut.Connection_User.Text = "Connected as " + UserName.Text;
                 Form1.Instance.panelContainer.Controls.Clear();
-                Form1.Instance.production_Planning = new production_planning(); 
+                Form1.Instance.production_Planning = new production_planning();
+                Form1.Instance.panelContainer.Controls.Add(Form1.Instance.stock);
                 Form1.Instance.panelContainer.Controls.Add(Form1.Instance.production_Planning);
                 Form1.Instance.index_Gauche.Sign_in.Text = "Sign out";
                 Form1.Instance.index_Gauche.catalog_button.Enabled = true;

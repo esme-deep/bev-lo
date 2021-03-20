@@ -78,7 +78,7 @@ namespace Bovelo_SuperApp
                         for (int i = 0; i < element.quantity; i++)
                         {
 
-                            String sql = "INSERT INTO  bikes(type_bike, colour,size, N_command,production_order) VALUES ('" + element.type + "', '" + element.colour + "','" + element.size + "','" + N_command + "','"+Production_Order+"')";
+                            String sql = "INSERT INTO  bikes(type_bike, colour,size, N_command,production_order,id_mounter) VALUES ('" + element.type + "', '" + element.colour + "','" + element.size + "','" + N_command + "','"+Production_Order+"','4')";
 
                             comando = new MySqlCommand(sql, connectionDB);
                             comando.ExecuteNonQuery();

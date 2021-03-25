@@ -45,7 +45,7 @@ namespace Bovelo_SuperApp
             this.pnl_week_orders_forMounter.Controls.Clear();
             Orders = new Dictionary<Model_Bike, Client>();
             MySqlDataReader reader = null;
-            String sql = "SELECT * from bikes, command,customer where bikes.N_command = command.id_command and customer.id = command.id_customer order by bikes.production_order";
+            String sql = "SELECT * from bikes, command,customer where bikes.id_command = command.id_command and customer.id_customer = command.id_customer order by bikes.production_order";
             
             MySqlConnection connectionDB = Connection.connection();
             

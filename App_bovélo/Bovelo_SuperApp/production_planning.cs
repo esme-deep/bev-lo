@@ -32,7 +32,7 @@ namespace Bovelo_SuperApp
 
             Dictionary<Model_Bike, Client> Orders = new Dictionary<Model_Bike, Client>();
           
-            String sql = "SELECT * from bikes, command,customer where bikes.N_command = command.id_command and customer.id = command.id_customer ";
+            String sql = "SELECT * from bikes, command,customer where bikes.id_command = command.id_command and customer.id_customer = command.id_customer ";
             MySqlDataReader reader = null;
             /* MySqlDataReader reader = null;
              reader    = Connection.SearchReader(sql);
@@ -110,14 +110,23 @@ namespace Bovelo_SuperApp
         private void btn_set_mounters_Click(object sender, EventArgs e)
 
         {
-            
-           
+            var list = new List<string>();
+
+
             foreach (WeekOrders elt in Form1.Instance.production_Planning.pnl_week_orders.Controls)
             {
-                if (elt.OrderOfProduction.Text != "")
+
+                list.Add(elt.OrderOfProduction.Text);
+
+            }
+            if (list.Any(item => item == "") | list.Count != list.Distinct().Count())
+            {
+                MessageBox.Show("identical orders or empty order");
+            }
+            else
+            {
+                foreach (WeekOrders elt in Form1.Instance.production_Planning.pnl_week_orders.Controls)
                 {
-
-
                     //String sqlll = "ALTER model_bikes (mounter,production_order)  WHERE id_bike LIKE '" + int.Parse(elt.id_bike) +  "' VALUES ('" + elt.mounter.Text+ "', '" + elt.OrderOfProduction.Text + "' )"  ;
                     String sqlll = "UPDATE bikes SET   production_order ='" + int.Parse(elt.OrderOfProduction.Text) + "' WHERE id_bike LIKE '" + int.Parse(elt.id_bike) + "'";
                     MySqlConnection connectionDB = Connection.connection();
@@ -133,18 +142,29 @@ namespace Bovelo_SuperApp
                     }
                     finally
                     {
-                        connectionDB.Close();
                         
+                        connectionDB.Close();
+
 
 
                     }
-
+                    Form1.Instance.production_Planning.pnl_week_orders.Controls.Clear();
+                    //Form1.Instance.production_Planning.btn_set_mounters.Visible = false;
+                    Form1.Instance.production_Planning.btn_set_mounters.Enabled = false;
                 }
                 
             }
-            Form1.Instance.production_Planning.pnl_week_orders.Controls.Clear();
-            //Form1.Instance.production_Planning.btn_set_mounters.Visible = false;
-            Form1.Instance.production_Planning.btn_set_mounters.Enabled = false;
+            
+                    
+
+
+                    
+
+                
+                
+            
+
+            
         }
 
         private void button3_Click(object sender, EventArgs e)

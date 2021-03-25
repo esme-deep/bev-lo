@@ -40,7 +40,7 @@ namespace Bovelo_SuperApp
                     {
                         MySqlCommand comando = new MySqlCommand(sql2, connectionDB);
                         comando.ExecuteNonQuery();
-                        sql2 = "SELECT max(id) FROM customer";
+                        sql2 = "SELECT max(id_customer) FROM customer";
                         comando = new MySqlCommand(sql2, connectionDB);
                         MySqlDataReader reader = comando.ExecuteReader();
                         if (reader.Read())
@@ -135,7 +135,7 @@ namespace Bovelo_SuperApp
                 String lastName = txtLastName.Text;
                 MySqlDataReader reader = null;
                 string business_name = Business_name.Text;
-                string sql = "SELECT id, firstname, lastname, email, adress, postalcode, city, business_name FROM customer WHERE lastname LIKE '" + lastName + "' AND business_name Like '" + business_name + "' AND firstname Like '" + firstname + "' LIMIT 1";
+                string sql = "SELECT id_customer, firstname, lastname, email, adress, postalcode, city, business_name FROM customer WHERE lastname LIKE '" + lastName + "' AND business_name Like '" + business_name + "' AND firstname Like '" + firstname + "' LIMIT 1";
                 MySqlConnection conexionBD = Connection.connection();
                 conexionBD.Open();
 
@@ -233,7 +233,7 @@ namespace Bovelo_SuperApp
             String id = txtId.Text;
             
 
-            String sql = "DELETE FROM customer WHERE id='" + id + "' ";
+            String sql = "DELETE FROM customer WHERE id_customer='" + id + "' ";
             MySqlConnection connectionDB = Connection.connection();
             connectionDB.Open();
 

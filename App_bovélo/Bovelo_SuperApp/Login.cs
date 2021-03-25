@@ -90,5 +90,10 @@ namespace Bovelo_SuperApp
             }
 
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            //MessageBox.Show(DateTime.Now.ToString());
+        }
     }
 }

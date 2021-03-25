@@ -13,7 +13,7 @@ namespace Bovelo_SuperApp
         {
             String server = "193.191.240.67";
             String port = "63301";
-            String database = "test2";
+            String database = "test";
             String user = "Mustafa";
             String password = "mustafa";
 

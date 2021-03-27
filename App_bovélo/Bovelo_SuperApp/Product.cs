@@ -64,5 +64,10 @@ namespace Bovelo_SuperApp
         {
 
         }
+
+        private void boxColor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

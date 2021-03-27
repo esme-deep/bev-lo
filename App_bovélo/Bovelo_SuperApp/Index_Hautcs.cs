@@ -29,5 +29,11 @@ namespace Bovelo_SuperApp
         {
 
         }
+
+        private void btnStock_Click(object sender, EventArgs e)
+        {
+            Form1.Instance.panelContainer.Controls.Clear();
+            Form1.Instance.panelContainer.Controls.Add(Form1.Instance.stock);
+        }
     }
 }

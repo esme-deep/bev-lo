@@ -18,7 +18,7 @@ namespace Bovelo_SuperApp
             loadTable(null);
         }
 
-        private void btnChercher_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
             string data = txtChercher.Text;
             loadTable(data);

@@ -9,17 +9,17 @@ namespace Bovelo_SuperApp
     class Items
     {
         private int id_model_item;
-        private string name_mode_item;
+        private string name_model_item;
         private string size_model_item;
-        private string colour_model_itemcol;
+        private string colour_model_item;
         private double price_model_item;
-        private int id_stock;
+        private int item_quantity;
 
         public int Id_model_item { get => id_model_item; set => id_model_item = value; }
-        public string Name_mode_item { get => name_mode_item; set => name_mode_item = value; }
+        public string Name_model_item { get => name_model_item; set => name_model_item = value; }
         public string Size_model_item { get => size_model_item; set => size_model_item = value; }
-        public string Colour_model_itemcol { get => colour_model_itemcol; set => colour_model_itemcol = value; }
+        public string Colour_model_item { get => colour_model_item; set => colour_model_item = value; }
         public double Price_model_item { get => price_model_item; set => price_model_item = value; }
-        public int Id_stock { get => id_stock; set => id_stock = value; }
+        public int Item_quantity { get => item_quantity; set => item_quantity = value; }
     }
 }

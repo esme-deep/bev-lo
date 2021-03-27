@@ -29,30 +29,32 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lblChercher = new System.Windows.Forms.Label();
+            this.lblSearch = new System.Windows.Forms.Label();
             this.txtChercher = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idmodelitemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namemodeitemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sizemodelitemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colourmodelitemcolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pricemodelitemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idstockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grpItem = new System.Windows.Forms.GroupBox();
-            this.btnChercher = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.Name_model_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Colour_model_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Item_quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idmodelitemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sizemodelitemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pricemodelitemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.itemsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblChercher
+            // lblSearch
             // 
-            this.lblChercher.AutoSize = true;
-            this.lblChercher.Location = new System.Drawing.Point(35, 65);
-            this.lblChercher.Name = "lblChercher";
-            this.lblChercher.Size = new System.Drawing.Size(53, 13);
-            this.lblChercher.TabIndex = 0;
-            this.lblChercher.Text = "Chercher:";
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Location = new System.Drawing.Point(35, 65);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(41, 13);
+            this.lblSearch.TabIndex = 0;
+            this.lblSearch.Text = "Search";
             // 
             // txtChercher
             // 
@@ -67,57 +69,16 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idmodelitemDataGridViewTextBoxColumn,
-            this.namemodeitemDataGridViewTextBoxColumn,
+            this.Name_model_item,
             this.sizemodelitemDataGridViewTextBoxColumn,
-            this.colourmodelitemcolDataGridViewTextBoxColumn,
+            this.Colour_model_item,
             this.pricemodelitemDataGridViewTextBoxColumn,
-            this.idstockDataGridViewTextBoxColumn});
+            this.Item_quantity});
             this.dataGridView1.DataSource = this.itemsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(36, 88);
+            this.dataGridView1.Location = new System.Drawing.Point(50, 89);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(437, 244);
+            this.dataGridView1.Size = new System.Drawing.Size(375, 294);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // idmodelitemDataGridViewTextBoxColumn
-            // 
-            this.idmodelitemDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.idmodelitemDataGridViewTextBoxColumn.DataPropertyName = "Id_model_item";
-            this.idmodelitemDataGridViewTextBoxColumn.HeaderText = "Id_model_item";
-            this.idmodelitemDataGridViewTextBoxColumn.Name = "idmodelitemDataGridViewTextBoxColumn";
-            // 
-            // namemodeitemDataGridViewTextBoxColumn
-            // 
-            this.namemodeitemDataGridViewTextBoxColumn.DataPropertyName = "Name_mode_item";
-            this.namemodeitemDataGridViewTextBoxColumn.HeaderText = "Name_mode_item";
-            this.namemodeitemDataGridViewTextBoxColumn.Name = "namemodeitemDataGridViewTextBoxColumn";
-            // 
-            // sizemodelitemDataGridViewTextBoxColumn
-            // 
-            this.sizemodelitemDataGridViewTextBoxColumn.DataPropertyName = "Size_model_item";
-            this.sizemodelitemDataGridViewTextBoxColumn.HeaderText = "Size_model_item";
-            this.sizemodelitemDataGridViewTextBoxColumn.Name = "sizemodelitemDataGridViewTextBoxColumn";
-            // 
-            // colourmodelitemcolDataGridViewTextBoxColumn
-            // 
-            this.colourmodelitemcolDataGridViewTextBoxColumn.DataPropertyName = "Colour_model_itemcol";
-            this.colourmodelitemcolDataGridViewTextBoxColumn.HeaderText = "Colour_model_itemcol";
-            this.colourmodelitemcolDataGridViewTextBoxColumn.Name = "colourmodelitemcolDataGridViewTextBoxColumn";
-            // 
-            // pricemodelitemDataGridViewTextBoxColumn
-            // 
-            this.pricemodelitemDataGridViewTextBoxColumn.DataPropertyName = "Price_model_item";
-            this.pricemodelitemDataGridViewTextBoxColumn.HeaderText = "Price_model_item";
-            this.pricemodelitemDataGridViewTextBoxColumn.Name = "pricemodelitemDataGridViewTextBoxColumn";
-            // 
-            // idstockDataGridViewTextBoxColumn
-            // 
-            this.idstockDataGridViewTextBoxColumn.DataPropertyName = "Id_stock";
-            this.idstockDataGridViewTextBoxColumn.HeaderText = "Id_stock";
-            this.idstockDataGridViewTextBoxColumn.Name = "idstockDataGridViewTextBoxColumn";
-            // 
-            // itemsBindingSource
-            // 
-            this.itemsBindingSource.DataSource = typeof(Bovelo_SuperApp.Items);
             // 
             // grpItem
             // 
@@ -128,29 +89,86 @@
             this.grpItem.TabStop = false;
             this.grpItem.Text = "Pièce";
             // 
-            // btnChercher
+            // btnSearch
             // 
-            this.btnChercher.Location = new System.Drawing.Point(350, 60);
-            this.btnChercher.Name = "btnChercher";
-            this.btnChercher.Size = new System.Drawing.Size(75, 23);
-            this.btnChercher.TabIndex = 4;
-            this.btnChercher.Text = "Chercher";
-            this.btnChercher.UseVisualStyleBackColor = true;
-            this.btnChercher.Click += new System.EventHandler(this.btnChercher_Click);
+            this.btnSearch.Location = new System.Drawing.Point(350, 60);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 4;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // Name_model_item
+            // 
+            this.Name_model_item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Name_model_item.DataPropertyName = "Name_model_item";
+            this.Name_model_item.HeaderText = "Item";
+            this.Name_model_item.Name = "Name_model_item";
+            this.Name_model_item.Width = 52;
+            // 
+            // Colour_model_item
+            // 
+            this.Colour_model_item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Colour_model_item.DataPropertyName = "Colour_model_item";
+            this.Colour_model_item.HeaderText = "Colour";
+            this.Colour_model_item.Name = "Colour_model_item";
+            this.Colour_model_item.Width = 62;
+            // 
+            // Item_quantity
+            // 
+            this.Item_quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Item_quantity.DataPropertyName = "Item_quantity";
+            this.Item_quantity.HeaderText = "Quantity";
+            this.Item_quantity.Name = "Item_quantity";
+            this.Item_quantity.Width = 71;
+            // 
+            // idmodelitemDataGridViewTextBoxColumn
+            // 
+            this.idmodelitemDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.idmodelitemDataGridViewTextBoxColumn.DataPropertyName = "Id_model_item";
+            this.idmodelitemDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.idmodelitemDataGridViewTextBoxColumn.Name = "idmodelitemDataGridViewTextBoxColumn";
+            this.idmodelitemDataGridViewTextBoxColumn.Width = 43;
+            // 
+            // sizemodelitemDataGridViewTextBoxColumn
+            // 
+            this.sizemodelitemDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.sizemodelitemDataGridViewTextBoxColumn.DataPropertyName = "Size_model_item";
+            this.sizemodelitemDataGridViewTextBoxColumn.HeaderText = "Size";
+            this.sizemodelitemDataGridViewTextBoxColumn.Name = "sizemodelitemDataGridViewTextBoxColumn";
+            this.sizemodelitemDataGridViewTextBoxColumn.Width = 52;
+            // 
+            // pricemodelitemDataGridViewTextBoxColumn
+            // 
+            this.pricemodelitemDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.pricemodelitemDataGridViewTextBoxColumn.DataPropertyName = "Price_model_item";
+            this.pricemodelitemDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.pricemodelitemDataGridViewTextBoxColumn.Name = "pricemodelitemDataGridViewTextBoxColumn";
+            this.pricemodelitemDataGridViewTextBoxColumn.Width = 56;
+            // 
+            // itemsBindingSource
+            // 
+            this.itemsBindingSource.DataSource = typeof(Bovelo_SuperApp.Items);
+            // 
+            // itemsBindingSource1
+            // 
+            this.itemsBindingSource1.DataSource = typeof(Bovelo_SuperApp.Items);
             // 
             // Stock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnChercher);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.grpItem);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtChercher);
-            this.Controls.Add(this.lblChercher);
+            this.Controls.Add(this.lblSearch);
             this.Name = "Stock";
             this.Size = new System.Drawing.Size(812, 436);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,17 +176,18 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblChercher;
+        private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.TextBox txtChercher;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox grpItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idmodelitemDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn namemodeitemDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sizemodelitemDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colourmodelitemcolDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pricemodelitemDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idstockDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource itemsBindingSource;
-        private System.Windows.Forms.Button btnChercher;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.BindingSource itemsBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idmodelitemDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name_model_item;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sizemodelitemDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Colour_model_item;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pricemodelitemDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Item_quantity;
     }
 }

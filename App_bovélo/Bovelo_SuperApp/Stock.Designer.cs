@@ -32,6 +32,11 @@
             this.lblSearch = new System.Windows.Forms.Label();
             this.txtChercher = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name_model_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Colour_model_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Item_quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpItem = new System.Windows.Forms.GroupBox();
             this.btnClearItem = new System.Windows.Forms.Button();
             this.btnSaveItem = new System.Windows.Forms.Button();
@@ -54,11 +59,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cmbFilter = new System.Windows.Forms.ComboBox();
             this.btnFilter = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name_model_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Colour_model_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Item_quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sizemodelitemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pricemodelitemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -89,6 +89,8 @@
             // 
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -102,8 +104,56 @@
             this.dataGridView1.Location = new System.Drawing.Point(56, 101);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(398, 294);
+            this.dataGridView1.Size = new System.Drawing.Size(392, 294);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.DataPropertyName = "Id_model_item";
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            this.Column1.Width = 43;
+            // 
+            // Name_model_item
+            // 
+            this.Name_model_item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Name_model_item.DataPropertyName = "Name_model_item";
+            this.Name_model_item.HeaderText = "Item";
+            this.Name_model_item.Name = "Name_model_item";
+            this.Name_model_item.ReadOnly = true;
+            this.Name_model_item.Width = 52;
+            // 
+            // Colour_model_item
+            // 
+            this.Colour_model_item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Colour_model_item.DataPropertyName = "Colour_model_item";
+            this.Colour_model_item.HeaderText = "Colour";
+            this.Colour_model_item.Name = "Colour_model_item";
+            this.Colour_model_item.ReadOnly = true;
+            this.Colour_model_item.Width = 62;
+            // 
+            // Item_quantity
+            // 
+            this.Item_quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Item_quantity.DataPropertyName = "Item_quantity";
+            this.Item_quantity.HeaderText = "Quantity";
+            this.Item_quantity.Name = "Item_quantity";
+            this.Item_quantity.ReadOnly = true;
+            this.Item_quantity.Width = 71;
+            // 
+            // Status
+            // 
+            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Status.DataPropertyName = "Status_stock";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Width = 62;
             // 
             // grpItem
             // 
@@ -319,52 +369,6 @@
             this.btnFilter.UseVisualStyleBackColor = true;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.DataPropertyName = "Id_model_item";
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            this.Column1.Width = 43;
-            // 
-            // Name_model_item
-            // 
-            this.Name_model_item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Name_model_item.DataPropertyName = "Name_model_item";
-            this.Name_model_item.HeaderText = "Item";
-            this.Name_model_item.Name = "Name_model_item";
-            this.Name_model_item.ReadOnly = true;
-            this.Name_model_item.Width = 52;
-            // 
-            // Colour_model_item
-            // 
-            this.Colour_model_item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Colour_model_item.DataPropertyName = "Colour_model_item";
-            this.Colour_model_item.HeaderText = "Colour";
-            this.Colour_model_item.Name = "Colour_model_item";
-            this.Colour_model_item.ReadOnly = true;
-            this.Colour_model_item.Width = 62;
-            // 
-            // Item_quantity
-            // 
-            this.Item_quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Item_quantity.DataPropertyName = "Item_quantity";
-            this.Item_quantity.HeaderText = "Quantity";
-            this.Item_quantity.Name = "Item_quantity";
-            this.Item_quantity.ReadOnly = true;
-            this.Item_quantity.Width = 71;
-            // 
-            // Status
-            // 
-            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Status.DataPropertyName = "Status_stock";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Width = 62;
-            // 
             // sizemodelitemDataGridViewTextBoxColumn
             // 
             this.sizemodelitemDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -386,6 +390,7 @@
             // itemsBindingSource
             // 
             this.itemsBindingSource.DataSource = typeof(Bovelo_SuperApp.Items);
+            this.itemsBindingSource.CurrentChanged += new System.EventHandler(this.itemsBindingSource_CurrentChanged);
             // 
             // itemsBindingSource1
             // 

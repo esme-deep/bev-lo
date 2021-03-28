@@ -16,6 +16,7 @@ namespace Bovelo_SuperApp
         {
             InitializeComponent();
             loadTable(null);
+            
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -43,7 +44,7 @@ namespace Bovelo_SuperApp
 
         private void btnSaveItem_Click(object sender, EventArgs e)
         {
-            bool bandera = false;
+            bool flag = false;
 
             Items _items = new Items();
             _items.Name_model_item = txtItem.Text;
@@ -61,14 +62,14 @@ namespace Bovelo_SuperApp
             if (txtItem_ID.Text != "")
             {
                 _items.Id_model_item = int.Parse(txtItem_ID.Text);
-                bandera = ctrl.update(_items);
+                flag = ctrl.update(_items);
             }
             else
             {
-                bandera = ctrl.insert(_items);
+                flag = ctrl.insert(_items);
             }
 
-            if (bandera)
+            if (flag)
             {
                 MessageBox.Show("Item saved");
                 clear_data();
@@ -129,6 +130,40 @@ namespace Bovelo_SuperApp
         {
             string status = cmbFilter.Text;
             loadTable(status);
+        }
+
+        private void itemsBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+
+
+
+            if (dgv.Columns[e.ColumnIndex].Name == "Status")
+            {
+                if (e.Value.ToString().Contains("Available"))
+                {
+
+                    e.CellStyle.BackColor = Color.FromArgb(182, 255, 164);
+                }
+                if (e.Value.ToString().Contains("Coming soon"))
+                {
+
+                    e.CellStyle.BackColor = Color.FromArgb(164, 207, 255);
+
+                }
+
+            }
+
+
         }
     }
 }

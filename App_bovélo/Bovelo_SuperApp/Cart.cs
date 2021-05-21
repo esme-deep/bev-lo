@@ -13,12 +13,12 @@ namespace Bovelo_SuperApp
 {
     public partial class Cart : UserControl
     {
-        
-        
 
-        
 
-        
+
+
+
+
         public Cart()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace Bovelo_SuperApp
 
         private void Cart_Load(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -47,20 +47,20 @@ namespace Bovelo_SuperApp
             }
             else
             {
-                DateTime  now = DateTime.Now;
-                DateTime estimated_time = now.AddMinutes(150); //change that 
+                DateTime now = DateTime.Now;
+                DateTime estimated_time = EstimateDeliveryTime();
                 double price = 0;
-                foreach(Model_Bike elt in Form1.Instance.Cart.list_models)
+                foreach (Model_Bike elt in Form1.Instance.Cart.list_models)
                 {
                     price += elt.price;
                 }
-                String sqll = "INSERT INTO  command(id_customer,order_date,production_date,order_price) VALUES ('" + Form1.Instance.Cart.client.id + "','" + now.ToString("yyyy-MM-dd hh:mm:ss") + "','" + estimated_time.ToString("yyyy-MM-dd hh:mm:ss") + "',"+price+")";
+                String sqll = "INSERT INTO  command(id_customer,order_date,production_date,order_price) VALUES ('" + Form1.Instance.Cart.client.id + "','" + now.ToString("yyyy-MM-dd hh:mm:ss") + "','" + estimated_time.ToString("yyyy-MM-dd hh:mm:ss") + "'," + price + ")";
                 MySqlConnection connectionDB = Connection.connection();
                 connectionDB.Open();
                 try
                 {
                     MySqlCommand comando = new MySqlCommand(sqll, connectionDB);
-                    
+
                     comando.ExecuteNonQuery();
                     MessageBox.Show("commande crée");
                     //string sql = "INSERT INTO bikes(type_bike, colour,size, id_command,production_order,id_mounter,status) as '...','...','...',commmand.AUTO_INCREMENT"
@@ -70,34 +70,34 @@ namespace Bovelo_SuperApp
 
                     MySqlDataReader reader = null;
                     reader = comando.ExecuteReader();
-                    
+
                     int Production_Order = 1;
                     if (reader.Read())
                     {
                         try
                         {
-                            Production_Order = int.Parse(reader.GetString(0))+1;
+                            Production_Order = int.Parse(reader.GetString(0)) + 1;
                         }
                         catch
                         {
- 
-                            
+
+
                         }
-                        
-                        
+
+
 
                         reader.Close();
                     }
-                    
 
-                    
-                    
+
+
+
                     foreach (Model_Bike element in Form1.Instance.Cart.list_models)
                     {
                         for (int i = 0; i < element.quantity; i++)
                         {
 
-                            String sql = "INSERT INTO  bikes(type_bike, colour,size, id_command,production_order,id_mounter,status) VALUES ('" + element.type + "', '" + element.colour + "','" + element.size + "',(select max(id_command) from command),'"+Production_Order+"',4,'Waiting')";
+                            String sql = "INSERT INTO  bikes(type_bike, colour,size, id_command,production_order,id_mounter,status) VALUES ('" + element.type + "', '" + element.colour + "','" + element.size + "',(select max(id_command) from command),'" + Production_Order + "',4,'Waiting')";
 
                             comando = new MySqlCommand(sql, connectionDB);
                             comando.ExecuteNonQuery();
@@ -117,7 +117,7 @@ namespace Bovelo_SuperApp
                 }
                 finally
                 {
-                    
+
                     connectionDB.Close();
                 }
 
@@ -136,6 +136,63 @@ namespace Bovelo_SuperApp
             }
         }
 
-        
+        public DateTime EstimateDeliveryTime()
+        {
+            DateTime date = DateTime.Now;
+            int production_time = 0;
+            int number_tyres = 0;
+            int number_lighting = 0;
+            int number_crutch = 0;
+            int number_framework = 0;
+            int number_reinforced_framework = 0;
+
+            foreach (Model_Bike element in Form1.Instance.Cart.list_models)
+            {
+                for (int i = 0; i < element.quantity; i++)
+                {
+                    number_tyres += 2;
+                    number_lighting += 1;
+                    number_crutch += 1;
+                    if (element.type == "City")
+                    {
+                        production_time += 120;
+                    }
+                    else if (element.type == "Explorer")
+                    {
+                        production_time += 150;
+                    }
+                    else
+                    {
+                        production_time += 165;
+                    }
+
+                    if (element.size == "27")
+                    {
+                        number_reinforced_framework += 1;
+                    }
+                    else
+                    {
+                        number_framework += 1;
+                    }
+                }
+            }
+            int[,] id_stock_vs_quantity = new int[,] { { 1, number_crutch }, { 3, number_framework }, { 4, number_tyres }, { 5, number_reinforced_framework }, { 6, number_lighting } };
+            CtrlItems _ctrlItems = new CtrlItems();
+            bool out_of_stock = false;
+            for (int i = 0; i < id_stock_vs_quantity.Rank; i++)
+            {
+                int stock = _ctrlItems.getQuantityFromIdStock(id_stock_vs_quantity[i, 0]);
+                if (stock < id_stock_vs_quantity[i, 1])
+                {
+                    out_of_stock = true;
+                }
+            }
+            if (out_of_stock)
+            {
+                production_time += 10080;   //une semaine en minutes.
+            }
+            date.AddMinutes(production_time);
+            return date;
+        }
     }
 }

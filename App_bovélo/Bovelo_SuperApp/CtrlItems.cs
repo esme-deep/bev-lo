@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bovelo_SuperApp
 {
-    class CtrlItems: Connection2
+    class CtrlItems : Connection2
     {
         public List<Object> request(string data)
         {
@@ -56,17 +56,17 @@ namespace Bovelo_SuperApp
             bool flag = false;
 
             string sql_model_item = "INSERT INTO model_item(name_model_item, size_model_item, colour_model_item, price_model_item, id_stock) VALUES ('" + data.Name_model_item + "', '" + data.Size_model_item + "', '" + data.Colour_model_item + "', '" + data.Price_model_item + "', (select max(id_stock) from stock) )";
-            string sql_stock= "INSERT INTO stock (item_quantity, status_stock) VALUES ('" + data.Item_quantity + "', '" + data.Status_stock + "')";
+            string sql_stock = "INSERT INTO stock (item_quantity, status_stock) VALUES ('" + data.Item_quantity + "', '" + data.Status_stock + "')";
             try
             {
                 MySqlConnection conexionBD = base.connection();
                 conexionBD.Open();
                 MySqlCommand comand = new MySqlCommand(sql_model_item, conexionBD);
                 MySqlCommand comand2 = new MySqlCommand(sql_stock, conexionBD);
-                
+
                 comand2.ExecuteNonQuery();
                 comand.ExecuteNonQuery();
-                
+
                 flag = true;
             }
             catch (MySqlException ex)
@@ -111,7 +111,7 @@ namespace Bovelo_SuperApp
 
             string sql = "DELETE FROM stock WHERE id_stock='" + id + "'";
             string sql2 = "DELETE FROM model_item WHERE id_model_item='" + id + "'";
-            
+
 
             try
             {
@@ -131,6 +131,49 @@ namespace Bovelo_SuperApp
             }
 
             return flag;
+        }
+
+        public void updateStock(String id_stock, int quantity)
+        {
+            MySqlDataReader reader;
+            string sql;
+            sql = "UPDATE stock SET item_quantity = item_quantity - " + quantity + " WHERE id_stock=" + id_stock;
+            try
+            {
+                MySqlConnection connectionBD = base.connection();
+                connectionBD.Open();
+                MySqlCommand command = new MySqlCommand(sql, connectionBD);
+                reader = command.ExecuteReader();
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+            }
+        }
+
+        public int getQuantityFromIdStock(int id_stock)
+        {
+            MySqlDataReader reader;
+            string sql;
+            int quantity = 0;
+            sql = "SELECT item_quantity FROM stock WHERE id_stock=" + id_stock;
+            try
+            {
+                MySqlConnection connectionBD = base.connection();
+                connectionBD.Open();
+                MySqlCommand command = new MySqlCommand(sql, connectionBD);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    quantity = int.Parse(reader.GetString(0));
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+            }
+
+            return quantity;
         }
     }
 }

@@ -31,7 +31,7 @@ namespace Bovelo_SuperApp
             Form1.Instance.production_Planning.pnl_week_orders.Visible = true;
 
             Dictionary<Model_Bike, Client> Orders = new Dictionary<Model_Bike, Client>();
-          
+
             String sql = "SELECT * from bikes, command,customer where bikes.id_command = command.id_command and customer.id_customer = command.id_customer ";
             MySqlDataReader reader = null;
             /* MySqlDataReader reader = null;
@@ -56,7 +56,7 @@ namespace Bovelo_SuperApp
              }*/
 
             MySqlConnection connectionDB = Connection.connection();
-            
+
             connectionDB.Open();
             try
             {
@@ -66,10 +66,10 @@ namespace Bovelo_SuperApp
                 {
                     while (reader.Read())
                     {
-                        Model_Bike bike = new Model_Bike(reader.GetString("colour"), reader.GetString("type_bike"), reader.GetString("size"), 1, 1);
+                        Model_Bike bike = new Model_Bike(reader.GetString("colour"), reader.GetString("type_bike"), reader.GetString("size"), 1, 1, reader.GetString("production_date"));
                         bike.set_id(reader.GetInt16("id_bike"));
                         bike.set_order(reader.GetInt16("production_order"));
-                        Orders.Add(bike,new Client(reader.GetString("firstname"), reader.GetString("lastname"), reader.GetString("email"), reader.GetString("adress"), int.Parse(reader.GetString("postalcode")), reader.GetString("city"), reader.GetString("business_name")));
+                        Orders.Add(bike, new Client(reader.GetString("firstname"), reader.GetString("lastname"), reader.GetString("email"), reader.GetString("adress"), int.Parse(reader.GetString("postalcode")), reader.GetString("city"), reader.GetString("business_name")));
                     }
 
                 }
@@ -79,7 +79,7 @@ namespace Bovelo_SuperApp
 
                 }
 
-                }
+            }
             catch (MySqlException ex)
             {
                 MessageBox.Show("Searching error" + ex.Message);
@@ -91,15 +91,15 @@ namespace Bovelo_SuperApp
                 connectionDB.Close();
 
             }
-            
-            
-            foreach (KeyValuePair<Model_Bike,Client> elt in Orders)
+
+
+            foreach (KeyValuePair<Model_Bike, Client> elt in Orders)
             {
-                
-                Form1.Instance.production_Planning.pnl_week_orders.Controls.Add(new WeekOrders(elt.Key.id_bike.ToString(),elt.Key.type, elt.Key.size, elt.Value.last_name, elt.Value.business_name,elt.Key.order.ToString()));
-                
+
+                Form1.Instance.production_Planning.pnl_week_orders.Controls.Add(new WeekOrders(elt.Key.id_bike.ToString(), elt.Key.type, elt.Key.size, elt.Value.last_name, elt.Value.business_name, elt.Key.order.ToString(), elt.Key.delivery_time));
+
             }
-            
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -142,7 +142,7 @@ namespace Bovelo_SuperApp
                     }
                     finally
                     {
-                        
+
                         connectionDB.Close();
 
 
@@ -152,19 +152,19 @@ namespace Bovelo_SuperApp
                     //Form1.Instance.production_Planning.btn_set_mounters.Visible = false;
                     Form1.Instance.production_Planning.btn_set_mounters.Enabled = false;
                 }
-                
+
             }
-            
-                    
 
 
-                    
 
-                
-                
-            
 
-            
+
+
+
+
+
+
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -181,14 +181,14 @@ namespace Bovelo_SuperApp
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-           
+
 
 
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-    
+
 
         }
 
@@ -212,12 +212,12 @@ namespace Bovelo_SuperApp
 
         }
 
-       
+
 
         private void label7_Click(object sender, EventArgs e)
         {
 
         }
     }
-    
+
 }

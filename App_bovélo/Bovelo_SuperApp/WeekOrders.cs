@@ -13,7 +13,7 @@ namespace Bovelo_SuperApp
     public partial class WeekOrders : UserControl
     {
         public string id_bike;
-        public WeekOrders(string id_bike ,string model, string size,string client,string business_name,string order)
+        public WeekOrders(string id_bike, string model, string size, string client, string business_name, string order, string delivery_date)
 
         {
             InitializeComponent();
@@ -22,20 +22,8 @@ namespace Bovelo_SuperApp
             lbl_client_name.Text = client;
             lbl_business_name.Text = business_name;
             OrderOfProduction.Text = order;
-            
-            
-            if (lbl_model.Text == "City")
-            {
-                lbl_time.Text = "2";
-            }
-            if (lbl_model.Text == "Explorer")
-            {
-                lbl_time.Text = "2,5";
-            }
-            if (lbl_model.Text == "Adventure")
-            {
-                lbl_time.Text = "2,75";
-            }
+            lbl_time.Text = delivery_date;
+
             this.id_bike = id_bike;
 
         }
@@ -61,6 +49,11 @@ namespace Bovelo_SuperApp
         }
 
         private void lbl_time_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_time_Click_1(object sender, EventArgs e)
         {
 
         }

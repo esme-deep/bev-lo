@@ -17,15 +17,16 @@ namespace Bovelo_SuperApp
         public int id_bike;
         public string status;
         public string mounter;
-        //:public delivery_time ;
+        public string delivery_time;
 
-        public Model_Bike(string c, string t, string s, double price, int quantity)
+        public Model_Bike(string c, string t, string s, double price, int quantity, string delivery_time = null)
         {
             this.colour = c;
             this.type = t;
             this.size = s;
             this.price = price * quantity;
             this.quantity = quantity;
+            this.delivery_time = delivery_time;
 
 
         }
@@ -38,7 +39,7 @@ namespace Bovelo_SuperApp
             this.id_bike = id;
         }
 
-        public void set_order(int  order)
+        public void set_order(int order)
         {
             this.order = order;
         }

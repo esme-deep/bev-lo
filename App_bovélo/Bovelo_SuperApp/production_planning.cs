@@ -66,7 +66,7 @@ namespace Bovelo_SuperApp
                 {
                     while (reader.Read())
                     {
-                        Model_Bike bike = new Model_Bike(reader.GetString("colour"), reader.GetString("type_bike"), reader.GetString("size"), 1, 1, reader.GetString("production_date").Split(' ')[0]);
+                        Model_Bike bike = new Model_Bike(reader.GetString("colour"), reader.GetString("type_bike"), reader.GetString("size"), 1, 1, reader.GetString("production_date"));
                         Console.WriteLine(bike.delivery_time);
                         bike.set_id(reader.GetInt16("id_bike"));
                         bike.set_order(reader.GetInt16("production_order"));
@@ -97,7 +97,7 @@ namespace Bovelo_SuperApp
             foreach (KeyValuePair<Model_Bike, Client> elt in Orders)
             {
 
-                Form1.Instance.production_Planning.pnl_week_orders.Controls.Add(new WeekOrders(elt.Key.id_bike.ToString(), elt.Key.type, elt.Key.size, elt.Value.last_name, elt.Value.business_name, elt.Key.order.ToString(), elt.Key.delivery_time));
+                Form1.Instance.production_Planning.pnl_week_orders.Controls.Add(new WeekOrders(elt.Key.id_bike.ToString(), elt.Key.type, elt.Key.size, elt.Value.last_name, elt.Value.business_name, elt.Key.order.ToString(), elt.Key.delivery_time.Split(' ')[0]));
 
             }
 

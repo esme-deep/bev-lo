@@ -57,5 +57,15 @@ namespace Bovelo_SuperApp
         {
 
         }
+
+        private void lbl_business_name_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_client_name_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

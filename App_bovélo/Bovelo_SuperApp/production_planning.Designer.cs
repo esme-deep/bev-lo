@@ -91,7 +91,7 @@ namespace Bovelo_SuperApp
             this.label5.AutoSize = true;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(994, 1);
+            this.label5.Location = new System.Drawing.Point(1023, 1);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(111, 46);
             this.label5.TabIndex = 2;
@@ -102,29 +102,30 @@ namespace Bovelo_SuperApp
             this.label6.AutoSize = true;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(562, 2);
+            this.label6.Location = new System.Drawing.Point(552, 1);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(278, 46);
+            this.label6.Size = new System.Drawing.Size(176, 46);
             this.label6.TabIndex = 6;
-            this.label6.Text = "business name";
+            this.label6.Text = "Business";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(315, 2);
+            this.label3.Location = new System.Drawing.Point(328, 1);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(226, 46);
+            this.label3.Size = new System.Drawing.Size(130, 46);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Client name";
+            this.label3.Text = "Client ";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(201, 2);
+            this.label8.Location = new System.Drawing.Point(202, 1);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(96, 46);
             this.label8.TabIndex = 3;
@@ -135,7 +136,7 @@ namespace Bovelo_SuperApp
             this.label2.AutoSize = true;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(856, 0);
+            this.label2.Location = new System.Drawing.Point(805, 1);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 46);
             this.label2.TabIndex = 0;
@@ -146,7 +147,7 @@ namespace Bovelo_SuperApp
             this.label4.AutoSize = true;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, -1);
+            this.label4.Location = new System.Drawing.Point(23, 1);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(126, 46);
             this.label4.TabIndex = 1;

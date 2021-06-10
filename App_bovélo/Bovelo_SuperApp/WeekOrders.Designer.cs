@@ -42,10 +42,9 @@ namespace Bovelo_SuperApp
             this.lbl_model.AutoSize = true;
             this.lbl_model.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbl_model.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_model.Location = new System.Drawing.Point(4, 22);
-            this.lbl_model.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_model.Location = new System.Drawing.Point(3, 18);
             this.lbl_model.Name = "lbl_model";
-            this.lbl_model.Size = new System.Drawing.Size(164, 61);
+            this.lbl_model.Size = new System.Drawing.Size(126, 46);
             this.lbl_model.TabIndex = 2;
             this.lbl_model.Text = "Model";
             // 
@@ -54,34 +53,33 @@ namespace Bovelo_SuperApp
             this.lbl_business_name.AutoSize = true;
             this.lbl_business_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbl_business_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_business_name.Location = new System.Drawing.Point(735, 22);
-            this.lbl_business_name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_business_name.Location = new System.Drawing.Point(535, 18);
             this.lbl_business_name.Name = "lbl_business_name";
-            this.lbl_business_name.Size = new System.Drawing.Size(368, 61);
+            this.lbl_business_name.Size = new System.Drawing.Size(176, 46);
             this.lbl_business_name.TabIndex = 12;
-            this.lbl_business_name.Text = "business name";
+            this.lbl_business_name.Text = "Business";
+            this.lbl_business_name.Click += new System.EventHandler(this.lbl_business_name_Click);
             // 
             // lbl_client_name
             // 
             this.lbl_client_name.AutoSize = true;
             this.lbl_client_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbl_client_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_client_name.Location = new System.Drawing.Point(426, 22);
-            this.lbl_client_name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_client_name.Location = new System.Drawing.Point(320, 18);
             this.lbl_client_name.Name = "lbl_client_name";
-            this.lbl_client_name.Size = new System.Drawing.Size(296, 61);
+            this.lbl_client_name.Size = new System.Drawing.Size(130, 46);
             this.lbl_client_name.TabIndex = 11;
-            this.lbl_client_name.Text = "Client name";
+            this.lbl_client_name.Text = "Client ";
+            this.lbl_client_name.Click += new System.EventHandler(this.lbl_client_name_Click);
             // 
             // lbl_size
             // 
             this.lbl_size.AutoSize = true;
             this.lbl_size.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbl_size.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_size.Location = new System.Drawing.Point(285, 22);
-            this.lbl_size.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_size.Location = new System.Drawing.Point(214, 18);
             this.lbl_size.Name = "lbl_size";
-            this.lbl_size.Size = new System.Drawing.Size(126, 61);
+            this.lbl_size.Size = new System.Drawing.Size(96, 46);
             this.lbl_size.TabIndex = 9;
             this.lbl_size.Text = "Size";
             // 
@@ -90,10 +88,9 @@ namespace Bovelo_SuperApp
             this.lbl_time.AutoSize = true;
             this.lbl_time.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbl_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_time.Location = new System.Drawing.Point(1151, 22);
-            this.lbl_time.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_time.Location = new System.Drawing.Point(772, 18);
             this.lbl_time.Name = "lbl_time";
-            this.lbl_time.Size = new System.Drawing.Size(122, 61);
+            this.lbl_time.Size = new System.Drawing.Size(96, 46);
             this.lbl_time.TabIndex = 7;
             this.lbl_time.Text = "time";
             this.lbl_time.Click += new System.EventHandler(this.lbl_time_Click_1);
@@ -121,16 +118,16 @@ namespace Bovelo_SuperApp
             this.OrderOfProduction.Items.Add("18");
             this.OrderOfProduction.Items.Add("19");
             this.OrderOfProduction.Items.Add("20");
-            this.OrderOfProduction.Location = new System.Drawing.Point(1723, 35);
-            this.OrderOfProduction.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.OrderOfProduction.Location = new System.Drawing.Point(1015, 36);
+            this.OrderOfProduction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.OrderOfProduction.Name = "OrderOfProduction";
-            this.OrderOfProduction.Size = new System.Drawing.Size(159, 31);
+            this.OrderOfProduction.Size = new System.Drawing.Size(119, 26);
             this.OrderOfProduction.TabIndex = 14;
             this.OrderOfProduction.SelectedItemChanged += new System.EventHandler(this.domainUpDown1_SelectedItemChanged_2);
             // 
             // WeekOrders
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.OrderOfProduction);
             this.Controls.Add(this.lbl_business_name);
@@ -138,9 +135,9 @@ namespace Bovelo_SuperApp
             this.Controls.Add(this.lbl_size);
             this.Controls.Add(this.lbl_time);
             this.Controls.Add(this.lbl_model);
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "WeekOrders";
-            this.Size = new System.Drawing.Size(1995, 100);
+            this.Size = new System.Drawing.Size(1496, 80);
             this.Load += new System.EventHandler(this.WeekOrders_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

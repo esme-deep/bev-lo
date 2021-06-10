@@ -66,7 +66,8 @@ namespace Bovelo_SuperApp
                 {
                     while (reader.Read())
                     {
-                        Model_Bike bike = new Model_Bike(reader.GetString("colour"), reader.GetString("type_bike"), reader.GetString("size"), 1, 1, reader.GetString("production_date"));
+                        Model_Bike bike = new Model_Bike(reader.GetString("colour"), reader.GetString("type_bike"), reader.GetString("size"), 1, 1, reader.GetString("production_date").Split(' ')[0]);
+                        Console.WriteLine(bike.delivery_time);
                         bike.set_id(reader.GetInt16("id_bike"));
                         bike.set_order(reader.GetInt16("production_order"));
                         Orders.Add(bike, new Client(reader.GetString("firstname"), reader.GetString("lastname"), reader.GetString("email"), reader.GetString("adress"), int.Parse(reader.GetString("postalcode")), reader.GetString("city"), reader.GetString("business_name")));
@@ -215,6 +216,11 @@ namespace Bovelo_SuperApp
 
 
         private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }

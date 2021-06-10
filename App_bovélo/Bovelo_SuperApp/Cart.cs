@@ -47,8 +47,9 @@ namespace Bovelo_SuperApp
             }
             else
             {
-                DateTime now = DateTime.Now;
+
                 DateTime estimated_time = EstimateDeliveryTime();
+                DateTime now = DateTime.Now;
                 double price = 0;
                 foreach (Model_Bike elt in Form1.Instance.Cart.list_models)
                 {
@@ -193,6 +194,16 @@ namespace Bovelo_SuperApp
             }
             date.AddMinutes(production_time);
             return date;
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

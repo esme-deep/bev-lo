@@ -90,6 +90,7 @@ namespace Bovelo_SuperApp
         {
             Form1.Instance.panelContainer.Controls.Clear();
             Form1.Instance.panelContainer.Controls.Add(Form1.Instance.cart);
+            Form1.Instance.cart.Text_Estimated_time.Text = Form1.Instance.cart.EstimateDeliveryTime().ToString();
         }
 
         private void Client_info_Click(object sender, EventArgs e)

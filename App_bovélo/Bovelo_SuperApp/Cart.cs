@@ -136,7 +136,13 @@ namespace Bovelo_SuperApp
                 Form1.Instance.panelContainer.Controls.Add(Form1.Instance.presentation);
             }
         }
+        public Dictionary<string, int[,] > FindUsedItems()
+        {
+            Dictionary < string, int[,]> Items = new Dictionary<string, int[,]>();
+            return Items;
 
+
+        }
         public DateTime EstimateDeliveryTime()
         {
             DateTime date = DateTime.Now;

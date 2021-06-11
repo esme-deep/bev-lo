@@ -18,7 +18,7 @@ namespace Bovelo_SuperApp
         public string status;
         public string mounter;
         public string delivery_time;
-
+        public Dictionary<string, int> items;
         public Model_Bike(string c, string t, string s, double price, int quantity, string delivery_time = null)
         {
             this.colour = c;
@@ -27,7 +27,7 @@ namespace Bovelo_SuperApp
             this.price = price * quantity;
             this.quantity = quantity;
             this.delivery_time = delivery_time;
-
+            
 
         }
         public void set_mounter(string id)
@@ -46,6 +46,10 @@ namespace Bovelo_SuperApp
         public void set_status(string status)
         {
             this.status = status;
+        }
+        public void set_items(Dictionary<string, int> items)
+        {
+            this.items = items;
         }
     }
 }

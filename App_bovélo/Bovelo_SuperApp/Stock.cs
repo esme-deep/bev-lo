@@ -160,6 +160,12 @@ namespace Bovelo_SuperApp
                     e.CellStyle.BackColor = Color.FromArgb(164, 207, 255);
 
                 }
+                if (e.Value.ToString().Contains("Used"))
+                {
+
+                    e.CellStyle.BackColor = Color.FromArgb(186, 58, 94);
+
+                }
 
             }
 

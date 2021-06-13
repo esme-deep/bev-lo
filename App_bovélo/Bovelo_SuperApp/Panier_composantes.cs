@@ -31,7 +31,11 @@ namespace Bovelo_SuperApp
             int i = Form1.Instance.cart.FLPanel_Cart.Controls.IndexOf(this);
             Form1.Instance.cart.FLPanel_Cart.Controls.Remove(this);
             Form1.Instance.Cart.list_models.RemoveAt(i);
-
+            if (Form1.Instance.Cart.list_models.Count==0)
+            {
+                Form1.Instance.cart.label3.Visible = false;
+                Form1.Instance.cart.Text_Estimated_time.Text = "";
+            }
         }
 
         private void Panier_composantes_Load(object sender, EventArgs e)

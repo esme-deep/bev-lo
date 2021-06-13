@@ -164,6 +164,7 @@ namespace Bovelo_SuperApp
             this.label3.Size = new System.Drawing.Size(101, 17);
             this.label3.TabIndex = 3;
             this.label3.Text = "Estimed Time :";
+            this.label3.Visible = false;
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Text_Estimated_time
@@ -208,7 +209,7 @@ namespace Bovelo_SuperApp
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Label label8;
         public System.Windows.Forms.Label Price_Label;
-        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label Text_Estimated_time;
     }
 }

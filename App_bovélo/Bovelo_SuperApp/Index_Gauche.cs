@@ -42,7 +42,6 @@ namespace Bovelo_SuperApp
             {
                 return Client_info;
             }
-
         }
         public Index_Gauche()
         {

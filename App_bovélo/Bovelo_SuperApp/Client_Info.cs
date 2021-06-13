@@ -58,16 +58,6 @@ namespace Bovelo_SuperApp
                     finally
                     {
                         
-                        Form1.Instance.panelContainer.Controls.Clear();
-                        if (Form1.Instance.Cart.list_models.Count ==0)
-                        {
-                            Form1.Instance.panelContainer.Controls.Add(new Catalog());
-                        }
-                        else
-                        {
-                            Form1.Instance.panelContainer.Controls.Add(new Cart());
-                        }
-                        
                         connectionDB.Close();
                     }
                 }

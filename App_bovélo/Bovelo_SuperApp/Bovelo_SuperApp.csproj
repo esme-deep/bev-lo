@@ -212,7 +212,32 @@
     <EmbeddedResource Include="WeekOrders.resx">
       <DependentUpon>WeekOrders.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\Bovelo_SuperApp.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\Bovelo_SuperApp.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\Cart.datasource" />
+    <None Include="Properties\DataSources\Catalog.datasource" />
+    <None Include="Properties\DataSources\Client.datasource" />
+    <None Include="Properties\DataSources\Client_Info.datasource" />
+    <None Include="Properties\DataSources\Command.datasource" />
+    <None Include="Properties\DataSources\Connection.datasource" />
+    <None Include="Properties\DataSources\Connection2.datasource" />
+    <None Include="Properties\DataSources\CtrlItems.datasource" />
+    <None Include="Properties\DataSources\Form1.datasource" />
+    <None Include="Properties\DataSources\Index_Gauche.datasource" />
+    <None Include="Properties\DataSources\Index_Hautcs.datasource" />
     <None Include="Properties\DataSources\Items.datasource" />
+    <None Include="Properties\DataSources\Login.datasource" />
+    <None Include="Properties\DataSources\Model_Bike.datasource" />
+    <None Include="Properties\DataSources\MounterControl.datasource" />
+    <None Include="Properties\DataSources\MounterOrder.datasource" />
+    <None Include="Properties\DataSources\Panier_composantes.datasource" />
+    <None Include="Properties\DataSources\Presentation.datasource" />
+    <None Include="Properties\DataSources\Product.datasource" />
+    <None Include="Properties\DataSources\production_planning.datasource" />
+    <None Include="Properties\DataSources\Product_catalog.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\Stock.datasource" />
+    <None Include="Properties\DataSources\WeekOrders.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

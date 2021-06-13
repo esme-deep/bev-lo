@@ -105,15 +105,12 @@ namespace Bovelo_SuperApp
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
             char i= Form1.Instance.index_Haut.Connection_User.Text[14];
             if (this.run ==1)
             {
                 
                 string sql = "UPDATE bikes set status = '" + Status_bike.Text + "' , Id_mounter ='" + i + "' where id_bike like '" + int.Parse(this.id_bike) + "'";
                 MySqlConnection Conn = Connection.connection();
-
-
                 try
                 {
                     Conn.Open();
@@ -127,15 +124,197 @@ namespace Bovelo_SuperApp
                 finally
                 {
                     Conn.Close();
+                } 
+            }
+            if (this.Status_bike.Text == "Done" && this.run==1)
+            {
+                this.Status_bike.Enabled = false;
+                Dictionary<string, int> items = new Dictionary<string, int>();
+                items.Add("Béquille_Standart_Standart", 1);
+                items.Add("Kit de frein_Standart_Standart", 1);
+                items.Add("Kit vitesse_Standart_Standart", 1);
+                items.Add("Kit pédalier_Standart_Standart", 1);
+                items.Add("Cassette de pignons_Standart_Standart", 1);
+                items.Add("Catadioptre_Standart_Standart", 4);
+                items.Add("Chaîne_Standart_Standart", 1);
+                items.Add("Chambre à air_Standart_Standart", 2);
+                items.Add("Détrailleur_Standart_Standart", 1);
+                items.Add("Disque de frein_Standart_Standart", 2);
+                items.Add("Guidon_Standart_Standart", 1);
+                items.Add("Plateau_Standart_Standart", 1);
+                items.Add("Selle_Standart_Standart", 1);
+                if (this.size_mounter.Text == "25")
+                {
+                    items.Add("Fourche_Standart_M", 1);
+                    items.Add("Roue_Standart_M", 1);
+                }
+                if (this.size_mounter.Text == "27")
+                {
+                    items.Add("Fourche_Standart_L", 1);
+                    items.Add("Roue_Standart_M", 1);
+                }
+
+                if (this.model_mounter.Text == "City")
+                {
+                    items.Add("Eclairage_Standart_Standart", 1);
+                    items.Add("Porte-bagage_Standart_Standart", 1);
+                    if (this.color_mounter.Text == "green" && this.size_mounter.Text == "25")
+                    {
+                        items.Add("Cadre_Green_M", 1);
+                        items.Add("Garde-boue_Green_M", 1);
+
+                    }
+                    if (this.color_mounter.Text == "green" && this.size_mounter.Text == "27")
+                    {
+                        items.Add("Cadre_Green_L", 1);
+                        items.Add("Garde-boue_Green_L", 1);
+                    }
+                    if (this.color_mounter.Text == "red" && this.size_mounter.Text == "25")
+                    {
+                        items.Add("Cadre_Red_M", 1);
+                        items.Add("Garde-boue_Red_M", 1);
+                    }
+                    if (this.color_mounter.Text == "red" && this.size_mounter.Text == "27")
+                    {
+                        items.Add("Cadre_Red_L", 1);
+                        items.Add("Garde-boue_Red_L", 1);
+                    }
+                    if (this.color_mounter.Text == "blue" && this.size_mounter.Text == "25")
+                    {
+                        items.Add("Cadre_Blue_M", 1);
+                        items.Add("Garde-boue_Blue_M", 1);
+                    }
+                    if (this.color_mounter.Text == "blue" && this.size_mounter.Text == "27")
+                    {
+                        items.Add("Cadre_Blue_L", 1);
+                        items.Add("Garde-boue_Blue_L", 1);
+                    }
+                    if (this.size_mounter.Text == "25")
+                    {
+                        items.Add("Pneu_Standart_M", 2);
+                    }
+                    if (this.size_mounter.Text == "27")
+                    {
+                        items.Add("Pneu_Standart_L", 2);
+                    }
+
+                }
+                if (this.model_mounter.Text == "Explorer")
+                {
+                    items.Add("Eclairage_Standart_Standart", 1);
+                    items.Add("Porte-bagage_Standart_Standart", 1);
+                    if (this.color_mounter.Text == "green" && this.size_mounter.Text == "25")
+                    {
+                        items.Add("Cadre_Green_M", 1);
+                        items.Add("Garde-boue large_Green_M", 1);
+                    }
+                    if (this.color_mounter.Text == "green" && this.size_mounter.Text == "27")
+                    {
+                        items.Add("Cadre_Green_L", 1);
+                        items.Add("Garde-boue large_Green_L", 1);
+                    }
+                    if (this.color_mounter.Text == "red" && this.size_mounter.Text == "25")
+                    {
+                        items.Add("Cadre_Red_M", 1);
+                        items.Add("Garde-boue large_Red_M", 1);
+                    }
+                    if (this.color_mounter.Text == "red" && this.size_mounter.Text == "27")
+                    {
+                        items.Add("Cadre_Red_L", 1);
+                        items.Add("Garde-boue large_Red_L", 1);
+                    }
+                    if (this.color_mounter.Text == "blue" && this.size_mounter.Text == "25")
+                    {
+                        items.Add("Cadre_Blue_M", 1);
+                        items.Add("Garde-boue large_Blue_M", 1);
+                    }
+                    if (this.color_mounter.Text == "blue" && this.size_mounter.Text == "27")
+                    {
+                        items.Add("Cadre_Blue_L", 1);
+                        items.Add("Garde-boue large_Blue_L", 1);
+                    }
+                    if (this.color_mounter.Text == "25")
+                    {
+                        items.Add("Pneu large_Standart_M", 2);
+                    }
+                    if (this.color_mounter.Text == "27")
+                    {
+                        items.Add("Pneu large_Standart_L", 2);
+                    }
+                }
+                if (this.model_mounter.Text == "Adventure")
+                {
+                    if (this.color_mounter.Text == "green" && this.size_mounter.Text == "25")
+                    {
+                        items.Add("Cadre renforcé_Green_M", 1);
+                    }
+                    if (this.color_mounter.Text == "green" && this.size_mounter.Text == "27")
+                    {
+                        items.Add("Cadre renforcé_Green_L", 1);
+                    }
+                    if (this.color_mounter.Text == "red" && this.size_mounter.Text == "25")
+                    {
+                        items.Add("Cadre renforcé_Red_M", 1);
+                    }
+                    if (this.color_mounter.Text == "red" && this.size_mounter.Text == "27")
+                    {
+                        items.Add("Cadre renforcé_Red_L", 1);
+                    }
+                    if (this.color_mounter.Text == "blue" && this.size_mounter.Text == "25")
+                    {
+                        items.Add("Cadre renforcé_Blue_M", 1);
+                    }
+                    if (this.color_mounter.Text == "blue" && this.size_mounter.Text == "27")
+                    {
+                        items.Add("Cadre renforcé_Blue_L", 1);
+                    }
+                    if (this.size_mounter.Text == "25")
+                    {
+                        items.Add("Pneu large_Standart_M", 2);
+                    }
+                    if (this.size_mounter.Text == "27")
+                    {
+                        items.Add("Pneu large_Standart_L", 2);
+                    }
+                }
+                foreach (KeyValuePair<string, int> item in items)
+                {
+                    String name = item.Key.Split('_')[0];
+                    String color = item.Key.Split('_')[1];
+                    String size = item.Key.Split('_')[2];
+                    string sql = "SELECT model_item.id_model_item, model_item.name_model_item, model_item.size_model_item, model_item.colour_model_item, stock.qtt_used, stock.qtt_available FROM model_item INNER JOIN stock ON model_item.id_stock = stock.id_stock WHERE model_item.name_model_item LIKE '%" + name + "%' AND model_item.size_model_item LIKE '%" + size + "%' AND model_item.colour_model_item LIKE '%" + color + "%'  ORDER BY model_item.name_model_item ASC";
+
+                    MySqlConnection connectionBD = Connection.connection();
+                    connectionBD.Open();
+                    MySqlCommand command = new MySqlCommand(sql, connectionBD);
+                    MySqlDataReader reader = command.ExecuteReader();
+
+
+                    if (reader.Read())
+                    {
+
+                        int qtt_used = int.Parse(reader.GetString(4));
+                        int qtt_available = int.Parse(reader.GetString(5));
+                        int id_stock = int.Parse(reader.GetString(0));
+                        string sql2 = "UPDATE stock  SET qtt_used='" + (qtt_used - (item.Value)) + "',qtt_available ='"+ (qtt_available-(item.Value))+"' WHERE id_stock ='" + id_stock + "'";
+                        MySqlConnection conexionBD = Connection.connection();
+                        conexionBD.Open();
+                        MySqlCommand comand2 = new MySqlCommand(sql2, conexionBD);
+                        comand2.ExecuteNonQuery();
+
+                    }
+
+
+
                 }
                 
             }
-            else
-            {
-                this.run = 1;           
-            }
-            
+            this.run = 1;
+
         }
+
+            
+        
     }
 }
 

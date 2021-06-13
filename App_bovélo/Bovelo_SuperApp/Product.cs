@@ -69,7 +69,6 @@ namespace Bovelo_SuperApp
 
                 if (label_model.Text == "City")
                 {
-                    Console.WriteLine("its city bike");
                     items.Add("Eclairage_Standart_Standart", 1);
                     items.Add("Porte-bagage_Standart_Standart", 1);
                     if (boxColor.Text =="green" && BoxSize.Text == "25")
@@ -115,7 +114,6 @@ namespace Bovelo_SuperApp
                 }
                 if (label_model.Text == "Explorer")
                 {
-                    Console.WriteLine("explorer samere");
                     items.Add("Eclairage_Standart_Standart", 1);
                     items.Add("Porte-bagage_Standart_Standart", 1);
                     if (boxColor.Text == "green" && BoxSize.Text == "25")
@@ -159,7 +157,6 @@ namespace Bovelo_SuperApp
                 }
                 if (label_model.Text == "Adventure")
                 {
-                    Console.WriteLine("adventure baby");
                     if (boxColor.Text == "green" && BoxSize.Text == "25")
                     {
                         items.Add("Cadre renforcé_Green_M", 1);
@@ -199,10 +196,7 @@ namespace Bovelo_SuperApp
                 model_bike.set_items(items);
                 Form1.Instance.Cart.list_models.Add(model_bike);
                 Form1.Instance.cart.FLPanel_Cart.Controls.Add(new Panier_composantes(this.img, model_bike.type, model_bike.colour, model_bike.size, model_bike.quantity.ToString(), model_bike.price.ToString()));
-                foreach (KeyValuePair<string, int> item in model_bike.items)
-                {
-                    Console.WriteLine("Pièce: {0}, quantité: {1}", item.Key, item.Value);
-                }
+                
                 
             }
         }

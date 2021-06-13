@@ -91,12 +91,11 @@ namespace Bovelo_SuperApp
             }
             foreach (KeyValuePair<Model_Bike, Client> elt in Orders)
             {
-
                 MounterOrder order = new MounterOrder(elt.Key.id_bike.ToString(), elt.Key.type, elt.Key.colour, elt.Key.size, elt.Value.last_name, elt.Value.business_name, elt.Key.order.ToString(), elt.Key.status);
-                if (Form1.Instance.index_Haut.Connection_User.Text[14] == elt.Key.mounter[0]) order.Status_bike.Enabled = true;
-                else if (order.Status_bike.Text != "Waiting") order.Status_bike.Enabled = false;
+                if (Form1.Instance.index_Haut.Connection_User.Text[14] == elt.Key.mounter[0] && order.Status_bike.Text != "Done") order.Status_bike.Enabled = true;
+                else if (order.Status_bike.Text == "Waiting") order.Status_bike.Enabled = true;
+                else order.Status_bike.Enabled = false;
                 Form1.Instance.MounteurControl.pnl_week_orders_forMounter.Controls.Add(order);
-                
             }
 
         }

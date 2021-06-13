@@ -34,11 +34,6 @@ namespace Bovelo_SuperApp
         {
 
 
-
-
-
-
-
             if (Form1.Instance.Cart.client == null)
             {
                 MessageBox.Show("complétez le formulaire client !");
@@ -112,7 +107,7 @@ namespace Bovelo_SuperApp
                             String size = item.Key.Split('_')[2];
                             String Status = "Used";
 
-                            string sql = "SELECT model_item.id_model_item, model_item.name_model_item, model_item.size_model_item, model_item.colour_model_item, model_item.price_model_item, stock.item_quantity, stock.status_stock FROM model_item INNER JOIN stock ON model_item.id_stock = stock.id_stock WHERE model_item.name_model_item LIKE '%" + name + "%' AND model_item.size_model_item LIKE '%" + size + "%' AND model_item.colour_model_item LIKE '%" + color + "%' AND stock.status_stock LIKE '%" + Status + "%'  ORDER BY model_item.name_model_item ASC";
+                            string sql = "SELECT model_item.id_model_item, model_item.name_model_item, model_item.size_model_item, model_item.colour_model_item, model_item.price_model_item, stock.qtt_used FROM model_item INNER JOIN stock ON model_item.id_stock = stock.id_stock WHERE model_item.name_model_item LIKE '%" + name + "%' AND model_item.size_model_item LIKE '%" + size + "%' AND model_item.colour_model_item LIKE '%" + color + "%'  ORDER BY model_item.name_model_item ASC";
                             
                             MySqlConnection connectionBD = Connection.connection();
                             connectionBD.Open();
@@ -123,28 +118,15 @@ namespace Bovelo_SuperApp
                             if (reader.Read())
                             {
                                 
-                                int quantity= int.Parse(reader.GetString(5));
-                                Console.WriteLine(item.Key + " quantity is " + quantity);
+                                int qtt_used= int.Parse(reader.GetString(5));
                                 int id_stock = int.Parse(reader.GetString(0));
-                                string sql2 = "UPDATE stock  SET item_quantity='" + (quantity+ (item.Value * element.quantity)) + "' WHERE id_stock ='" + id_stock + "'";
+                                string sql2 = "UPDATE stock  SET qtt_used='" + (qtt_used+ (item.Value * element.quantity)) + "' WHERE id_stock ='" + id_stock + "'";
                                 MySqlConnection conexionBD = Connection.connection();
                                 conexionBD.Open();
                                 MySqlCommand comand2 = new MySqlCommand(sql2, conexionBD);
                                 comand2.ExecuteNonQuery();
-                                Console.WriteLine("cela existe deja");
-                                
                             }
-                            else
-                            {
-                                string sql_model_item = "INSERT INTO model_item(name_model_item, size_model_item, colour_model_item, price_model_item, id_stock) VALUES ('" + name + "', '" + size + "', '" + color + "', '" + 0 + "', (select max(id_stock) from stock) )";
-                                string sql_stock = "INSERT INTO stock (item_quantity, status_stock) VALUES ('" + item.Value* element.quantity + "', '" + Status + "')";
-                                MySqlConnection conexionBD = Connection.connection();
-                                conexionBD.Open();
-                                MySqlCommand comand = new MySqlCommand(sql_model_item, conexionBD);
-                                MySqlCommand comand2 = new MySqlCommand(sql_stock, conexionBD);
-                                comand2.ExecuteNonQuery();
-                                comand.ExecuteNonQuery();
-                            }
+                            
                             
                             
                         }
@@ -178,7 +160,11 @@ namespace Bovelo_SuperApp
 
                 Form1.Instance.panelContainer.Controls.Add(Form1.Instance.presentation);
             }
+            Form1.Instance.stock.loadTable(null);
         }
+
+        
+
         public Dictionary<string, int[,] > FindUsedItems()
         {
             Dictionary < string, int[,]> Items = new Dictionary<string, int[,]>();

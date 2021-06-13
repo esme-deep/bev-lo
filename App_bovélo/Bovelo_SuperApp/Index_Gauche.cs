@@ -53,6 +53,7 @@ namespace Bovelo_SuperApp
         {
             if (Log_in_Button.Text == "Sign out")
             {
+                Form1.Instance.index_Haut.btnStock.Visible = false;
                 Form1.Instance.index_Haut.Connection_User.Text = "Not Connected";
                 Form1.Instance.panelContainer.Controls.Clear();
                 Form1.Instance.panelContainer.Controls.Add(new Presentation());
@@ -101,7 +102,6 @@ namespace Bovelo_SuperApp
         {
             Form1.Instance.panelContainer.Controls.Clear();
             Form1.Instance.panelContainer.Controls.Add(Form1.Instance.client_info);
-            
         }
 
         private void buttonAssign_Click(object sender, EventArgs e)

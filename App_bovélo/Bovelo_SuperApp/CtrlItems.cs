@@ -9,6 +9,7 @@ namespace Bovelo_SuperApp
 {
     class CtrlItems : Connection2
     {
+
         public List<Object> request(string data)
         {
             MySqlDataReader reader;
@@ -17,13 +18,12 @@ namespace Bovelo_SuperApp
 
             if (data == null)
             {
-                sql = "SELECT model_item.id_model_item, model_item.name_model_item, model_item.size_model_item, model_item.colour_model_item, model_item.price_model_item, stock.item_quantity, stock.status_stock FROM model_item INNER JOIN stock ON model_item.id_stock = stock.id_stock ORDER BY model_item.name_model_item ASC";
+                sql = "SELECT model_item.id_model_item, model_item.name_model_item, model_item.size_model_item, model_item.colour_model_item, model_item.price_model_item, stock.qtt_used,stock.qtt_coming,stock.qtt_available FROM model_item INNER JOIN stock ON model_item.id_stock = stock.id_stock ORDER BY model_item.name_model_item ASC";
             }
             else
             {
-                sql = "SELECT model_item.id_model_item, model_item.name_model_item, model_item.size_model_item, model_item.colour_model_item, model_item.price_model_item, stock.item_quantity, stock.status_stock FROM model_item INNER JOIN stock ON model_item.id_stock = stock.id_stock WHERE model_item.id_stock LIKE '%" + data + "%' OR model_item.name_model_item LIKE '%" + data + "%' OR model_item.size_model_item LIKE '%" + data + "%' OR model_item.colour_model_item LIKE '%" + data + "%' OR model_item.price_model_item LIKE '%" + data + "%' OR stock.status_stock LIKE '%" + data + "%'  ORDER BY model_item.name_model_item ASC";
+                sql = "SELECT model_item.id_model_item, model_item.name_model_item, model_item.size_model_item, model_item.colour_model_item, model_item.price_model_item, stock.qtt_used,stock.qtt_coming,stock.qtt_available FROM model_item INNER JOIN stock ON model_item.id_stock = stock.id_stock WHERE model_item.id_stock LIKE '%" + data + "%' OR model_item.name_model_item LIKE '%" + data + "%' OR model_item.size_model_item LIKE '%" + data + "%' OR model_item.colour_model_item LIKE '%" + data + "%' OR model_item.price_model_item LIKE '%" + data + "%' OR stock.status_stock LIKE '%" + data + "%'  ORDER BY model_item.name_model_item ASC";
             }
-
             try
             {
                 MySqlConnection connectionBD = base.connection();
@@ -39,8 +39,9 @@ namespace Bovelo_SuperApp
                     _items.Size_model_item = reader.GetString(2);
                     _items.Colour_model_item = reader[3].ToString();
                     _items.Price_model_item = double.Parse(reader[4].ToString());
-                    _items.Item_quantity = int.Parse(reader.GetString(5));
-                    _items.Status_stock = reader.GetString(6);
+                    _items.Qtt_used =  int.Parse(reader.GetString(5));
+                    _items.Qtt_coming = int.Parse(reader.GetString(6));
+                    _items.Qtt_available = int.Parse(reader.GetString(7));
                     items_list.Add(_items);
                 }
             }

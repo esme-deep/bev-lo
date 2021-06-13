@@ -25,7 +25,7 @@ namespace Bovelo_SuperApp
             loadTable(data);
         }
 
-        private void loadTable(string data)
+        public void loadTable(string data)
         {
             List<Items> lista = new List<Items>();
             CtrlItems _ctrlItems = new CtrlItems();
@@ -37,10 +37,7 @@ namespace Bovelo_SuperApp
 
         }
 
-        private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnSaveItem_Click(object sender, EventArgs e)
         {
@@ -86,8 +83,6 @@ namespace Bovelo_SuperApp
             txtPrice.Text = "";
             txtQuantity.Text = "";
             cmbStatus.Text = "";
-
-
         }
 
         private void btnClearItem_Click(object sender, EventArgs e)
@@ -97,10 +92,10 @@ namespace Bovelo_SuperApp
 
         private void btnUpdateItem_Click(object sender, EventArgs e)
         {
-            txtItem_ID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            txtItem.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            txtSize.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            txtColour.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            //txtItem_ID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            txtItem.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            txtSize.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            txtColour.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
             txtPrice.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
             txtQuantity.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
             cmbStatus.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
@@ -122,7 +117,6 @@ namespace Bovelo_SuperApp
                     clear_data();
                     loadTable(null);
                 }
-
             }
         }
 
@@ -143,32 +137,6 @@ namespace Bovelo_SuperApp
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            DataGridView dgv = sender as DataGridView;
-
-
-
-            if (dgv.Columns[e.ColumnIndex].Name == "Status")
-            {
-                if (e.Value.ToString().Contains("Available"))
-                {
-
-                    e.CellStyle.BackColor = Color.FromArgb(182, 255, 164);
-                }
-                if (e.Value.ToString().Contains("Coming soon"))
-                {
-
-                    e.CellStyle.BackColor = Color.FromArgb(164, 207, 255);
-
-                }
-                if (e.Value.ToString().Contains("Used"))
-                {
-
-                    e.CellStyle.BackColor = Color.FromArgb(186, 58, 94);
-
-                }
-
-            }
-
 
         }
     }

@@ -160,7 +160,7 @@ namespace Bovelo_SuperApp
 
                 Form1.Instance.panelContainer.Controls.Add(Form1.Instance.presentation);
             }
-            Form1.Instance.stock.loadTable(null);
+            
         }
 
         
@@ -174,69 +174,118 @@ namespace Bovelo_SuperApp
         }
         public DateTime EstimateDeliveryTime()
         {
-            DateTime date = DateTime.Now;
-            int production_time = 0;
-            int number_tyres = 0;
-            int number_lighting = 0;
-            int number_crutch = 0;
-            int number_framework = 0;
-            int number_reinforced_framework = 0;
-
-            foreach (Model_Bike element in Form1.Instance.Cart.list_models)
-            {
-                for (int i = 0; i < element.quantity; i++)
-                {
-                    number_tyres += 2;
-                    number_lighting += 1;
-                    number_crutch += 1;
-                    if (element.type == "City")
-                    {
-                        production_time += 120;
-                    }
-                    else if (element.type == "Explorer")
-                    {
-                        production_time += 150;
-                    }
-                    else
-                    {
-                        production_time += 165;
-                    }
-
-                    if (element.size == "27")
-                    {
-                        number_reinforced_framework += 1;
-                    }
-                    else
-                    {
-                        number_framework += 1;
-                    }
-                }
-            }
-            int[,] id_stock_vs_quantity = new int[,] { { 1, number_crutch }, { 3, number_framework }, { 4, number_tyres }, { 5, number_reinforced_framework }, { 6, number_lighting } };
-            CtrlItems _ctrlItems = new CtrlItems();
-            bool out_of_stock = false;
-            for (int i = 0; i < id_stock_vs_quantity.Rank; i++)
-            {
-                int stock = _ctrlItems.getQuantityFromIdStock(id_stock_vs_quantity[i, 0]);
-                if (stock < id_stock_vs_quantity[i, 1])
-                {
-                    out_of_stock = true;
-                }
-            }
-            if (out_of_stock)
-            {
-                production_time += 10080;   //une semaine en minutes.
-            }
-            date.AddMinutes(production_time);
-            return date;
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
             
+            string sql = "SELECT max(production_date) FROM command";
+            MySqlConnection connectionDB = Connection.connection();
+            connectionDB.Open();
+            DateTime myDate = DateTime.Now;
+            try
+            {
+                string date;
+                
+                
+                MySqlCommand comando = new MySqlCommand(sql, connectionDB);
+                MySqlDataReader reader = comando.ExecuteReader();
+
+
+                if (reader.Read())
+                {
+                    try
+                    {
+                        date = reader.GetString(0);
+                        myDate = Convert.ToDateTime(date);
+                        myDate = myDate.AddDays(1);
+                        date = myDate.ToString();
+                        var x = date.Split(' ');
+                        x[1] = "08:00:00";
+                        date = string.Join(" ", x);
+                        myDate = Convert.ToDateTime(date);
+                    }
+                    catch
+                    {
+                        myDate = myDate.AddDays(1);
+                        date = myDate.ToString();
+                        var x = date.Split(' ');
+                        x[1] = "08:00:00";
+                        date = string.Join(" ", x);
+                        myDate = Convert.ToDateTime(date);
+                    }
+
+
+                }
+                CtrlItems _ctrlItems = new CtrlItems();
+                List<Object> stock = _ctrlItems.request(null);
+                bool notEnough = false;
+                int production_time = 0;
+                int days = 0;
+                foreach (Model_Bike element in Form1.Instance.Cart.list_models)
+                {
+                    if (!notEnough)
+                    {
+                        foreach (KeyValuePair<string, int> item in element.items)
+                        {
+                            String name = item.Key.Split('_')[0];
+                            String color = item.Key.Split('_')[1];
+                            String size = item.Key.Split('_')[2];
+                            int qtt_will_use = item.Value * element.quantity;
+                            foreach (Items elem_stock in stock)
+                            {
+                                if (name == elem_stock.Name_model_item && color == elem_stock.Colour_model_item && size == elem_stock.Size_model_item)
+                                {
+                                    elem_stock.Qtt_available -= qtt_will_use;
+                                    notEnough = elem_stock.Qtt_available - elem_stock.Qtt_used < 0 ? true : false;
+                                    if (notEnough) days += 7;
+                                }
+                            }
+                        }
+                    }
+                    for (int i = 0; i < element.quantity; i++)
+                    {
+                        if (element.type == "City")
+                        {
+                            production_time += 120;
+                        }
+                        else if (element.type == "Explorer")
+                        {
+                            production_time += 150;
+                        }
+                        else
+                        {
+                            production_time += 165;
+                        }
+                        if (production_time / 3 >= 8*60)
+                        {
+                            production_time = 0;
+                            days++;
+                        }
+                    }
+                    
+                }
+                Console.WriteLine(production_time);
+                production_time = production_time / 3 + 100;
+                myDate = myDate.AddDays(days);
+                myDate = myDate.AddMinutes(production_time);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally{
+                connectionDB.Close();              
+            }
+            
+
+            return myDate;
         }
+
+        
 
         private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FLPanel_Cart_Paint(object sender, PaintEventArgs e)
         {
 
         }

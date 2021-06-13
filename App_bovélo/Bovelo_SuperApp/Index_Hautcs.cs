@@ -34,6 +34,7 @@ namespace Bovelo_SuperApp
         {
             Form1.Instance.panelContainer.Controls.Clear();
             Form1.Instance.panelContainer.Controls.Add(Form1.Instance.stock);
+            Form1.Instance.stock.loadTable(null);
         }
     }
 }

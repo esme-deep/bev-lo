@@ -32,6 +32,7 @@
             this.lblSearch = new System.Windows.Forms.Label();
             this.txtChercher = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Id_model_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpItem = new System.Windows.Forms.GroupBox();
             this.btnClearItem = new System.Windows.Forms.Button();
             this.btnSaveItem = new System.Windows.Forms.Button();
@@ -50,15 +51,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnUpdateItem = new System.Windows.Forms.Button();
-            this.btnDeleteItem = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cmbFilter = new System.Windows.Forms.ComboBox();
-            this.btnFilter = new System.Windows.Forms.Button();
-            this.itemsBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.itemsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.itemsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.Id_model_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namemodelitemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sizemodelitemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colourmodelitemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +58,10 @@
             this.qttusedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qttcomingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qttavailableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemsBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.itemsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.itemsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.grpItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource3)).BeginInit();
@@ -107,14 +103,22 @@
             this.qttcomingDataGridViewTextBoxColumn,
             this.qttavailableDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.itemsBindingSource3;
-            this.dataGridView1.Location = new System.Drawing.Point(60, 102);
+            this.dataGridView1.Location = new System.Drawing.Point(18, 102);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.Size = new System.Drawing.Size(412, 294);
+            this.dataGridView1.Size = new System.Drawing.Size(516, 294);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            // 
+            // Id_model_item
+            // 
+            this.Id_model_item.DataPropertyName = "Id_model_item";
+            this.Id_model_item.HeaderText = "ID";
+            this.Id_model_item.Name = "Id_model_item";
+            this.Id_model_item.ReadOnly = true;
+            this.Id_model_item.Visible = false;
             // 
             // grpItem
             // 
@@ -133,7 +137,7 @@
             this.grpItem.Controls.Add(this.label2);
             this.grpItem.Controls.Add(this.txtItem);
             this.grpItem.Controls.Add(this.label1);
-            this.grpItem.Location = new System.Drawing.Point(500, 100);
+            this.grpItem.Location = new System.Drawing.Point(540, 101);
             this.grpItem.Name = "grpItem";
             this.grpItem.Size = new System.Drawing.Size(254, 295);
             this.grpItem.TabIndex = 3;
@@ -173,7 +177,7 @@
             // 
             this.cmbStatus.FormattingEnabled = true;
             this.cmbStatus.Items.AddRange(new object[] {
-            "Available\t",
+            "Available",
             "Coming soon",
             "Used"});
             this.cmbStatus.Location = new System.Drawing.Point(68, 205);
@@ -290,71 +294,6 @@
             this.btnUpdateItem.UseVisualStyleBackColor = true;
             this.btnUpdateItem.Click += new System.EventHandler(this.btnUpdateItem_Click);
             // 
-            // btnDeleteItem
-            // 
-            this.btnDeleteItem.Location = new System.Drawing.Point(147, 401);
-            this.btnDeleteItem.Name = "btnDeleteItem";
-            this.btnDeleteItem.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteItem.TabIndex = 14;
-            this.btnDeleteItem.Text = "Delete";
-            this.btnDeleteItem.UseVisualStyleBackColor = true;
-            this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(58, 76);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 13);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Filter by status :";
-            // 
-            // cmbFilter
-            // 
-            this.cmbFilter.FormattingEnabled = true;
-            this.cmbFilter.Items.AddRange(new object[] {
-            "Available\t",
-            "Coming soon"});
-            this.cmbFilter.Location = new System.Drawing.Point(138, 72);
-            this.cmbFilter.Name = "cmbFilter";
-            this.cmbFilter.Size = new System.Drawing.Size(229, 21);
-            this.cmbFilter.TabIndex = 16;
-            // 
-            // btnFilter
-            // 
-            this.btnFilter.Location = new System.Drawing.Point(374, 72);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(75, 23);
-            this.btnFilter.TabIndex = 17;
-            this.btnFilter.Text = "Filter";
-            this.btnFilter.UseVisualStyleBackColor = true;
-            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
-            // 
-            // itemsBindingSource3
-            // 
-            this.itemsBindingSource3.DataSource = typeof(Bovelo_SuperApp.Items);
-            // 
-            // itemsBindingSource2
-            // 
-            this.itemsBindingSource2.DataSource = typeof(Bovelo_SuperApp.Items);
-            // 
-            // itemsBindingSource
-            // 
-            this.itemsBindingSource.DataSource = typeof(Bovelo_SuperApp.Items);
-            this.itemsBindingSource.CurrentChanged += new System.EventHandler(this.itemsBindingSource_CurrentChanged);
-            // 
-            // itemsBindingSource1
-            // 
-            this.itemsBindingSource1.DataSource = typeof(Bovelo_SuperApp.Items);
-            // 
-            // Id_model_item
-            // 
-            this.Id_model_item.DataPropertyName = "Id_model_item";
-            this.Id_model_item.HeaderText = "ID";
-            this.Id_model_item.Name = "Id_model_item";
-            this.Id_model_item.ReadOnly = true;
-            this.Id_model_item.Visible = false;
-            // 
             // namemodelitemDataGridViewTextBoxColumn
             // 
             this.namemodelitemDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -418,14 +357,27 @@
             this.qttavailableDataGridViewTextBoxColumn.ReadOnly = true;
             this.qttavailableDataGridViewTextBoxColumn.Width = 78;
             // 
+            // itemsBindingSource3
+            // 
+            this.itemsBindingSource3.DataSource = typeof(Bovelo_SuperApp.Items);
+            // 
+            // itemsBindingSource2
+            // 
+            this.itemsBindingSource2.DataSource = typeof(Bovelo_SuperApp.Items);
+            // 
+            // itemsBindingSource
+            // 
+            this.itemsBindingSource.DataSource = typeof(Bovelo_SuperApp.Items);
+            this.itemsBindingSource.CurrentChanged += new System.EventHandler(this.itemsBindingSource_CurrentChanged);
+            // 
+            // itemsBindingSource1
+            // 
+            this.itemsBindingSource1.DataSource = typeof(Bovelo_SuperApp.Items);
+            // 
             // Stock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnFilter);
-            this.Controls.Add(this.cmbFilter);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.btnDeleteItem);
             this.Controls.Add(this.btnUpdateItem);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.grpItem);
@@ -472,10 +424,6 @@
         private System.Windows.Forms.Button btnSaveItem;
         private System.Windows.Forms.TextBox txtItem_ID;
         private System.Windows.Forms.Button btnUpdateItem;
-        private System.Windows.Forms.Button btnDeleteItem;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cmbFilter;
-        private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.BindingSource itemsBindingSource2;
         private System.Windows.Forms.BindingSource itemsBindingSource3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_model_item;

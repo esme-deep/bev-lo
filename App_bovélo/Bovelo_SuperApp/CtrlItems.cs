@@ -22,7 +22,7 @@ namespace Bovelo_SuperApp
             }
             else
             {
-                sql = "SELECT model_item.id_model_item, model_item.name_model_item, model_item.size_model_item, model_item.colour_model_item, model_item.price_model_item, stock.qtt_used,stock.qtt_coming,stock.qtt_available FROM model_item INNER JOIN stock ON model_item.id_stock = stock.id_stock WHERE model_item.id_stock LIKE '%" + data + "%' OR model_item.name_model_item LIKE '%" + data + "%' OR model_item.size_model_item LIKE '%" + data + "%' OR model_item.colour_model_item LIKE '%" + data + "%' OR model_item.price_model_item LIKE '%" + data + "%' OR stock.status_stock LIKE '%" + data + "%'  ORDER BY model_item.name_model_item ASC";
+                sql = "SELECT model_item.id_model_item, model_item.name_model_item, model_item.size_model_item, model_item.colour_model_item, model_item.price_model_item, stock.qtt_used,stock.qtt_coming,stock.qtt_available FROM model_item INNER JOIN stock ON model_item.id_stock = stock.id_stock WHERE model_item.id_stock LIKE '%" + data + "%' OR model_item.name_model_item LIKE '%" + data + "%' OR model_item.size_model_item LIKE '%" + data + "%' OR model_item.colour_model_item LIKE '%" + data + "%' OR model_item.price_model_item LIKE '%" + data + "%'  ORDER BY model_item.name_model_item ASC";
             }
             try
             {
@@ -55,9 +55,21 @@ namespace Bovelo_SuperApp
         public bool insert(Items data)
         {
             bool flag = false;
-
+            string Q = "";
+            if (data.Status_stock == "Available")
+            {
+                Q = "qtt_available";
+            }
+            else if (data.Status_stock == "Used")
+            {
+                Q = "qtt_used";
+            }
+            else if (data.Status_stock == "Coming soon")
+            {
+                Q = "qtt_coming";
+            }
             string sql_model_item = "INSERT INTO model_item(name_model_item, size_model_item, colour_model_item, price_model_item, id_stock) VALUES ('" + data.Name_model_item + "', '" + data.Size_model_item + "', '" + data.Colour_model_item + "', '" + data.Price_model_item + "', (select max(id_stock) from stock) )";
-            string sql_stock = "INSERT INTO stock (item_quantity, status_stock) VALUES ('" + data.Item_quantity + "', '" + data.Status_stock + "')";
+            string sql_stock = "INSERT INTO stock ("+Q+")VALUES ('" + data.Item_quantity +"')";
             try
             {
                 MySqlConnection conexionBD = base.connection();
@@ -82,9 +94,21 @@ namespace Bovelo_SuperApp
         public bool update(Items data)
         {
             bool flag = false;
-
+            string Q ="";
+            if (data.Status_stock == "Available")
+            {
+                Q = "qtt_available";
+            }
+            else if (data.Status_stock == "Used")
+            {
+                Q = "qtt_used";
+            }
+            else if (data.Status_stock == "Coming soon")
+            {
+                Q = "qtt_coming";
+            }
             string sql = "UPDATE model_item  SET name_model_item='" + data.Name_model_item + "', size_model_item='" + data.Size_model_item + "', colour_model_item='" + data.Colour_model_item + "', price_model_item='" + data.Price_model_item + "'  WHERE id_model_item='" + data.Id_model_item + "'";
-            string sql2 = "UPDATE stock  SET item_quantity='" + data.Item_quantity + "', status_stock ='" + data.Status_stock + "' WHERE id_stock ='" + data.Id_model_item + "'";
+            string sql2 = "UPDATE stock  SET "+Q+"='" + data.Item_quantity + "' WHERE id_stock ='" + data.Id_model_item + "'";
             try
             {
                 MySqlConnection conexionBD = base.connection();

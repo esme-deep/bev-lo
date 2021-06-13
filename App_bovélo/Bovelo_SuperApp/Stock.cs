@@ -50,7 +50,7 @@ namespace Bovelo_SuperApp
             _items.Price_model_item = double.Parse(txtPrice.Text);
             _items.Item_quantity = int.Parse(txtQuantity.Text);
             _items.Status_stock = cmbStatus.Text;
-        
+            
 
             CtrlItems ctrl = new CtrlItems();
 
@@ -120,11 +120,7 @@ namespace Bovelo_SuperApp
             }
         }
 
-        private void btnFilter_Click(object sender, EventArgs e)
-        {
-            string status = cmbFilter.Text;
-            loadTable(status);
-        }
+        
 
         private void itemsBindingSource_CurrentChanged(object sender, EventArgs e)
         {

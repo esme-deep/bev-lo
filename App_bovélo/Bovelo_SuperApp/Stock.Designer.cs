@@ -54,6 +54,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cmbFilter = new System.Windows.Forms.ComboBox();
             this.btnFilter = new System.Windows.Forms.Button();
+            this.itemsBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.itemsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.itemsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.Id_model_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namemodelitemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sizemodelitemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colourmodelitemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,10 +66,6 @@
             this.qttusedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qttcomingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qttavailableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemsBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.itemsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.itemsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.grpItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource3)).BeginInit();
@@ -76,19 +77,17 @@
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(77, 54);
-            this.lblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSearch.Location = new System.Drawing.Point(58, 44);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(57, 16);
+            this.lblSearch.Size = new System.Drawing.Size(47, 13);
             this.lblSearch.TabIndex = 0;
             this.lblSearch.Text = "Search :";
             // 
             // txtChercher
             // 
-            this.txtChercher.Location = new System.Drawing.Point(156, 50);
-            this.txtChercher.Margin = new System.Windows.Forms.Padding(4);
+            this.txtChercher.Location = new System.Drawing.Point(117, 41);
             this.txtChercher.Name = "txtChercher";
-            this.txtChercher.Size = new System.Drawing.Size(332, 22);
+            this.txtChercher.Size = new System.Drawing.Size(250, 20);
             this.txtChercher.TabIndex = 1;
             // 
             // dataGridView1
@@ -99,6 +98,7 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id_model_item,
             this.namemodelitemDataGridViewTextBoxColumn,
             this.sizemodelitemDataGridViewTextBoxColumn,
             this.colourmodelitemDataGridViewTextBoxColumn,
@@ -107,12 +107,11 @@
             this.qttcomingDataGridViewTextBoxColumn,
             this.qttavailableDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.itemsBindingSource3;
-            this.dataGridView1.Location = new System.Drawing.Point(80, 125);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.Location = new System.Drawing.Point(60, 102);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.Size = new System.Drawing.Size(549, 362);
+            this.dataGridView1.Size = new System.Drawing.Size(412, 294);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
@@ -134,11 +133,9 @@
             this.grpItem.Controls.Add(this.label2);
             this.grpItem.Controls.Add(this.txtItem);
             this.grpItem.Controls.Add(this.label1);
-            this.grpItem.Location = new System.Drawing.Point(667, 123);
-            this.grpItem.Margin = new System.Windows.Forms.Padding(4);
+            this.grpItem.Location = new System.Drawing.Point(500, 100);
             this.grpItem.Name = "grpItem";
-            this.grpItem.Padding = new System.Windows.Forms.Padding(4);
-            this.grpItem.Size = new System.Drawing.Size(338, 363);
+            this.grpItem.Size = new System.Drawing.Size(254, 295);
             this.grpItem.TabIndex = 3;
             this.grpItem.TabStop = false;
             this.grpItem.Text = "Item";
@@ -146,10 +143,9 @@
             // 
             // btnClearItem
             // 
-            this.btnClearItem.Location = new System.Drawing.Point(210, 327);
-            this.btnClearItem.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClearItem.Location = new System.Drawing.Point(158, 266);
             this.btnClearItem.Name = "btnClearItem";
-            this.btnClearItem.Size = new System.Drawing.Size(100, 28);
+            this.btnClearItem.Size = new System.Drawing.Size(75, 23);
             this.btnClearItem.TabIndex = 13;
             this.btnClearItem.Text = "Clear";
             this.btnClearItem.UseVisualStyleBackColor = true;
@@ -157,10 +153,9 @@
             // 
             // btnSaveItem
             // 
-            this.btnSaveItem.Location = new System.Drawing.Point(25, 327);
-            this.btnSaveItem.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSaveItem.Location = new System.Drawing.Point(19, 266);
             this.btnSaveItem.Name = "btnSaveItem";
-            this.btnSaveItem.Size = new System.Drawing.Size(100, 28);
+            this.btnSaveItem.Size = new System.Drawing.Size(75, 23);
             this.btnSaveItem.TabIndex = 12;
             this.btnSaveItem.Text = "Save";
             this.btnSaveItem.UseVisualStyleBackColor = true;
@@ -168,10 +163,9 @@
             // 
             // txtItem_ID
             // 
-            this.txtItem_ID.Location = new System.Drawing.Point(91, 286);
-            this.txtItem_ID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtItem_ID.Location = new System.Drawing.Point(68, 232);
             this.txtItem_ID.Name = "txtItem_ID";
-            this.txtItem_ID.Size = new System.Drawing.Size(132, 22);
+            this.txtItem_ID.Size = new System.Drawing.Size(100, 20);
             this.txtItem_ID.TabIndex = 11;
             this.txtItem_ID.Visible = false;
             // 
@@ -182,118 +176,105 @@
             "Available\t",
             "Coming soon",
             "Used"});
-            this.cmbStatus.Location = new System.Drawing.Point(91, 252);
-            this.cmbStatus.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbStatus.Location = new System.Drawing.Point(68, 205);
             this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(169, 24);
+            this.cmbStatus.Size = new System.Drawing.Size(128, 21);
             this.cmbStatus.TabIndex = 6;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 256);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(16, 208);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 16);
+            this.label6.Size = new System.Drawing.Size(37, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "Status";
             // 
             // txtQuantity
             // 
-            this.txtQuantity.Location = new System.Drawing.Point(91, 210);
-            this.txtQuantity.Margin = new System.Windows.Forms.Padding(4);
+            this.txtQuantity.Location = new System.Drawing.Point(68, 171);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(169, 22);
+            this.txtQuantity.Size = new System.Drawing.Size(128, 20);
             this.txtQuantity.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 213);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(16, 173);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 16);
+            this.label5.Size = new System.Drawing.Size(46, 13);
             this.label5.TabIndex = 8;
             this.label5.Text = "Quantity";
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(91, 166);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPrice.Location = new System.Drawing.Point(68, 135);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(169, 22);
+            this.txtPrice.Size = new System.Drawing.Size(128, 20);
             this.txtPrice.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 170);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(16, 138);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 16);
+            this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Price";
             // 
             // txtColour
             // 
-            this.txtColour.Location = new System.Drawing.Point(91, 123);
-            this.txtColour.Margin = new System.Windows.Forms.Padding(4);
+            this.txtColour.Location = new System.Drawing.Point(68, 100);
             this.txtColour.Name = "txtColour";
-            this.txtColour.Size = new System.Drawing.Size(169, 22);
+            this.txtColour.Size = new System.Drawing.Size(128, 20);
             this.txtColour.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 126);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(16, 102);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 16);
+            this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Colour";
             // 
             // txtSize
             // 
-            this.txtSize.Location = new System.Drawing.Point(91, 80);
-            this.txtSize.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSize.Location = new System.Drawing.Point(68, 65);
             this.txtSize.Name = "txtSize";
-            this.txtSize.Size = new System.Drawing.Size(169, 22);
+            this.txtSize.Size = new System.Drawing.Size(128, 20);
             this.txtSize.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 84);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(16, 68);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 16);
+            this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Size";
             // 
             // txtItem
             // 
-            this.txtItem.Location = new System.Drawing.Point(91, 36);
-            this.txtItem.Margin = new System.Windows.Forms.Padding(4);
+            this.txtItem.Location = new System.Drawing.Point(68, 29);
             this.txtItem.Name = "txtItem";
-            this.txtItem.Size = new System.Drawing.Size(169, 22);
+            this.txtItem.Size = new System.Drawing.Size(128, 20);
             this.txtItem.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 39);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(16, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 16);
+            this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Item";
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(498, 48);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearch.Location = new System.Drawing.Point(374, 39);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(100, 28);
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -301,10 +282,9 @@
             // 
             // btnUpdateItem
             // 
-            this.btnUpdateItem.Location = new System.Drawing.Point(75, 494);
-            this.btnUpdateItem.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdateItem.Location = new System.Drawing.Point(56, 401);
             this.btnUpdateItem.Name = "btnUpdateItem";
-            this.btnUpdateItem.Size = new System.Drawing.Size(100, 28);
+            this.btnUpdateItem.Size = new System.Drawing.Size(75, 23);
             this.btnUpdateItem.TabIndex = 13;
             this.btnUpdateItem.Text = "Update";
             this.btnUpdateItem.UseVisualStyleBackColor = true;
@@ -312,10 +292,9 @@
             // 
             // btnDeleteItem
             // 
-            this.btnDeleteItem.Location = new System.Drawing.Point(196, 494);
-            this.btnDeleteItem.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteItem.Location = new System.Drawing.Point(147, 401);
             this.btnDeleteItem.Name = "btnDeleteItem";
-            this.btnDeleteItem.Size = new System.Drawing.Size(100, 28);
+            this.btnDeleteItem.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteItem.TabIndex = 14;
             this.btnDeleteItem.Text = "Delete";
             this.btnDeleteItem.UseVisualStyleBackColor = true;
@@ -324,10 +303,9 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(77, 94);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(58, 76);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(99, 16);
+            this.label7.Size = new System.Drawing.Size(80, 13);
             this.label7.TabIndex = 15;
             this.label7.Text = "Filter by status :";
             // 
@@ -337,71 +315,20 @@
             this.cmbFilter.Items.AddRange(new object[] {
             "Available\t",
             "Coming soon"});
-            this.cmbFilter.Location = new System.Drawing.Point(184, 89);
-            this.cmbFilter.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbFilter.Location = new System.Drawing.Point(138, 72);
             this.cmbFilter.Name = "cmbFilter";
-            this.cmbFilter.Size = new System.Drawing.Size(304, 24);
+            this.cmbFilter.Size = new System.Drawing.Size(229, 21);
             this.cmbFilter.TabIndex = 16;
             // 
             // btnFilter
             // 
-            this.btnFilter.Location = new System.Drawing.Point(498, 89);
-            this.btnFilter.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFilter.Location = new System.Drawing.Point(374, 72);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(100, 28);
+            this.btnFilter.Size = new System.Drawing.Size(75, 23);
             this.btnFilter.TabIndex = 17;
             this.btnFilter.Text = "Filter";
             this.btnFilter.UseVisualStyleBackColor = true;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
-            // 
-            // namemodelitemDataGridViewTextBoxColumn
-            // 
-            this.namemodelitemDataGridViewTextBoxColumn.DataPropertyName = "Name_model_item";
-            this.namemodelitemDataGridViewTextBoxColumn.HeaderText = "Name_model_item";
-            this.namemodelitemDataGridViewTextBoxColumn.Name = "namemodelitemDataGridViewTextBoxColumn";
-            this.namemodelitemDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sizemodelitemDataGridViewTextBoxColumn
-            // 
-            this.sizemodelitemDataGridViewTextBoxColumn.DataPropertyName = "Size_model_item";
-            this.sizemodelitemDataGridViewTextBoxColumn.HeaderText = "Size_model_item";
-            this.sizemodelitemDataGridViewTextBoxColumn.Name = "sizemodelitemDataGridViewTextBoxColumn";
-            this.sizemodelitemDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // colourmodelitemDataGridViewTextBoxColumn
-            // 
-            this.colourmodelitemDataGridViewTextBoxColumn.DataPropertyName = "Colour_model_item";
-            this.colourmodelitemDataGridViewTextBoxColumn.HeaderText = "Colour_model_item";
-            this.colourmodelitemDataGridViewTextBoxColumn.Name = "colourmodelitemDataGridViewTextBoxColumn";
-            this.colourmodelitemDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pricemodelitemDataGridViewTextBoxColumn
-            // 
-            this.pricemodelitemDataGridViewTextBoxColumn.DataPropertyName = "Price_model_item";
-            this.pricemodelitemDataGridViewTextBoxColumn.HeaderText = "Price_model_item";
-            this.pricemodelitemDataGridViewTextBoxColumn.Name = "pricemodelitemDataGridViewTextBoxColumn";
-            this.pricemodelitemDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // qttusedDataGridViewTextBoxColumn
-            // 
-            this.qttusedDataGridViewTextBoxColumn.DataPropertyName = "Qtt_used";
-            this.qttusedDataGridViewTextBoxColumn.HeaderText = "Qtt_used";
-            this.qttusedDataGridViewTextBoxColumn.Name = "qttusedDataGridViewTextBoxColumn";
-            this.qttusedDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // qttcomingDataGridViewTextBoxColumn
-            // 
-            this.qttcomingDataGridViewTextBoxColumn.DataPropertyName = "Qtt_coming";
-            this.qttcomingDataGridViewTextBoxColumn.HeaderText = "Qtt_coming";
-            this.qttcomingDataGridViewTextBoxColumn.Name = "qttcomingDataGridViewTextBoxColumn";
-            this.qttcomingDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // qttavailableDataGridViewTextBoxColumn
-            // 
-            this.qttavailableDataGridViewTextBoxColumn.DataPropertyName = "Qtt_available";
-            this.qttavailableDataGridViewTextBoxColumn.HeaderText = "Qtt_available";
-            this.qttavailableDataGridViewTextBoxColumn.Name = "qttavailableDataGridViewTextBoxColumn";
-            this.qttavailableDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // itemsBindingSource3
             // 
@@ -420,9 +347,80 @@
             // 
             this.itemsBindingSource1.DataSource = typeof(Bovelo_SuperApp.Items);
             // 
+            // Id_model_item
+            // 
+            this.Id_model_item.DataPropertyName = "Id_model_item";
+            this.Id_model_item.HeaderText = "ID";
+            this.Id_model_item.Name = "Id_model_item";
+            this.Id_model_item.ReadOnly = true;
+            this.Id_model_item.Visible = false;
+            // 
+            // namemodelitemDataGridViewTextBoxColumn
+            // 
+            this.namemodelitemDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.namemodelitemDataGridViewTextBoxColumn.DataPropertyName = "Name_model_item";
+            this.namemodelitemDataGridViewTextBoxColumn.HeaderText = "Item";
+            this.namemodelitemDataGridViewTextBoxColumn.Name = "namemodelitemDataGridViewTextBoxColumn";
+            this.namemodelitemDataGridViewTextBoxColumn.ReadOnly = true;
+            this.namemodelitemDataGridViewTextBoxColumn.Width = 52;
+            // 
+            // sizemodelitemDataGridViewTextBoxColumn
+            // 
+            this.sizemodelitemDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.sizemodelitemDataGridViewTextBoxColumn.DataPropertyName = "Size_model_item";
+            this.sizemodelitemDataGridViewTextBoxColumn.HeaderText = "Size";
+            this.sizemodelitemDataGridViewTextBoxColumn.Name = "sizemodelitemDataGridViewTextBoxColumn";
+            this.sizemodelitemDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sizemodelitemDataGridViewTextBoxColumn.Width = 52;
+            // 
+            // colourmodelitemDataGridViewTextBoxColumn
+            // 
+            this.colourmodelitemDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colourmodelitemDataGridViewTextBoxColumn.DataPropertyName = "Colour_model_item";
+            this.colourmodelitemDataGridViewTextBoxColumn.HeaderText = "Colour";
+            this.colourmodelitemDataGridViewTextBoxColumn.Name = "colourmodelitemDataGridViewTextBoxColumn";
+            this.colourmodelitemDataGridViewTextBoxColumn.ReadOnly = true;
+            this.colourmodelitemDataGridViewTextBoxColumn.Width = 62;
+            // 
+            // pricemodelitemDataGridViewTextBoxColumn
+            // 
+            this.pricemodelitemDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.pricemodelitemDataGridViewTextBoxColumn.DataPropertyName = "Price_model_item";
+            this.pricemodelitemDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.pricemodelitemDataGridViewTextBoxColumn.Name = "pricemodelitemDataGridViewTextBoxColumn";
+            this.pricemodelitemDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pricemodelitemDataGridViewTextBoxColumn.Width = 56;
+            // 
+            // qttusedDataGridViewTextBoxColumn
+            // 
+            this.qttusedDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.qttusedDataGridViewTextBoxColumn.DataPropertyName = "Qtt_used";
+            this.qttusedDataGridViewTextBoxColumn.HeaderText = "Used";
+            this.qttusedDataGridViewTextBoxColumn.Name = "qttusedDataGridViewTextBoxColumn";
+            this.qttusedDataGridViewTextBoxColumn.ReadOnly = true;
+            this.qttusedDataGridViewTextBoxColumn.Width = 57;
+            // 
+            // qttcomingDataGridViewTextBoxColumn
+            // 
+            this.qttcomingDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.qttcomingDataGridViewTextBoxColumn.DataPropertyName = "Qtt_coming";
+            this.qttcomingDataGridViewTextBoxColumn.HeaderText = "Coming Soon";
+            this.qttcomingDataGridViewTextBoxColumn.Name = "qttcomingDataGridViewTextBoxColumn";
+            this.qttcomingDataGridViewTextBoxColumn.ReadOnly = true;
+            this.qttcomingDataGridViewTextBoxColumn.Width = 95;
+            // 
+            // qttavailableDataGridViewTextBoxColumn
+            // 
+            this.qttavailableDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.qttavailableDataGridViewTextBoxColumn.DataPropertyName = "Qtt_available";
+            this.qttavailableDataGridViewTextBoxColumn.HeaderText = "Available ";
+            this.qttavailableDataGridViewTextBoxColumn.Name = "qttavailableDataGridViewTextBoxColumn";
+            this.qttavailableDataGridViewTextBoxColumn.ReadOnly = true;
+            this.qttavailableDataGridViewTextBoxColumn.Width = 78;
+            // 
             // Stock
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnFilter);
             this.Controls.Add(this.cmbFilter);
@@ -434,9 +432,9 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtChercher);
             this.Controls.Add(this.lblSearch);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Stock";
-            this.Size = new System.Drawing.Size(1083, 537);
+            this.Size = new System.Drawing.Size(812, 436);
+            this.Load += new System.EventHandler(this.Stock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.grpItem.ResumeLayout(false);
             this.grpItem.PerformLayout();
@@ -479,6 +477,8 @@
         private System.Windows.Forms.ComboBox cmbFilter;
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.BindingSource itemsBindingSource2;
+        private System.Windows.Forms.BindingSource itemsBindingSource3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_model_item;
         private System.Windows.Forms.DataGridViewTextBoxColumn namemodelitemDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sizemodelitemDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn colourmodelitemDataGridViewTextBoxColumn;
@@ -486,6 +486,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn qttusedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn qttcomingDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn qttavailableDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource itemsBindingSource3;
     }
 }

@@ -92,13 +92,13 @@ namespace Bovelo_SuperApp
 
         private void btnUpdateItem_Click(object sender, EventArgs e)
         {
-            //txtItem_ID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            txtItem.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            txtSize.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            txtColour.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            txtItem_ID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            txtItem.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txtSize.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            txtColour.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
             txtPrice.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            txtQuantity.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-            cmbStatus.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+            txtQuantity.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+            cmbStatus.Text = "";
         }
 
         private void btnDeleteItem_Click(object sender, EventArgs e)
@@ -136,6 +136,11 @@ namespace Bovelo_SuperApp
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+        }
+
+        private void Stock_Load(object sender, EventArgs e)
         {
 
         }

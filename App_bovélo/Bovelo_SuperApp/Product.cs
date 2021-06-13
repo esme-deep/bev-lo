@@ -12,6 +12,7 @@ namespace Bovelo_SuperApp
 {
     public partial class Product : UserControl
     {
+        string img;
         public Product(string model, string colors, string sizes, string img, string price,string description)
         {
 
@@ -31,6 +32,7 @@ namespace Bovelo_SuperApp
                 this.boxColor.Items.Add(elt);
             }
             Image image_bike = Image.FromFile("..\\images\\" + img + ".jpg");
+            this.img = img;
             pic_bike.Image = image_bike;
         }
 
@@ -196,7 +198,7 @@ namespace Bovelo_SuperApp
                 //Command.Add(model_bike);
                 model_bike.set_items(items);
                 Form1.Instance.Cart.list_models.Add(model_bike);
-                Form1.Instance.cart.FLPanel_Cart.Controls.Add(new Panier_composantes("ok", model_bike.type, model_bike.colour, model_bike.size, model_bike.quantity.ToString(), model_bike.price.ToString()));
+                Form1.Instance.cart.FLPanel_Cart.Controls.Add(new Panier_composantes(this.img, model_bike.type, model_bike.colour, model_bike.size, model_bike.quantity.ToString(), model_bike.price.ToString()));
                 foreach (KeyValuePair<string, int> item in model_bike.items)
                 {
                     Console.WriteLine("Pièce: {0}, quantité: {1}", item.Key, item.Value);

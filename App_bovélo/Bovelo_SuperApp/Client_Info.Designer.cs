@@ -203,12 +203,13 @@ namespace Bovelo_SuperApp
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(946, 134);
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.btnSearch.Location = new System.Drawing.Point(943, 75);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(114, 50);
+            this.btnSearch.Size = new System.Drawing.Size(114, 163);
             this.btnSearch.TabIndex = 20;
-            this.btnSearch.Text = "Search by lastname";
+            this.btnSearch.Text = "Search by Firstname, lastname and business name";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.button1_Click);
             // 

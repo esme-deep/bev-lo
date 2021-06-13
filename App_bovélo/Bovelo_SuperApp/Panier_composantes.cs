@@ -21,6 +21,9 @@ namespace Bovelo_SuperApp
             size_text.Text = size;
             qtt_number.Text = qtt;
             Price_label.Text = price;
+
+            Image image_bike = Image.FromFile("..\\images\\" + image + "3.jpg");
+            Vélo_Image.Image = image_bike;
         }
 
         private void Remove_button_Click(object sender, EventArgs e)

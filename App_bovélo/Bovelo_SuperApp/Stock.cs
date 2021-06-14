@@ -83,6 +83,9 @@ namespace Bovelo_SuperApp
             txtPrice.Text = "";
             txtQuantity.Text = "";
             cmbStatus.Text = "";
+            txtItem_ID.Text = "";
+
+
         }
 
         private void btnClearItem_Click(object sender, EventArgs e)
